@@ -214,7 +214,7 @@ section.std.alt{background:var(--bg2);}
   font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);
   font-weight:300;line-height:1.1;margin-bottom:0.75rem;letter-spacing:-0.01em;
 }
-.s-sub{color:var(--muted);font-size:0.95rem;max-width:580px;line-height:1.85;margin-bottom:3.5rem;}
+.s-sub{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:3.5rem;}
 
 /* ── RESEARCH CARDS (grid, expands in place) ── */
 .r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
@@ -237,12 +237,10 @@ section.std.alt{background:var(--bg2);}
 /* collapsed card face */
 .r-card-face{padding:2rem;}
 .r-card.open .r-card-face{display:none;}
-.r-icon{
-  width:42px;height:42px;background:var(--accent-lt);
-  border-radius:2px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.25rem;
+.r-card-lab{
+  font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;
+  color:var(--accent);font-weight:500;margin-bottom:0.75rem;
 }
-.r-icon svg{width:20px;height:20px;stroke:var(--accent);}
 .r-card-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:0.5rem;color:var(--text);}
 .r-card-hint{font-size:0.78rem;color:var(--muted2);letter-spacing:0.03em;}
 /* expanded card body */
@@ -283,7 +281,8 @@ section.std.alt{background:var(--bg2);}
 .r-figure span{font-size:0.72rem;opacity:0.6;letter-spacing:0.04em;}
 
 /* ── PUBLICATIONS ── */
-.pub-list{display:flex;flex-direction:column;gap:0;max-width:860px;}
+.pub-wrapper{display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start;}
+.pub-list{display:flex;flex-direction:column;gap:0;}
 .pub-year-group{margin-bottom:2.5rem;}
 .pub-year-label{
   font-family:var(--serif);font-size:1.5rem;font-weight:300;
@@ -294,9 +293,7 @@ section.std.alt{background:var(--bg2);}
   display:grid;grid-template-columns:28px 1fr;gap:1rem;
   padding:1rem 0;border-bottom:1px solid var(--border);
 }
-.pub-num{
-  font-size:0.78rem;color:var(--muted2);padding-top:0.15rem;font-weight:300;font-style:italic;
-}
+.pub-num{font-size:0.78rem;color:var(--muted2);padding-top:0.15rem;font-weight:300;font-style:italic;}
 .pub-title{font-weight:500;font-size:0.95rem;margin-bottom:0.25rem;color:var(--text);}
 .pub-authors{font-size:0.85rem;color:var(--muted);margin-bottom:0.2rem;}
 .pub-authors strong{color:var(--text);}
@@ -306,18 +303,45 @@ section.std.alt{background:var(--bg2);}
   font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;
   color:var(--accent);border:1px solid var(--border2);
   padding:0.18rem 0.65rem;border-radius:1px;text-decoration:none;
-  transition:all 0.2s;font-weight:500;
+  transition:all 0.2s;font-weight:500;cursor:pointer;background:none;font-family:var(--sans);
 }
 .pub-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
+/* abstract panel */
+.pub-abstract-panel{
+  position:sticky;top:6rem;
+  background:var(--surface);border:1px solid var(--border2);border-radius:2px;
+  padding:1.75rem;display:none;
+}
+.pub-abstract-panel.visible{display:block;}
+.pap-label{
+  font-size:0.67rem;text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--accent);font-weight:500;margin-bottom:0.75rem;
+}
+.pap-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:0.5rem;line-height:1.4;}
+.pap-journal{font-size:0.78rem;color:var(--muted2);font-style:italic;margin-bottom:1rem;}
+.pap-text{font-size:0.86rem;color:var(--muted);line-height:1.85;}
+.pap-close{
+  float:right;margin-top:-0.2rem;
+  background:none;border:none;cursor:pointer;color:var(--muted2);font-size:1.1rem;
+  line-height:1;transition:color 0.2s;
+}
+.pap-close:hover{color:var(--accent);}
 
 /* ── TALKS ── */
-.talks-list{display:flex;flex-direction:column;max-width:820px;}
-.talk-item{
-  display:grid;grid-template-columns:110px 1fr;gap:2rem;
-  padding:1.5rem 0;border-bottom:1px solid var(--border);align-items:start;
+.talks-list{display:flex;flex-direction:column;gap:0;}
+.talk-card{
+  background:var(--surface);border:1px solid var(--border);
+  border-bottom:none;cursor:pointer;position:relative;overflow:hidden;
+  transition:background 0.2s;
 }
-.talk-item:first-child{border-top:1px solid var(--border);}
-.talk-date{font-size:0.8rem;color:var(--muted2);font-weight:300;padding-top:0.1rem;}
+.talk-card:last-child{border-bottom:1px solid var(--border);}
+.talk-card-face{
+  display:grid;grid-template-columns:110px 1fr;gap:2rem;
+  padding:1.5rem 2rem;align-items:start;
+}
+.talk-card:not(.open):hover{background:var(--accent-lt);}
+.talk-card.open .talk-card-face{background:var(--accent-lt);border-bottom:1px solid var(--border);}
+.talk-date{font-size:0.8rem;color:var(--muted2);font-weight:300;padding-top:0.3rem;}
 .talk-type{
   display:inline-block;font-size:0.62rem;text-transform:uppercase;
   letter-spacing:0.1em;padding:0.15rem 0.6rem;border-radius:100px;
@@ -326,8 +350,31 @@ section.std.alt{background:var(--bg2);}
 .tt-invited{background:#e0e7ff;color:#3730a3;}
 .tt-contributed{background:#ecfdf5;color:#065f46;}
 .tt-poster{background:#fef3e2;color:#92400e;}
-.talk-title{font-size:0.95rem;font-weight:500;margin-bottom:0.2rem;}
-.talk-event{font-size:0.85rem;color:var(--muted);}
+.talk-title-text{font-size:0.95rem;font-weight:500;margin-bottom:0.2rem;}
+.talk-event-text{font-size:0.85rem;color:var(--muted);}
+.talk-chevron{
+  position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);
+  width:18px;height:18px;stroke:var(--muted2);transition:transform 0.3s;flex-shrink:0;
+}
+.talk-card.open .talk-chevron{transform:translateY(-50%) rotate(180deg);}
+/* expanded talk body */
+.talk-card-body{display:none;padding:2rem;grid-template-columns:1fr 220px;gap:2.5rem;}
+.talk-card.open .talk-card-body{display:grid;}
+.talk-section{margin-bottom:1.2rem;}
+.talk-section:last-child{margin-bottom:0;}
+.talk-section-label{
+  font-size:0.67rem;text-transform:uppercase;letter-spacing:0.12em;
+  color:var(--accent);font-weight:500;margin-bottom:0.3rem;
+}
+.talk-section-text{font-size:0.9rem;color:var(--muted);line-height:1.8;}
+.talk-photo{
+  background:var(--bg3);border:1px solid var(--border2);border-radius:2px;
+  aspect-ratio:3/4;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  color:var(--muted2);gap:0.5rem;padding:1rem;text-align:center;
+}
+.talk-photo svg{opacity:0.3;width:32px;height:32px;}
+.talk-photo span{font-size:0.72rem;opacity:0.6;letter-spacing:0.04em;}
 
 /* ── AWARDS ── */
 .awards-list{display:flex;flex-direction:column;max-width:780px;}
@@ -582,7 +629,7 @@ footer a{color:var(--accent);text-decoration:none;}
 
     <div class="r-card" onclick="openCard(this)">
       <div class="r-card-face">
-        <div class="r-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="r-card-lab">Chopra Lab · Purdue University</div>
         <div class="r-card-title">Lipid Dysregulation in Alzheimer's Disease</div>
         <div class="r-card-hint">Click to explore →</div>
       </div>
@@ -618,7 +665,7 @@ footer a{color:var(--accent);text-decoration:none;}
 
     <div class="r-card" onclick="openCard(this)">
       <div class="r-card-face">
-        <div class="r-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></div>
+        <div class="r-card-lab">Chopra Lab · Purdue University</div>
         <div class="r-card-title">Lipid–Protein Interactions in Neurodegeneration</div>
         <div class="r-card-hint">Click to explore →</div>
       </div>
@@ -654,7 +701,7 @@ footer a{color:var(--accent);text-decoration:none;}
 
     <div class="r-card" onclick="openCard(this)">
       <div class="r-card-face">
-        <div class="r-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
+        <div class="r-card-lab">Chopra Lab · Purdue University</div>
         <div class="r-card-title">Computational Image Analysis Pipeline</div>
         <div class="r-card-hint">Click to explore →</div>
       </div>
@@ -695,38 +742,53 @@ footer a{color:var(--accent);text-decoration:none;}
 <section class="std" id="publications">
   <div class="s-eyebrow">Peer-reviewed work</div>
   <h2 class="s-title">Publications</h2>
-  <p class="s-sub">Research articles, book chapters, and preprints.</p>
-  <div class="pub-list">
-    <div class="pub-year-group">
-      <div class="pub-year-label">2025</div>
-      <div class="pub-entry reveal">
-        <div class="pub-num">1.</div>
-        <div>
-          <div class="pub-title">Placeholder paper title — replace with your actual publication title</div>
-          <div class="pub-authors"><strong>Rajpoot J</strong>, Co-Author A, Co-Author B, Senior Author Z.</div>
-          <div class="pub-journal">Journal Name · Volume(Issue):Pages · 2025</div>
-          <div class="pub-links">
-            <a href="#" class="pub-link">DOI</a>
-            <a href="#" class="pub-link">PDF</a>
-            <a href="#" class="pub-link">PubMed</a>
+  <div class="pub-wrapper">
+    <div class="pub-list">
+      <div class="pub-year-group">
+        <div class="pub-year-label">2025</div>
+        <div class="pub-entry reveal">
+          <div class="pub-num">1.</div>
+          <div>
+            <div class="pub-title">Placeholder paper title — replace with your actual publication title</div>
+            <div class="pub-authors"><strong>Rajpoot J</strong>, Co-Author A, Co-Author B, Senior Author Z.</div>
+            <div class="pub-journal">Journal Name · Volume(Issue):Pages · 2025</div>
+            <div class="pub-links">
+              <a href="#" class="pub-link" target="_blank">PubMed</a>
+              <button class="pub-link" onclick="showAbstract(this,
+                'Placeholder paper title — replace with your actual publication title',
+                'Journal Name · Volume(Issue):Pages · 2025',
+                'Placeholder abstract text. Replace this with the actual abstract of your paper. This should be a concise summary of the background, methods, results, and conclusions of the study.'
+              )">Abstract Preview</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="pub-year-group">
+        <div class="pub-year-label">2024</div>
+        <div class="pub-entry reveal">
+          <div class="pub-num">2.</div>
+          <div>
+            <div class="pub-title">Placeholder paper title — replace with your second publication</div>
+            <div class="pub-authors"><strong>Rajpoot J</strong>, Co-Author A, Senior Author Z.</div>
+            <div class="pub-journal">Journal Name · Volume(Issue):Pages · 2024</div>
+            <div class="pub-links">
+              <a href="#" class="pub-link" target="_blank">PubMed</a>
+              <button class="pub-link" onclick="showAbstract(this,
+                'Placeholder paper title — replace with your second publication',
+                'Journal Name · Volume(Issue):Pages · 2024',
+                'Placeholder abstract text. Replace this with the actual abstract of your second paper.'
+              )">Abstract Preview</button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="pub-year-group">
-      <div class="pub-year-label">2024</div>
-      <div class="pub-entry reveal">
-        <div class="pub-num">2.</div>
-        <div>
-          <div class="pub-title">Placeholder paper title — replace with your second publication</div>
-          <div class="pub-authors"><strong>Rajpoot J</strong>, Co-Author A, Senior Author Z.</div>
-          <div class="pub-journal">Journal Name · Volume(Issue):Pages · 2024</div>
-          <div class="pub-links">
-            <a href="#" class="pub-link">DOI</a>
-            <a href="#" class="pub-link">PDF</a>
-          </div>
-        </div>
-      </div>
+    <div class="pub-abstract-panel" id="abstractPanel">
+      <button class="pap-close" onclick="closeAbstract()">✕</button>
+      <div class="pap-label">Abstract</div>
+      <div class="pap-title" id="abstractTitle"></div>
+      <div class="pap-journal" id="abstractJournal"></div>
+      <div class="pap-text" id="abstractText"></div>
     </div>
   </div>
 </section>
@@ -735,32 +797,92 @@ footer a{color:var(--accent);text-decoration:none;}
 <section class="std alt" id="talks">
   <div class="s-eyebrow">Speaking</div>
   <h2 class="s-title">Talks &amp; Presentations</h2>
-  <p class="s-sub">Conference presentations, invited talks, and poster sessions.</p>
   <div class="talks-list">
-    <div class="talk-item reveal">
-      <div class="talk-date">Month 2025</div>
-      <div>
-        <span class="talk-type tt-invited">Invited Talk</span>
-        <div class="talk-title">Placeholder talk title — replace with actual presentation title</div>
-        <div class="talk-event">Conference or Symposium Name · City, State</div>
+
+    <div class="talk-card" onclick="toggleTalk(this)">
+      <div class="talk-card-face">
+        <div class="talk-date">Month 2025</div>
+        <div>
+          <span class="talk-type tt-invited">Invited Talk</span>
+          <div class="talk-title-text">Placeholder talk title — replace with actual presentation title</div>
+          <div class="talk-event-text">Conference or Symposium Name · City, State</div>
+        </div>
+      </div>
+      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      <div class="talk-card-body">
+        <div>
+          <div class="talk-section">
+            <div class="talk-section-label">What I Presented</div>
+            <div class="talk-section-text">Placeholder — describe what you presented, the key message, and the audience it was aimed at.</div>
+          </div>
+          <div class="talk-section">
+            <div class="talk-section-label">About the Conference</div>
+            <div class="talk-section-text">Placeholder — a brief description of the conference, its scope, and why it was relevant to your work.</div>
+          </div>
+        </div>
+        <div class="talk-photo">
+          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Add photo from presentation</span>
+        </div>
       </div>
     </div>
-    <div class="talk-item reveal">
-      <div class="talk-date">Month 2024</div>
-      <div>
-        <span class="talk-type tt-poster">Poster</span>
-        <div class="talk-title">Placeholder poster title — replace with actual poster title</div>
-        <div class="talk-event">Conference Name · City, State</div>
+
+    <div class="talk-card" onclick="toggleTalk(this)">
+      <div class="talk-card-face">
+        <div class="talk-date">Month 2024</div>
+        <div>
+          <span class="talk-type tt-poster">Poster</span>
+          <div class="talk-title-text">Placeholder poster title — replace with actual poster title</div>
+          <div class="talk-event-text">Conference Name · City, State</div>
+        </div>
+      </div>
+      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      <div class="talk-card-body">
+        <div>
+          <div class="talk-section">
+            <div class="talk-section-label">What I Presented</div>
+            <div class="talk-section-text">Placeholder — describe what you presented and the key findings shared.</div>
+          </div>
+          <div class="talk-section">
+            <div class="talk-section-label">About the Conference</div>
+            <div class="talk-section-text">Placeholder — a brief description of the conference and its significance.</div>
+          </div>
+        </div>
+        <div class="talk-photo">
+          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Add photo from presentation</span>
+        </div>
       </div>
     </div>
-    <div class="talk-item reveal">
-      <div class="talk-date">Month 2024</div>
-      <div>
-        <span class="talk-type tt-contributed">Contributed Talk</span>
-        <div class="talk-title">Placeholder talk title — replace with actual presentation title</div>
-        <div class="talk-event">Conference Name · City, State</div>
+
+    <div class="talk-card" onclick="toggleTalk(this)">
+      <div class="talk-card-face">
+        <div class="talk-date">Month 2024</div>
+        <div>
+          <span class="talk-type tt-contributed">Contributed Talk</span>
+          <div class="talk-title-text">Placeholder talk title — replace with actual presentation title</div>
+          <div class="talk-event-text">Conference Name · City, State</div>
+        </div>
+      </div>
+      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+      <div class="talk-card-body">
+        <div>
+          <div class="talk-section">
+            <div class="talk-section-label">What I Presented</div>
+            <div class="talk-section-text">Placeholder — describe what you presented and the key message.</div>
+          </div>
+          <div class="talk-section">
+            <div class="talk-section-label">About the Conference</div>
+            <div class="talk-section-text">Placeholder — a brief description of the conference and audience.</div>
+          </div>
+        </div>
+        <div class="talk-photo">
+          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          <span>Add photo from presentation</span>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -768,7 +890,6 @@ footer a{color:var(--accent);text-decoration:none;}
 <section class="std" id="awards">
   <div class="s-eyebrow">Recognition</div>
   <h2 class="s-title">Awards &amp; Honors</h2>
-  <p class="s-sub">Fellowships, grants, and academic recognition received during my training.</p>
   <div class="awards-list">
     <div class="award-item reveal">
       <div class="award-year">2025</div>
@@ -902,12 +1023,31 @@ function closeCard(e) {
   card.classList.remove('open');
   grid.classList.remove('has-open');
 }
+
+// Expandable talk cards
+function toggleTalk(card) {
+  const isOpen = card.classList.contains('open');
+  document.querySelectorAll('.talk-card.open').forEach(c => c.classList.remove('open'));
+  if (!isOpen) card.classList.add('open');
+}
+
+// Abstract preview panel
+function showAbstract(btn, title, journal, text) {
+  document.getElementById('abstractTitle').textContent = title;
+  document.getElementById('abstractJournal').textContent = journal;
+  document.getElementById('abstractText').textContent = text;
+  document.getElementById('abstractPanel').classList.add('visible');
+}
+function closeAbstract() {
+  document.getElementById('abstractPanel').classList.remove('visible');
+}
+
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
   const grid = document.querySelector('.r-grid.has-open');
-  if (!grid) return;
-  grid.querySelector('.r-card.open')?.classList.remove('open');
-  grid.classList.remove('has-open');
+  if (grid) { grid.querySelector('.r-card.open')?.classList.remove('open'); grid.classList.remove('has-open'); }
+  document.querySelectorAll('.talk-card.open').forEach(c => c.classList.remove('open'));
+  closeAbstract();
 });
 </script>
 </body>
