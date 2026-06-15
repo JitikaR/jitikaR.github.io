@@ -216,67 +216,35 @@ section.std.alt{background:var(--bg2);}
 }
 .s-sub{color:var(--muted);font-size:0.95rem;max-width:580px;line-height:1.85;margin-bottom:3.5rem;}
 
-/* ── RESEARCH CARDS ── */
-.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1.5rem;}
+/* ── RESEARCH CARDS (expandable overlay) ── */
+.r-grid{display:flex;flex-direction:column;gap:0;position:relative;}
 .r-card{
   background:var(--surface);border:1px solid var(--border);
-  padding:2.2rem;border-radius:2px;
-  transition:all 0.3s;position:relative;overflow:hidden;
-}
-.r-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--gold));
-  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
-}
-.r-card:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(90,60,30,0.08);}
-.r-card:hover::after{transform:scaleX(1);}
-.r-icon{
-  width:42px;height:42px;background:var(--accent-lt);
-  border-radius:2px;display:flex;align-items:center;justify-content:center;
-  margin-bottom:1.25rem;
-}
-.r-icon svg{width:20px;height:20px;stroke:var(--accent);}
-.r-card h3{font-family:var(--serif);font-size:1.3rem;font-weight:400;margin-bottom:0.6rem;}
-.r-card p{font-size:0.88rem;color:var(--muted);line-height:1.78;}
-.r-tag{
-  display:inline-block;margin-top:1.1rem;
-  font-size:0.67rem;text-transform:uppercase;letter-spacing:0.08em;
-  color:var(--accent);background:var(--accent-lt);
-  padding:0.22rem 0.7rem;border-radius:1px;font-weight:500;
-}
-
-/* ── RESEARCH CARDS (expandable) ── */
-.r-grid{display:flex;flex-direction:column;gap:0;}
-.r-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-bottom:none;
-  padding:0;
-  position:relative;overflow:hidden;
-  transition:all 0.3s;
+  border-bottom:none;padding:0;
+  transition:opacity 0.25s;
 }
 .r-card:last-child{border-bottom:1px solid var(--border);}
+.r-grid.has-open .r-card:not(.open){opacity:0.25;pointer-events:none;}
+.r-card.open{
+  position:absolute;top:0;left:0;right:0;
+  z-index:10;border:1px solid var(--border2);
+  box-shadow:0 16px 48px rgba(90,60,30,0.14);
+}
 .r-card-header{
   display:flex;align-items:center;justify-content:space-between;
   padding:1.4rem 2rem;cursor:pointer;
-  transition:background 0.2s;
-  user-select:none;
+  transition:background 0.2s;user-select:none;
 }
 .r-card-header:hover{background:var(--accent-lt);}
-.r-card.open .r-card-header{background:var(--accent-lt);}
-.r-card-title{
-  font-family:var(--serif);font-size:1.25rem;font-weight:400;
-}
+.r-card.open .r-card-header{background:var(--accent-lt);border-bottom:1px solid var(--border);}
+.r-card-title{font-family:var(--serif);font-size:1.25rem;font-weight:400;}
 .r-card-chevron{
   width:22px;height:22px;stroke:var(--accent);flex-shrink:0;
   transition:transform 0.3s;
 }
 .r-card.open .r-card-chevron{transform:rotate(180deg);}
-.r-card-body{
-  display:none;
-  padding:0 2rem 2rem;
-}
-.r-card.open .r-card-body{display:grid;grid-template-columns:1fr 220px;gap:2.5rem;align-items:start;}
-.r-body-content{}
+.r-card-body{display:none;padding:2rem;}
+.r-card.open .r-card-body{display:grid;grid-template-columns:1fr 200px;gap:2.5rem;align-items:start;}
 .r-section{margin-bottom:1.4rem;}
 .r-section:last-child{margin-bottom:0;}
 .r-section-label{
@@ -341,23 +309,18 @@ section.std.alt{background:var(--bg2);}
 .talk-event{font-size:0.85rem;color:var(--muted);}
 
 /* ── AWARDS ── */
-.awards-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.25rem;}
-.award-card{
-  background:var(--surface);border:1px solid var(--border);
-  padding:1.75rem;border-radius:2px;position:relative;
-  transition:all 0.3s;
+.awards-list{display:flex;flex-direction:column;max-width:780px;}
+.award-item{
+  display:grid;grid-template-columns:80px 1fr;gap:2rem;
+  padding:1.25rem 0;border-bottom:1px solid var(--border);align-items:start;
 }
-.award-card::before{
-  content:'';position:absolute;top:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--gold));
-}
-.award-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(90,60,30,0.07);}
+.award-item:first-child{border-top:1px solid var(--border);}
 .award-year{
-  font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;
-  color:var(--muted2);margin-bottom:0.6rem;font-weight:300;
+  font-family:var(--serif);font-size:1.1rem;font-weight:300;
+  color:var(--muted2);font-style:italic;padding-top:0.1rem;
 }
-.award-name{font-family:var(--serif);font-size:1.15rem;font-weight:400;margin-bottom:0.3rem;}
-.award-body{font-size:0.84rem;color:var(--muted);}
+.award-name{font-weight:500;font-size:0.95rem;margin-bottom:0.2rem;color:var(--text);}
+.award-body{font-size:0.85rem;color:var(--muted);}
 
 /* ── LOOKING AHEAD ── */
 .ahead-wrap{max-width:760px;}
@@ -770,21 +733,27 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="s-eyebrow">Recognition</div>
   <h2 class="s-title">Awards &amp; Honors</h2>
   <p class="s-sub">Fellowships, grants, and academic recognition received during my training.</p>
-  <div class="awards-grid">
-    <div class="award-card reveal">
+  <div class="awards-list">
+    <div class="award-item reveal">
       <div class="award-year">2025</div>
-      <div class="award-name">Placeholder Award Name</div>
-      <div class="award-body">Awarding institution or organization · Brief description of what this award recognizes.</div>
+      <div>
+        <div class="award-name">Placeholder Award Name</div>
+        <div class="award-body">Awarding institution or organization · Brief description of what this award recognizes.</div>
+      </div>
     </div>
-    <div class="award-card reveal">
+    <div class="award-item reveal">
       <div class="award-year">2024</div>
-      <div class="award-name">Placeholder Fellowship or Grant</div>
-      <div class="award-body">Awarding institution or organization · Brief description of scope or significance.</div>
+      <div>
+        <div class="award-name">Placeholder Fellowship or Grant</div>
+        <div class="award-body">Awarding institution or organization · Brief description of scope or significance.</div>
+      </div>
     </div>
-    <div class="award-card reveal">
+    <div class="award-item reveal">
       <div class="award-year">2023</div>
-      <div class="award-name">Placeholder Honor or Recognition</div>
-      <div class="award-body">Awarding institution or organization · Brief description.</div>
+      <div>
+        <div class="award-name">Placeholder Honor or Recognition</div>
+        <div class="award-body">Awarding institution or organization · Brief description.</div>
+      </div>
     </div>
   </div>
 </section>
@@ -883,15 +852,34 @@ const observer = new IntersectionObserver(entries => {
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Expandable research cards
+// Expandable research cards (overlay)
 function toggleCard(header) {
   const card = header.parentElement;
+  const grid = card.closest('.r-grid');
   const isOpen = card.classList.contains('open');
-  document.querySelectorAll('.r-card.open').forEach(c => c.classList.remove('open'));
-  if (!isOpen) card.classList.add('open');
+
+  // Close any open card
+  const prev = grid.querySelector('.r-card.open');
+  if (prev) {
+    prev.classList.remove('open');
+    grid.style.minHeight = '';
+    grid.classList.remove('has-open');
+  }
+
+  if (!isOpen) {
+    // Lock grid height so other cards don't collapse behind overlay
+    grid.style.minHeight = grid.offsetHeight + 'px';
+    card.classList.add('open');
+    grid.classList.add('has-open');
+  }
 }
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') document.querySelectorAll('.r-card.open').forEach(c => c.classList.remove('open'));
+  if (e.key !== 'Escape') return;
+  const grid = document.querySelector('.r-grid.has-open');
+  if (!grid) return;
+  grid.querySelector('.r-card.open')?.classList.remove('open');
+  grid.style.minHeight = '';
+  grid.classList.remove('has-open');
 });
 </script>
 </body>
