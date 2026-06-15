@@ -216,35 +216,59 @@ section.std.alt{background:var(--bg2);}
 }
 .s-sub{color:var(--muted);font-size:0.95rem;max-width:580px;line-height:1.85;margin-bottom:3.5rem;}
 
-/* ── RESEARCH CARDS (expandable overlay) ── */
-.r-grid{display:flex;flex-direction:column;gap:0;position:relative;}
+/* ── RESEARCH CARDS (grid + overlay) ── */
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;position:relative;}
 .r-card{
   background:var(--surface);border:1px solid var(--border);
-  border-bottom:none;padding:0;
-  transition:opacity 0.25s;
+  border-radius:2px;padding:0;cursor:pointer;
+  transition:opacity 0.25s, transform 0.25s, box-shadow 0.25s;
+  position:relative;overflow:hidden;
 }
-.r-card:last-child{border-bottom:1px solid var(--border);}
-.r-grid.has-open .r-card:not(.open){opacity:0.25;pointer-events:none;}
+.r-card::after{
+  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--accent),var(--gold));
+  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
+}
+.r-card:not(.open):hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(90,60,30,0.1);}
+.r-card:not(.open):hover::after{transform:scaleX(1);}
+.r-grid.has-open .r-card:not(.open){opacity:0.2;pointer-events:none;}
 .r-card.open{
-  position:absolute;top:0;left:0;right:0;
-  z-index:10;border:1px solid var(--border2);
-  box-shadow:0 16px 48px rgba(90,60,30,0.14);
+  position:absolute;top:0;left:0;right:0;bottom:0;
+  z-index:10;cursor:default;
+  box-shadow:0 20px 60px rgba(90,60,30,0.18);
+  border-color:var(--border2);
+  overflow-y:auto;
 }
-.r-card-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:1.4rem 2rem;cursor:pointer;
-  transition:background 0.2s;user-select:none;
+/* collapsed card face */
+.r-card-face{padding:2rem;}
+.r-card.open .r-card-face{display:none;}
+.r-icon{
+  width:42px;height:42px;background:var(--accent-lt);
+  border-radius:2px;display:flex;align-items:center;justify-content:center;
+  margin-bottom:1.25rem;
 }
-.r-card-header:hover{background:var(--accent-lt);}
-.r-card.open .r-card-header{background:var(--accent-lt);border-bottom:1px solid var(--border);}
-.r-card-title{font-family:var(--serif);font-size:1.25rem;font-weight:400;}
-.r-card-chevron{
-  width:22px;height:22px;stroke:var(--accent);flex-shrink:0;
-  transition:transform 0.3s;
+.r-icon svg{width:20px;height:20px;stroke:var(--accent);}
+.r-card-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:0.5rem;color:var(--text);}
+.r-card-hint{font-size:0.78rem;color:var(--muted2);letter-spacing:0.03em;}
+/* expanded card body */
+.r-card-body{display:none;}
+.r-card.open .r-card-body{
+  display:grid;grid-template-columns:1fr 200px;gap:2.5rem;
+  align-items:start;padding:2rem;
 }
-.r-card.open .r-card-chevron{transform:rotate(180deg);}
-.r-card-body{display:none;padding:2rem;}
-.r-card.open .r-card-body{display:grid;grid-template-columns:1fr 200px;gap:2.5rem;align-items:start;}
+.r-card-close{
+  position:absolute;top:1rem;right:1rem;
+  width:32px;height:32px;border:1px solid var(--border2);border-radius:2px;
+  background:var(--surface);display:none;align-items:center;justify-content:center;
+  cursor:pointer;transition:all 0.2s;z-index:1;
+}
+.r-card.open .r-card-close{display:flex;}
+.r-card-close:hover{background:var(--accent-lt);border-color:var(--accent);}
+.r-card-close svg{width:14px;height:14px;stroke:var(--accent);}
+.r-expanded-title{
+  font-family:var(--serif);font-size:1.5rem;font-weight:300;
+  margin-bottom:1.5rem;color:var(--text);padding-right:2.5rem;
+}
 .r-section{margin-bottom:1.4rem;}
 .r-section:last-child{margin-bottom:0;}
 .r-section-label{
@@ -557,15 +581,17 @@ footer a{color:var(--accent);text-decoration:none;}
   <div class="s-eyebrow">What I study</div>
   <h2 class="s-title">Research Focus</h2>
   <p class="s-sub">My work sits at the intersection of lipid biochemistry and neurodegeneration, using both experimental and computational approaches to understand Alzheimer's disease.</p>
-  <div class="r-grid">
+  <div class="r-grid" id="rGrid">
 
-    <div class="r-card">
-      <div class="r-card-header" onclick="toggleCard(this)">
-        <h3 class="r-card-title">Lipid Dysregulation in Alzheimer's Disease</h3>
-        <svg class="r-card-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+    <div class="r-card" onclick="openCard(this)">
+      <div class="r-card-face">
+        <div class="r-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg></div>
+        <div class="r-card-title">Lipid Dysregulation in Alzheimer's Disease</div>
+        <div class="r-card-hint">Click to explore →</div>
       </div>
       <div class="r-card-body">
-        <div class="r-body-content">
+        <div>
+          <div class="r-expanded-title">Lipid Dysregulation in Alzheimer's Disease</div>
           <div class="r-section">
             <div class="r-section-label">The Question</div>
             <div class="r-section-text">Placeholder — what central question does this project address? What gap in knowledge motivated it?</div>
@@ -588,15 +614,20 @@ footer a{color:var(--accent);text-decoration:none;}
           <span>Add figure or diagram</span>
         </div>
       </div>
+      <div class="r-card-close" onclick="closeCard(event)">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </div>
     </div>
 
-    <div class="r-card">
-      <div class="r-card-header" onclick="toggleCard(this)">
-        <h3 class="r-card-title">Lipid–Protein Interactions in Neurodegeneration</h3>
-        <svg class="r-card-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+    <div class="r-card" onclick="openCard(this)">
+      <div class="r-card-face">
+        <div class="r-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3m0 14v3M2 12h3m14 0h3M4.93 4.93l2.12 2.12m9.9 9.9l2.12 2.12M4.93 19.07l2.12-2.12m9.9-9.9l2.12-2.12"/></svg></div>
+        <div class="r-card-title">Lipid–Protein Interactions in Neurodegeneration</div>
+        <div class="r-card-hint">Click to explore →</div>
       </div>
       <div class="r-card-body">
-        <div class="r-body-content">
+        <div>
+          <div class="r-expanded-title">Lipid–Protein Interactions in Neurodegeneration</div>
           <div class="r-section">
             <div class="r-section-label">The Question</div>
             <div class="r-section-text">Placeholder — what central question does this project address?</div>
@@ -619,15 +650,20 @@ footer a{color:var(--accent);text-decoration:none;}
           <span>Add figure or diagram</span>
         </div>
       </div>
+      <div class="r-card-close" onclick="closeCard(event)">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </div>
     </div>
 
-    <div class="r-card">
-      <div class="r-card-header" onclick="toggleCard(this)">
-        <h3 class="r-card-title">Computational Image Analysis Pipeline</h3>
-        <svg class="r-card-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
+    <div class="r-card" onclick="openCard(this)">
+      <div class="r-card-face">
+        <div class="r-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg></div>
+        <div class="r-card-title">Computational Image Analysis Pipeline</div>
+        <div class="r-card-hint">Click to explore →</div>
       </div>
       <div class="r-card-body">
-        <div class="r-body-content">
+        <div>
+          <div class="r-expanded-title">Computational Image Analysis Pipeline</div>
           <div class="r-section">
             <div class="r-section-label">The Question</div>
             <div class="r-section-text">Placeholder — what central question does this project address?</div>
@@ -649,6 +685,9 @@ footer a{color:var(--accent);text-decoration:none;}
           <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
           <span>Add figure or diagram</span>
         </div>
+      </div>
+      <div class="r-card-close" onclick="closeCard(event)">
+        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </div>
     </div>
 
@@ -853,25 +892,20 @@ const observer = new IntersectionObserver(entries => {
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
 // Expandable research cards (overlay)
-function toggleCard(header) {
-  const card = header.parentElement;
+function openCard(card) {
+  if (card.classList.contains('open')) return;
   const grid = card.closest('.r-grid');
-  const isOpen = card.classList.contains('open');
-
-  // Close any open card
-  const prev = grid.querySelector('.r-card.open');
-  if (prev) {
-    prev.classList.remove('open');
-    grid.style.minHeight = '';
-    grid.classList.remove('has-open');
-  }
-
-  if (!isOpen) {
-    // Lock grid height so other cards don't collapse behind overlay
-    grid.style.minHeight = grid.offsetHeight + 'px';
-    card.classList.add('open');
-    grid.classList.add('has-open');
-  }
+  grid.style.minHeight = grid.offsetHeight + 'px';
+  grid.classList.add('has-open');
+  card.classList.add('open');
+}
+function closeCard(e) {
+  e.stopPropagation();
+  const card = e.currentTarget.closest('.r-card');
+  const grid = card.closest('.r-grid');
+  card.classList.remove('open');
+  grid.style.minHeight = '';
+  grid.classList.remove('has-open');
 }
 document.addEventListener('keydown', e => {
   if (e.key !== 'Escape') return;
