@@ -259,10 +259,10 @@
       display: flow-root;
     }
 
-    .about-intro {
-      display: flex;
-      gap: 1.5rem;
-      align-items: flex-start;
+    .about-content {
+      font-size: 1rem;
+      line-height: 2.1;
+      color: var(--text-dark);
     }
 
     .about-dropcap {
@@ -271,33 +271,31 @@
       font-weight: 600;
       line-height: 0.9;
       color: var(--text-dark);
-      margin-top: -0.3rem;
+      float: left;
+      margin: 0 0.3rem 0 0;
     }
 
-    .about-text {
-      font-size: 1rem;
-      line-height: 2.1;
-      color: var(--text-dark);
-    }
-
-    .about-text p {
+    .about-content p {
       margin-bottom: 1.75rem;
       text-align: left;
-      text-indent: 1.5rem;
     }
 
-    .about-intro p {
+    .about-content p:first-of-type {
       text-indent: 0;
     }
 
-    .about-text a {
+    .about-content p:not(:first-of-type) {
+      text-indent: 1.5rem;
+    }
+
+    .about-content a {
       color: var(--accent);
       text-decoration: none;
       border-bottom: 1px solid rgba(234, 88, 12, 0.3);
       transition: all 0.3s;
     }
 
-    .about-text a:hover {
+    .about-content a:hover {
       border-bottom-color: var(--accent);
     }
 
@@ -661,20 +659,13 @@
       <div class="about-photo">Add your photo</div>
 
       <div class="about-content">
-        <div class="about-intro">
-          <div class="about-dropcap">J</div>
-          <div class="about-text">
-            <p>itika Rajpoot is a neuroscientist studying how the immune system responds to neurodegeneration. She is a PhD student in Chemistry at Purdue University in the <a href="#">Chopra Lab</a>, where she investigates neuroimmune mechanisms in Alzheimer's disease.</p>
-          </div>
-        </div>
+        <p><span class="about-dropcap">J</span>itika Rajpoot is a neuroscientist studying how the immune system responds to neurodegeneration. She is a PhD student in Chemistry at Purdue University in the <a href="#">Chopra Lab</a>, where she investigates neuroimmune mechanisms in Alzheimer's disease.</p>
 
-        <div class="about-text">
-          <p>Her scientific journey began in India, where she first encountered the amyloid-β aggregation problem during undergraduate research. Though her thesis took her in a different direction, Alzheimer's disease kept calling her back—the unanswered questions, the absence of effective treatments, the fundamental mystery of it all. She decided to pursue this curiosity deliberately.</p>
+        <p>Her scientific journey began in India, where she first encountered the amyloid-β aggregation problem during undergraduate research. Though her thesis took her in a different direction, Alzheimer's disease kept calling her back—the unanswered questions, the absence of effective treatments, the fundamental mystery of it all. She decided to pursue this curiosity deliberately.</p>
 
-          <p>When searching for graduate programs, she sought out labs in the United States specifically studying Alzheimer's pathology. She found <a href="#">Stony Brook University</a>, where she spent her Master's years investigating how different amyloid peptides aggregate with distinct propensities. Each structural variant told a story about what might go wrong in the brain. As her work deepened, a natural question emerged: what happens when these aggregated peptides encounter living neural tissue? How do neurons, glia, and immune cells respond?</p>
+        <p>When searching for graduate programs, she sought out labs in the United States specifically studying Alzheimer's pathology. She found <a href="#">Stony Brook University</a>, where she spent her Master's years investigating how different amyloid peptides aggregate with distinct propensities. Each structural variant told a story about what might go wrong in the brain. As her work deepened, a natural question emerged: what happens when these aggregated peptides encounter living neural tissue? How do neurons, glia, and immune cells respond?</p>
 
-          <p>This question brought her to Purdue, where she now studies the neuroimmune landscape of Alzheimer's disease—how microglial activation, lipid dysregulation, and protein aggregation intersect to drive pathology. Her work bridges wet-lab biochemistry, imaging analysis, and computational approaches, driven by the belief that understanding disease at multiple scales is essential to finding solutions.</p>
-        </div>
+        <p>This question brought her to Purdue, where she now studies the neuroimmune landscape of Alzheimer's disease—how microglial activation, lipid dysregulation, and protein aggregation intersect to drive pathology. Her work bridges wet-lab biochemistry, imaging analysis, and computational approaches, driven by the belief that understanding disease at multiple scales is essential to finding solutions.</p>
       </div>
     </section>
 
