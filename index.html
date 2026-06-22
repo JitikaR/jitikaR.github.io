@@ -1,1160 +1,455 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jitika Rajpoot | Neuroscience PhD, Purdue</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-:root {
-  --bg:       #f7f3ee;
-  --bg2:      #f2ece4;
-  --bg3:      #ece4d8;
-  --surface:  #faf8f5;
-  --border:   rgba(90,60,30,0.1);
-  --border2:  rgba(90,60,30,0.18);
-  --text:     #1c1612;
-  --muted:    #7a6a58;
-  --muted2:   #b09a84;
-  --accent:   #8b4513;
-  --accent2:  #c47a3a;
-  --accent-lt:#f0e4d4;
-  --gold:     #c9a84c;
-  --serif:    'Cormorant Garamond', Georgia, serif;
-  --sans:     'DM Sans', system-ui, sans-serif;
-}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jitika Rajpoot | Neuroimmunology Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:       #fffbf7;
+      --surface:  #ffffff;
+      --border:   rgba(139,60,12,0.1);
+      --border2:  rgba(139,60,12,0.18);
+      --text:     #1c1917;
+      --muted:    #78716c;
+      --muted2:   #a8a29e;
+      --accent:   #ea580c;
+      --accent-lt:#fff7ed;
+      --serif:    'Cormorant Garamond', Georgia, serif;
+      --sans:     'DM Sans', system-ui, sans-serif;
+    }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
-body{font-family:var(--sans);background:var(--bg);color:var(--text);overflow-x:hidden;}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); background: var(--bg); color: var(--text); overflow-x: hidden; }
 
-/* ── NAV ── */
-nav{
-  position:fixed;top:0;left:0;right:0;z-index:200;
-  display:flex;justify-content:space-between;align-items:center;
-  padding:1.3rem 5rem;
-  transition:background 0.4s, box-shadow 0.4s;
-}
-nav.scrolled{
-  background:rgba(247,243,238,0.94);
-  backdrop-filter:blur(16px);
-  box-shadow:0 1px 0 var(--border);
-}
-.nav-logo{
-  font-family:var(--serif);font-size:1.3rem;font-weight:400;
-  color:#fff;text-decoration:none;letter-spacing:0.04em;
-  transition:color 0.4s;
-}
-nav.scrolled .nav-logo{color:var(--text);}
-.nav-logo em{font-style:italic;color:var(--gold);}
-.nav-links{display:flex;gap:2.5rem;list-style:none;align-items:center;}
-.nav-links a{
-  text-decoration:none;color:rgba(255,255,255,0.75);
-  font-size:0.82rem;font-weight:400;letter-spacing:0.05em;text-transform:uppercase;
-  transition:color 0.2s;
-}
-nav.scrolled .nav-links a{color:var(--muted);}
-.nav-links a:hover,nav.scrolled .nav-links a:hover{color:var(--accent);}
-.nav-links a.active{color:#fff;}
-nav.scrolled .nav-links a.active{color:var(--accent);}
-.nav-cta{
-  border:1px solid rgba(255,255,255,0.4);color:#fff!important;
-  padding:0.45rem 1.1rem;border-radius:2px;
-  transition:all 0.2s!important;
-}
-nav.scrolled .nav-cta{border-color:var(--border2);color:var(--accent)!important;}
-.nav-cta:hover{background:rgba(255,255,255,0.12)!important;}
-nav.scrolled .nav-cta:hover{background:var(--accent-lt)!important;}
+    /* ── HEADER / NAV ── */
+    header {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      padding: 1.5rem 5rem;
+      background: transparent;
+      display: flex; justify-content: space-between; align-items: center;
+      transition: background 0.3s;
+    }
+    header.scrolled {
+      background: rgba(255, 251, 247, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--serif); font-size: 1.1rem; font-weight: 400;
+      color: var(--text); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .logo em { color: var(--accent); font-style: italic; }
 
-/* ── COVER / VIDEO HERO ── */
-.cover{
-  position:relative;width:100%;height:100vh;
-  display:flex;align-items:center;justify-content:center;
-  overflow:hidden;
-}
-.cover-video{
-  position:absolute;inset:0;width:100%;height:100%;
-  object-fit:cover;z-index:0;
-}
-.cover-overlay{
-  position:absolute;inset:0;z-index:1;
-  background:linear-gradient(
-    to bottom,
-    rgba(15,10,5,0.55) 0%,
-    rgba(15,10,5,0.35) 50%,
-    rgba(15,10,5,0.75) 100%
-  );
-}
-.cover-content{
-  position:relative;z-index:2;
-  text-align:center;padding:0 2rem;
-  animation:coverFade 1.2s ease forwards;
-}
-@keyframes coverFade{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
-.cover-eyebrow{
-  display:inline-block;
-  font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;
-  color:var(--gold);margin-bottom:1.5rem;font-weight:400;
-}
-.cover-title{
-  font-family:var(--serif);font-size:clamp(3.5rem,8vw,8rem);
-  font-weight:300;color:#fff;line-height:0.95;
-  letter-spacing:-0.01em;margin-bottom:0.5rem;
-}
-.cover-title em{font-style:italic;color:var(--gold);}
-.cover-sub{
-  font-size:0.95rem;color:rgba(255,255,255,0.65);
-  letter-spacing:0.06em;text-transform:uppercase;
-  margin-bottom:2.5rem;font-weight:300;
-}
-.cover-label{
-  position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);
-  z-index:2;display:flex;flex-direction:column;align-items:center;gap:0.5rem;
-  color:rgba(255,255,255,0.5);font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;
-  animation:bounce 2s infinite;
-}
-@keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0);}50%{transform:translateX(-50%) translateY(6px);}}
-.cover-label svg{width:16px;height:16px;stroke:rgba(255,255,255,0.4);}
-.cover-video-label{
-  position:absolute;bottom:2.5rem;right:3rem;z-index:2;
-  text-align:right;
-}
-.cover-video-label p{
-  font-size:0.68rem;color:rgba(255,255,255,0.35);
-  letter-spacing:0.06em;text-transform:uppercase;line-height:1.6;
-}
-.cover-video-label strong{color:rgba(255,255,255,0.55);font-weight:400;}
+    /* ── HERO ── */
+    .hero {
+      height: 100vh; width: 100%;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center; position: relative;
+      background: linear-gradient(135deg, var(--bg) 0%, #fffef9 100%);
+      padding: 0 2rem;
+    }
+    .hero-statement {
+      font-family: var(--serif); font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300; line-height: 1.1; color: var(--text);
+      margin-bottom: 2rem; max-width: 900px; letter-spacing: -0.01em;
+    }
+    .hero-statement .accent { color: var(--accent); }
+    .hero-meta {
+      position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+      text-align: center;
+    }
+    .hero-name { font-size: 1.3rem; font-weight: 500; margin-bottom: 0.3rem; }
+    .hero-intro { font-size: 0.85rem; color: var(--muted); letter-spacing: 0.05em; text-transform: uppercase; }
 
-/* ── ABOUT / HERO ── */
-.about-section{
-  display:grid;grid-template-columns:1fr 1fr;
-  align-items:center;gap:6rem;
-  padding:8rem 5rem;background:var(--surface);
-}
-.photo-wrap{position:relative;display:flex;justify-content:center;}
-.photo-frame{
-  width:380px;height:460px;
-  background:var(--bg3);
-  border:1px solid var(--border2);
-  border-radius:2px;overflow:hidden;
-  position:relative;
-}
-.photo-frame img{width:100%;height:100%;object-fit:cover;}
-.photo-placeholder{
-  width:100%;height:100%;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  color:var(--muted2);gap:0.75rem;
-  background:linear-gradient(135deg,var(--bg3),var(--bg2));
-}
-.photo-placeholder svg{opacity:0.25;width:56px;height:56px;}
-.photo-placeholder span{font-size:0.78rem;opacity:0.5;letter-spacing:0.04em;}
-.photo-frame-accent{
-  position:absolute;bottom:-14px;right:-14px;
-  width:100%;height:100%;
-  border:1px solid var(--gold);
-  border-radius:2px;z-index:-1;opacity:0.4;
-}
-.about-text .eyebrow{
-  font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;
-  color:var(--accent);font-weight:500;margin-bottom:0.75rem;
-  display:flex;align-items:center;gap:0.6rem;
-}
-.about-text .eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);}
-.about-text h2{
-  font-family:var(--serif);font-size:clamp(2.5rem,4vw,3.8rem);
-  font-weight:300;line-height:1.1;margin-bottom:0.4rem;letter-spacing:-0.01em;
-}
-.about-text h2 em{font-style:italic;color:var(--accent);}
-.about-role{
-  font-size:1rem;color:var(--muted);margin-bottom:1.5rem;
-  font-weight:300;letter-spacing:0.02em;
-}
-.about-bio{
-  font-size:0.97rem;line-height:1.9;color:var(--muted);
-  margin-bottom:2rem;
-}
-.about-bio strong{color:var(--text);font-weight:500;}
-.btns{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.5rem;}
-.btn{
-  display:inline-flex;align-items:center;gap:0.5rem;
-  padding:0.7rem 1.8rem;border-radius:2px;
-  font-size:0.8rem;font-weight:500;letter-spacing:0.06em;
-  text-decoration:none;transition:all 0.22s;cursor:pointer;
-  text-transform:uppercase;
-}
-.btn-warm{
-  background:var(--accent);color:#fff;border:1px solid var(--accent);
-}
-.btn-warm:hover{background:#722f0e;border-color:#722f0e;}
-.btn-ghost{
-  background:transparent;color:var(--accent);border:1px solid var(--border2);
-}
-.btn-ghost:hover{border-color:var(--accent);background:var(--accent-lt);}
-.stats-row{
-  display:flex;gap:2.5rem;padding-top:2rem;border-top:1px solid var(--border);
-}
-.stat-num{
-  font-family:var(--serif);font-size:2rem;font-weight:400;
-  color:var(--accent);line-height:1;
-}
-.stat-label{font-size:0.72rem;color:var(--muted2);margin-top:0.2rem;letter-spacing:0.04em;}
+    /* ── STORY SECTION ── */
+    .story {
+      padding: 5rem 5rem; background: var(--surface);
+      min-height: 100vh;
+    }
+    .story-header {
+      text-align: center; margin-bottom: 4rem;
+    }
+    .story-title {
+      font-family: var(--serif); font-size: 2.8rem; font-weight: 300;
+      margin-bottom: 1rem;
+    }
+    .story-cards {
+      display: flex; flex-direction: column; gap: 2.5rem; max-width: 820px; margin: 0 auto;
+    }
+    .story-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 2.5rem; transition: all 0.3s;
+    }
+    .story-card:hover { border-color: var(--accent); }
+    .story-card-year {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--accent); font-weight: 500; margin-bottom: 0.75rem;
+    }
+    .story-card-title {
+      font-family: var(--serif); font-size: 1.8rem; font-weight: 400;
+      margin-bottom: 0.75rem; color: var(--text);
+    }
+    .story-card-text {
+      font-size: 0.95rem; line-height: 1.85; color: var(--muted);
+    }
 
-/* ── SECTION COMMON ── */
-section.std{padding:7rem 5rem;}
-section.std.alt{background:var(--bg2);}
-.s-eyebrow{
-  font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;
-  color:var(--accent);font-weight:500;margin-bottom:0.6rem;
-  display:flex;align-items:center;gap:0.6rem;
-}
-.s-eyebrow::before{content:'';width:20px;height:1px;background:var(--accent);}
-.s-title{
-  font-family:var(--serif);font-size:clamp(2rem,3.5vw,3rem);
-  font-weight:300;line-height:1.1;margin-bottom:0.75rem;letter-spacing:-0.01em;
-}
-.s-sub{color:var(--muted);font-size:0.95rem;line-height:1.85;margin-bottom:3.5rem;}
+    /* ── TAB NAVIGATION ── */
+    .tabs-nav {
+      padding: 0 5rem 3rem; background: var(--surface);
+      display: flex; gap: 2rem; border-bottom: 1px solid var(--border);
+      justify-content: center;
+    }
+    .tab-btn {
+      background: none; border: none; padding: 1rem 0;
+      font-size: 0.9rem; font-weight: 500; letter-spacing: 0.06em;
+      text-transform: uppercase; color: var(--muted); cursor: pointer;
+      transition: all 0.2s; position: relative;
+    }
+    .tab-btn:hover { color: var(--accent); }
+    .tab-btn.active {
+      color: var(--accent);
+    }
+    .tab-btn.active::after {
+      content: ''; position: absolute; bottom: -1rem; left: 0; right: 0;
+      height: 2px; background: var(--accent);
+    }
 
-/* ── RESEARCH CARDS (grid, expands in place) ── */
-.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem;}
-.r-grid.has-open{display:block;}
-.r-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-radius:2px;padding:0;cursor:pointer;
-  transition:opacity 0.25s,transform 0.25s,box-shadow 0.25s;
-  position:relative;overflow:hidden;
-}
-.r-card::after{
-  content:'';position:absolute;bottom:0;left:0;right:0;height:2px;
-  background:linear-gradient(90deg,var(--accent),var(--gold));
-  transform:scaleX(0);transform-origin:left;transition:transform 0.3s;
-}
-.r-card:not(.open):hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(90,60,30,0.1);}
-.r-card:not(.open):hover::after{transform:scaleX(1);}
-.r-grid.has-open .r-card:not(.open){display:none;}
-.r-card.open{cursor:default;border-color:var(--border2);box-shadow:0 8px 32px rgba(90,60,30,0.1);}
-/* collapsed card face */
-.r-card-face{padding:2rem;}
-.r-card.open .r-card-face{display:none;}
-.r-card-lab{
-  font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;
-  color:var(--accent);font-weight:500;margin-bottom:0.75rem;
-}
-.r-card-title{font-family:var(--serif);font-size:1.2rem;font-weight:400;margin-bottom:0.5rem;color:var(--text);}
-.r-card-hint{font-size:0.78rem;color:var(--muted2);letter-spacing:0.03em;}
-/* expanded card body */
-.r-card-body{display:none;}
-.r-card.open .r-card-body{
-  display:grid;grid-template-columns:1fr 220px;gap:3rem;
-  align-items:start;padding:2.5rem;
-}
-.r-card-close{
-  position:absolute;top:1rem;right:1rem;
-  width:32px;height:32px;border:1px solid var(--border2);border-radius:2px;
-  background:var(--surface);display:none;align-items:center;justify-content:center;
-  cursor:pointer;transition:all 0.2s;z-index:1;
-}
-.r-card.open .r-card-close{display:flex;}
-.r-card-close:hover{background:var(--accent-lt);border-color:var(--accent);}
-.r-card-close svg{width:14px;height:14px;stroke:var(--accent);}
-.r-expanded-title{
-  font-family:var(--serif);font-size:1.6rem;font-weight:300;
-  margin-bottom:1.75rem;color:var(--text);padding-right:2.5rem;
-  border-bottom:1px solid var(--border);padding-bottom:1rem;
-}
-.r-section{margin-bottom:1.4rem;}
-.r-section:last-child{margin-bottom:0;}
-.r-section-label{
-  font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;
-  color:var(--accent);font-weight:500;margin-bottom:0.35rem;
-}
-.r-section-text{font-size:0.9rem;color:var(--muted);line-height:1.8;}
-.r-figure{
-  background:var(--bg3);border:1px solid var(--border2);border-radius:2px;
-  aspect-ratio:3/4;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  color:var(--muted2);gap:0.5rem;padding:1rem;text-align:center;
-  position:sticky;top:1rem;
-}
-.r-figure svg{opacity:0.3;width:32px;height:32px;}
-.r-figure span{font-size:0.72rem;opacity:0.6;letter-spacing:0.04em;}
+    /* ── SECTIONS ── */
+    .section {
+      display: none; padding: 4rem 5rem; min-height: 100vh;
+      background: var(--surface);
+    }
+    .section.active { display: block; }
 
-/* ── PUBLICATIONS ── */
-.pub-wrapper{display:grid;grid-template-columns:1fr 320px;gap:3rem;align-items:start;}
-.pub-list{display:flex;flex-direction:column;gap:0;}
-.pub-year-group{margin-bottom:2.5rem;}
-.pub-year-label{
-  font-family:var(--serif);font-size:1.5rem;font-weight:300;
-  color:var(--accent);margin-bottom:1rem;padding-bottom:0.5rem;
-  border-bottom:1px solid var(--border);
-}
-.pub-entry{
-  display:grid;grid-template-columns:28px 1fr;gap:1rem;
-  padding:1rem 0;border-bottom:1px solid var(--border);
-}
-.pub-num{font-size:0.78rem;color:var(--muted2);padding-top:0.15rem;font-weight:300;font-style:italic;}
-.pub-title{font-weight:500;font-size:0.95rem;margin-bottom:0.25rem;color:var(--text);}
-.pub-authors{font-size:0.85rem;color:var(--muted);margin-bottom:0.2rem;}
-.pub-authors strong{color:var(--text);}
-.pub-journal{font-size:0.83rem;color:var(--muted2);font-style:italic;margin-bottom:0.4rem;}
-.pub-links{display:flex;gap:0.75rem;flex-wrap:wrap;}
-.pub-link{
-  font-size:0.7rem;text-transform:uppercase;letter-spacing:0.07em;
-  color:var(--accent);border:1px solid var(--border2);
-  padding:0.18rem 0.65rem;border-radius:1px;text-decoration:none;
-  transition:all 0.2s;font-weight:500;cursor:pointer;background:none;font-family:var(--sans);
-}
-.pub-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);}
-/* abstract panel */
-.pub-abstract-panel{
-  position:sticky;top:6rem;
-  background:var(--surface);border:1px solid var(--border2);border-radius:2px;
-  padding:1.75rem;display:none;
-}
-.pub-abstract-panel.visible{display:block;}
-.pap-label{
-  font-size:0.67rem;text-transform:uppercase;letter-spacing:0.12em;
-  color:var(--accent);font-weight:500;margin-bottom:0.75rem;
-}
-.pap-title{font-family:var(--serif);font-size:1.05rem;font-weight:400;margin-bottom:0.5rem;line-height:1.4;}
-.pap-journal{font-size:0.78rem;color:var(--muted2);font-style:italic;margin-bottom:1rem;}
-.pap-text{font-size:0.86rem;color:var(--muted);line-height:1.85;}
-.pap-close{
-  float:right;margin-top:-0.2rem;
-  background:none;border:none;cursor:pointer;color:var(--muted2);font-size:1.1rem;
-  line-height:1;transition:color 0.2s;
-}
-.pap-close:hover{color:var(--accent);}
+    /* ── CURRENT WORK ── */
+    .work-grid {
+      display: flex; flex-direction: column; gap: 2.5rem; max-width: 1000px; margin: 0 auto;
+    }
+    .work-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      padding: 2rem; display: grid; grid-template-columns: 1fr 280px; gap: 2.5rem;
+      align-items: start;
+    }
+    .work-content h3 {
+      font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .work-question {
+      font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--accent); font-weight: 500; margin-bottom: 0.75rem;
+    }
+    .work-desc {
+      font-size: 0.95rem; line-height: 1.85; color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .work-pub {
+      border-top: 1px solid var(--border); padding-top: 1.5rem;
+    }
+    .work-pub-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted2); margin-bottom: 0.5rem; font-weight: 500;
+    }
+    .work-pub-title {
+      font-size: 0.85rem; font-weight: 500; margin-bottom: 0.5rem; line-height: 1.5;
+    }
+    .work-recog {
+      border-top: 1px solid var(--border); padding-top: 1.5rem; margin-top: 1.5rem;
+    }
+    .work-recog-label {
+      font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted2); margin-bottom: 0.5rem; font-weight: 500;
+    }
+    .work-recog-item {
+      font-size: 0.8rem; color: var(--muted); margin-bottom: 0.3rem;
+    }
+    .work-image {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      aspect-ratio: 3/4; display: flex; align-items: center; justify-content: center;
+      color: var(--muted2); font-size: 0.75rem; text-align: center; padding: 1rem;
+    }
 
-/* ── TALKS ── */
-.talks-list{display:flex;flex-direction:column;gap:0;}
-.talk-card{
-  background:var(--surface);border:1px solid var(--border);
-  border-bottom:none;cursor:pointer;position:relative;overflow:hidden;
-  transition:background 0.2s;
-}
-.talk-card:last-child{border-bottom:1px solid var(--border);}
-.talk-card-face{
-  display:grid;grid-template-columns:110px 1fr;gap:2rem;
-  padding:1.5rem 2rem;align-items:start;
-}
-.talk-card:not(.open):hover{background:var(--accent-lt);}
-.talk-card.open .talk-card-face{background:var(--accent-lt);border-bottom:1px solid var(--border);}
-.talk-date{font-size:0.8rem;color:var(--muted2);font-weight:300;padding-top:0.3rem;}
-.talk-type{
-  display:inline-block;font-size:0.62rem;text-transform:uppercase;
-  letter-spacing:0.1em;padding:0.15rem 0.6rem;border-radius:100px;
-  margin-bottom:0.4rem;font-weight:500;
-}
-.tt-invited{background:#e0e7ff;color:#3730a3;}
-.tt-contributed{background:#ecfdf5;color:#065f46;}
-.tt-poster{background:#fef3e2;color:#92400e;}
-.talk-title-text{font-size:0.95rem;font-weight:500;margin-bottom:0.2rem;}
-.talk-event-text{font-size:0.85rem;color:var(--muted);}
-.talk-chevron{
-  position:absolute;right:1.5rem;top:50%;transform:translateY(-50%);
-  width:18px;height:18px;stroke:var(--muted2);transition:transform 0.3s;flex-shrink:0;
-}
-.talk-card.open .talk-chevron{transform:translateY(-50%) rotate(180deg);}
-/* expanded talk body */
-.talk-card-body{display:none;padding:2rem;grid-template-columns:1fr 220px;gap:2.5rem;}
-.talk-card.open .talk-card-body{display:grid;}
-.talk-section{margin-bottom:1.2rem;}
-.talk-section:last-child{margin-bottom:0;}
-.talk-section-label{
-  font-size:0.67rem;text-transform:uppercase;letter-spacing:0.12em;
-  color:var(--accent);font-weight:500;margin-bottom:0.3rem;
-}
-.talk-section-text{font-size:0.9rem;color:var(--muted);line-height:1.8;}
-.talk-photo{
-  background:var(--bg3);border:1px solid var(--border2);border-radius:2px;
-  aspect-ratio:3/4;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  color:var(--muted2);gap:0.5rem;padding:1rem;text-align:center;
-}
-.talk-photo svg{opacity:0.3;width:32px;height:32px;}
-.talk-photo span{font-size:0.72rem;opacity:0.6;letter-spacing:0.04em;}
+    /* ── WHAT DRIVES ME ── */
+    .drives-content { max-width: 820px; margin: 0 auto; }
+    .drives-section {
+      margin-bottom: 3rem;
+    }
+    .drives-section h3 {
+      font-family: var(--serif); font-size: 1.5rem; font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+    .drives-item {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 6px;
+      padding: 1.5rem; margin-bottom: 1rem;
+    }
+    .drives-item strong {
+      color: var(--text); display: block; margin-bottom: 0.3rem;
+    }
+    .drives-item p {
+      font-size: 0.9rem; line-height: 1.75; color: var(--muted);
+    }
 
-/* ── AWARDS ── */
-.awards-list{display:flex;flex-direction:column;max-width:780px;}
-.award-item{
-  display:grid;grid-template-columns:80px 1fr;gap:2rem;
-  padding:1.25rem 0;border-bottom:1px solid var(--border);align-items:start;
-}
-.award-item:first-child{border-top:1px solid var(--border);}
-.award-year{
-  font-family:var(--serif);font-size:1.1rem;font-weight:300;
-  color:var(--muted2);font-style:italic;padding-top:0.1rem;
-}
-.award-name{font-weight:500;font-size:0.95rem;margin-bottom:0.2rem;color:var(--text);}
-.award-body{font-size:0.85rem;color:var(--muted);}
+    /* ── OUTSIDE THE LAB ── */
+    .outside-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem; max-width: 1200px; margin: 0 auto;
+    }
+    .outside-card {
+      background: var(--bg); border: 1px solid var(--border); border-radius: 8px;
+      overflow: hidden;
+    }
+    .outside-image {
+      width: 100%; aspect-ratio: 4/3; background: #f3e8dd; display: flex;
+      align-items: center; justify-content: center; color: var(--muted2);
+      font-size: 0.75rem; text-align: center;
+    }
+    .outside-text {
+      padding: 1.5rem;
+    }
+    .outside-title {
+      font-family: var(--serif); font-size: 1.2rem; font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+    .outside-desc {
+      font-size: 0.85rem; line-height: 1.7; color: var(--muted);
+    }
 
-/* ── LOOKING AHEAD ── */
-.ahead-wrap{max-width:760px;}
-.ahead-intro{font-size:1rem;color:var(--muted);line-height:1.9;margin-bottom:2.5rem;}
-.ahead-list{display:flex;flex-direction:column;gap:1rem;}
-.ahead-item{
-  display:grid;grid-template-columns:32px 1fr;gap:1.25rem;
-  align-items:start;
-}
-.ahead-dot{
-  width:32px;height:32px;background:var(--accent-lt);border-radius:2px;
-  display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0.1rem;
-}
-.ahead-dot svg{width:14px;height:14px;stroke:var(--accent);}
-.ahead-text{font-size:0.95rem;color:var(--muted);line-height:1.75;padding-top:0.4rem;}
-.ahead-text strong{color:var(--text);}
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 5rem; border-top: 1px solid var(--border);
+      text-align: center; background: var(--surface);
+    }
+    footer p {
+      font-size: 0.75rem; color: var(--muted2);
+    }
 
-/* ── BADGES ── */
-.badge{
-  font-size:0.67rem;text-transform:uppercase;letter-spacing:0.07em;
-  padding:0.25rem 0.8rem;border-radius:100px;font-weight:500;white-space:nowrap;
-}
-.b-dev{background:#fef3e2;color:#92400e;border:1px solid #fcd9a0;}
-.b-planned{background:var(--accent-lt);color:var(--accent);border:1px solid rgba(139,69,19,0.2);}
-.b-active{background:#ecfdf5;color:#065f46;border:1px solid #a7f3d0;}
+    /* ── SCROLL REVEAL ── */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
 
-/* ── CV ── */
-.cv-cols{display:grid;grid-template-columns:1fr 1fr;gap:6rem;}
-.cv-group-title{
-  font-size:0.7rem;text-transform:uppercase;letter-spacing:0.14em;
-  color:var(--accent);font-weight:500;
-  padding-bottom:0.75rem;border-bottom:1px solid var(--border);margin-bottom:1.75rem;
-}
-.cv-entry{margin-bottom:1.75rem;}
-.cv-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:0.15rem;}
-.cv-title{font-weight:500;font-size:0.93rem;}
-.cv-year{font-size:0.78rem;color:var(--muted2);font-weight:300;}
-.cv-sub{font-size:0.86rem;color:var(--muted);}
-.skills-wrap{display:flex;flex-wrap:wrap;gap:0.5rem;margin-top:0.5rem;}
-.skill{
-  font-size:0.76rem;padding:0.28rem 0.85rem;border-radius:100px;
-  background:var(--surface);border:1px solid var(--border);color:var(--muted);
-  transition:all 0.2s;
-}
-.skill:hover{border-color:var(--accent);color:var(--accent);}
-.cv-dl{
-  margin-top:3.5rem;padding:2rem 2.5rem;
-  background:linear-gradient(135deg,var(--accent-lt),var(--bg2));
-  border:1px solid var(--border2);border-radius:2px;
-  display:flex;justify-content:space-between;align-items:center;gap:2rem;
-}
-.cv-dl-text strong{
-  font-family:var(--serif);font-size:1.3rem;font-weight:400;
-  display:block;margin-bottom:0.25rem;
-}
-.cv-dl-text span{font-size:0.83rem;color:var(--muted);}
-
-/* ── CONTACT ── */
-.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:6rem;align-items:start;}
-.c-links{display:flex;flex-direction:column;gap:0.75rem;margin-top:2rem;}
-.c-link{
-  display:flex;align-items:center;gap:1rem;padding:1rem 1.25rem;
-  background:var(--surface);border:1px solid var(--border);border-radius:2px;
-  text-decoration:none;color:var(--text);transition:all 0.2s;
-}
-.c-link:hover{border-color:var(--accent);background:var(--accent-lt);}
-.c-icon{
-  width:36px;height:36px;background:var(--accent-lt);
-  border-radius:2px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
-}
-.c-icon svg{width:16px;height:16px;stroke:var(--accent);}
-.c-lbl{font-size:0.72rem;color:var(--muted2);margin-bottom:0.1rem;letter-spacing:0.04em;}
-.c-val{font-size:0.9rem;font-weight:500;}
-.c-form{display:flex;flex-direction:column;gap:1rem;}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.c-form input,.c-form textarea{
-  background:var(--surface);border:1px solid var(--border);
-  padding:0.85rem 1.1rem;border-radius:2px;
-  font-family:var(--sans);font-size:0.9rem;color:var(--text);
-  outline:none;resize:vertical;transition:border-color 0.2s;width:100%;
-}
-.c-form input:focus,.c-form textarea:focus{border-color:var(--accent);}
-.c-form textarea{min-height:130px;}
-.c-form ::placeholder{color:var(--muted2);font-size:0.86rem;}
-
-/* ── SOCIAL SIDEBAR ── */
-.sidebar{
-  position:fixed;left:1.75rem;top:50%;transform:translateY(-50%);
-  display:flex;flex-direction:column;gap:0.85rem;z-index:150;
-}
-.s-link{
-  width:34px;height:34px;display:flex;align-items:center;justify-content:center;
-  border:1px solid var(--border2);border-radius:2px;
-  color:var(--muted);text-decoration:none;transition:all 0.2s;
-  background:rgba(247,243,238,0.7);backdrop-filter:blur(8px);
-}
-.s-link:hover{border-color:var(--accent);color:var(--accent);background:var(--accent-lt);}
-.s-link svg{width:15px;height:15px;}
-
-/* ── FOOTER ── */
-footer{
-  padding:2rem 5rem;border-top:1px solid var(--border);
-  display:flex;justify-content:space-between;align-items:center;
-  background:var(--surface);
-}
-footer p{font-size:0.78rem;color:var(--muted2);}
-footer a{color:var(--accent);text-decoration:none;}
-
-/* ── SCROLL REVEAL ── */
-.reveal{opacity:0;transform:translateY(22px);transition:opacity 0.6s ease,transform 0.6s ease;}
-.reveal.in{opacity:1;transform:translateY(0);}
-
-/* ── RESPONSIVE ── */
-@media(max-width:1024px){
-  nav{padding:1rem 1.5rem;}
-  .about-section{grid-template-columns:1fr;padding:5rem 2rem;gap:3rem;}
-  .photo-frame{width:280px;height:340px;}
-  section.std{padding:5rem 2rem;}
-  .cv-cols{grid-template-columns:1fr;gap:3rem;}
-  .contact-grid{grid-template-columns:1fr;gap:3rem;}
-  .sidebar{display:none;}
-  .form-row{grid-template-columns:1fr;}
-  footer{flex-direction:column;gap:0.5rem;text-align:center;padding:1.5rem 2rem;}
-  .t-row{grid-template-columns:50px 1fr;gap:1rem;}
-  .t-row .badge{display:none;}
-}
-</style>
+    /* ── RESPONSIVE ── */
+    @media(max-width: 1024px) {
+      header { padding: 1rem 2rem; }
+      .story, .tabs-nav { padding: 3rem 2rem; }
+      .work-card { grid-template-columns: 1fr; }
+      .outside-grid { grid-template-columns: 1fr; }
+      .section { padding: 3rem 2rem; }
+      .hero-statement { font-size: clamp(2rem, 5vw, 4rem); }
+    }
+  </style>
 </head>
 <body>
 
-<!-- SOCIAL SIDEBAR -->
-<div class="sidebar">
-  <a href="mailto:rajpoot@purdue.edu" class="s-link" title="Email">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
-  </a>
-  <a href="https://scholar.google.com" target="_blank" class="s-link" title="Scholar">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
-  </a>
-  <a href="https://github.com/jitikarajpoot" target="_blank" class="s-link" title="GitHub">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
-  </a>
-  <a href="https://linkedin.com" target="_blank" class="s-link" title="LinkedIn">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-  </a>
-</div>
+<!-- HEADER -->
+<header id="header">
+  <a href="#" class="logo" onclick="goHome(event)">Jitika <em>Rajpoot</em></a>
+  <nav></nav>
+</header>
 
-<!-- NAV -->
-<nav id="nav">
-  <a href="#cover" class="nav-logo">Jitika <em>Rajpoot</em></a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#education">Education</a></li>
-    <li><a href="#research">Research</a></li>
-    <li><a href="#publications">Publications</a></li>
-    <li><a href="#talks">Talks</a></li>
-    <li><a href="#awards">Awards</a></li>
-    <li><a href="#ahead">Looking Ahead</a></li>
-    <li><a href="#contact" class="nav-cta">Contact</a></li>
-  </ul>
+<!-- HERO -->
+<section class="hero" id="hero">
+  <h1 class="hero-statement">
+    Curiosity drives<br>the <span class="accent">science</span>.
+  </h1>
+  <div class="hero-meta">
+    <div class="hero-name">Jitika Rajpoot</div>
+    <div class="hero-intro">PhD Student · Neuroimmunology · Purdue University</div>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story" id="story">
+  <div class="story-header">
+    <h2 class="story-title">How I Got Here</h2>
+  </div>
+  <div class="story-cards">
+
+    <div class="story-card reveal">
+      <div class="story-card-year">Undergrad + First Lab</div>
+      <div class="story-card-title">The Question Emerges</div>
+      <div class="story-card-text">Placeholder — I started in India, working on amyloid peptide synthesis. But my undergraduate thesis took me in a different direction. Still, something kept pulling me back: Alzheimer's disease. No cure. So little known. Why was that such an engaging mystery?</div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="story-card-year">Master's Degree</div>
+      <div class="story-card-title">Stony Brook · Amyloid Aggregation</div>
+      <div class="story-card-text">Placeholder — When searching for master's programs, I deliberately looked for labs in the US studying Alzheimer's. I found Stony Brook, and it was exactly what I needed. Here, I studied how different amyloid peptides aggregate differently — tiny structural variations leading to distinct pathological outcomes.</div>
+    </div>
+
+    <div class="story-card reveal">
+      <div class="story-card-year">PhD (Current)</div>
+      <div class="story-card-title">Purdue · Neuroimmunology</div>
+      <div class="story-card-text">Placeholder — As aggregation work deepened, I naturally asked: but what happens when these peptides are in the *brain*? In neurons, glia, immune cells? This led me to Purdue and to my current work: understanding neuroimmune responses in Alzheimer's disease pathology.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TAB NAVIGATION -->
+<nav class="tabs-nav">
+  <button class="tab-btn active" onclick="switchTab('current-work')">Current Work</button>
+  <button class="tab-btn" onclick="switchTab('what-drives')">What Drives Me</button>
+  <button class="tab-btn" onclick="switchTab('outside')">Outside the Lab</button>
 </nav>
 
-<!-- ══ COVER SECTION ══ -->
-<section class="cover" id="cover">
-  <video class="cover-video" autoplay muted loop playsinline>
-    <source src="brain.mp4" type="video/mp4">
-  </video>
-  <div class="cover-overlay"></div>
-  <div class="cover-content">
-    <div class="cover-eyebrow">Chopra Lab · Purdue University · Chemistry</div>
-    <h1 class="cover-title">
-      Lipids &amp;<br><em>Memory</em>
-    </h1>
-    <p class="cover-sub">Studying the molecular roots of Alzheimer's disease</p>
-    <a href="#about" class="btn btn-warm" style="margin:0 auto;">Meet Jitika</a>
-  </div>
-  <div class="cover-label">
-    <svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-    Scroll
-  </div>
-  <div class="cover-video-label">
-    <p><strong>Fluorescence Microscopy</strong></p>
-    <p>Subiculum · 20× · Vehicle treated</p>
-    <p>Brain tissue imaging · Chopra Lab</p>
+<!-- CURRENT WORK -->
+<section class="section active" id="current-work">
+  <div class="work-grid">
+
+    <div class="work-card reveal">
+      <div class="work-content">
+        <div class="work-question">Research Question</div>
+        <h3>Lipid Dysregulation in Alzheimer's Disease</h3>
+        <div class="work-desc">Placeholder — describe the central question driving this project. What are you investigating? Why does it matter?</div>
+
+        <div class="work-pub">
+          <div class="work-pub-label">Selected Publication</div>
+          <div class="work-pub-title">Placeholder paper title — replace when you have a published manuscript</div>
+          <div class="work-pub-title" style="font-size: 0.75rem; color: var(--muted); font-weight: 400; margin-top: 0.25rem;">Journal Name · Year</div>
+        </div>
+
+        <div class="work-recog">
+          <div class="work-recog-label">Recognition</div>
+          <div class="work-recog-item">• Award or fellowship name · Year</div>
+          <div class="work-recog-item">• Talk or poster · Conference, Year</div>
+        </div>
+      </div>
+      <div class="work-image">Add figure or lab image</div>
+    </div>
+
+    <div class="work-card reveal">
+      <div class="work-content">
+        <div class="work-question">Research Question</div>
+        <h3>Lipid–Protein Interactions</h3>
+        <div class="work-desc">Placeholder — second project description.</div>
+
+        <div class="work-pub">
+          <div class="work-pub-label">Selected Publication</div>
+          <div class="work-pub-title">Placeholder paper title</div>
+          <div class="work-pub-title" style="font-size: 0.75rem; color: var(--muted); font-weight: 400; margin-top: 0.25rem;">Journal Name · Year</div>
+        </div>
+
+        <div class="work-recog">
+          <div class="work-recog-label">Recognition</div>
+          <div class="work-recog-item">• Award · Year</div>
+        </div>
+      </div>
+      <div class="work-image">Add figure or lab image</div>
+    </div>
+
   </div>
 </section>
 
-<!-- ══ ABOUT ══ -->
-<div class="about-section" id="about">
-  <div class="photo-wrap">
-    <div class="photo-frame">
-      <div class="photo-placeholder">
-        <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24">
-          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
-        <span>Add your photo</span>
-      </div>
-      <div class="photo-frame-accent"></div>
-    </div>
-  </div>
-  <div class="about-text">
-    <div class="eyebrow">About me</div>
-    <h2>Jitika<br><em>Rajpoot</em></h2>
-    <p class="about-role">PhD Student · Chemistry · Purdue University</p>
-    <p class="about-bio">
-      I'm a PhD student in the <strong>Chopra Lab</strong> at Purdue University,
-      where I investigate the role of <strong>lipid biology in Alzheimer's disease</strong>.
-      My work bridges wet-lab biochemistry with computational image analysis —
-      using tools like Imaris and Python to extract meaning from complex microscopy data.<br><br>
-      Before Purdue, I completed my <strong>BTech in Biotechnology from IIT Guwahati</strong>
-      and an <strong>MS in Biochemistry &amp; Cell Biology</strong>.
-    </p>
-    <div class="btns">
-      <a href="#research" class="btn btn-warm">My Research</a>
-      <a href="#cv" class="btn btn-ghost">View CV</a>
-    </div>
-    <div class="stats-row">
-      <div>
-        <div class="stat-num">IIT</div>
-        <div class="stat-label">Guwahati Alumni</div>
-      </div>
-      <div>
-        <div class="stat-num">3</div>
-        <div class="stat-label">Research Areas</div>
-      </div>
-      <div>
-        <div class="stat-num">1+</div>
-        <div class="stat-label">Tools in Dev</div>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- WHAT DRIVES ME -->
+<section class="section" id="what-drives">
+  <div class="drives-content">
 
-<!-- ══ EDUCATION ══ -->
-<section class="std" id="education">
-  <div class="s-eyebrow">Academic background</div>
-  <h2 class="s-title">Education</h2>
-  <div class="talks-list">
-
-    <div class="talk-card" onclick="toggleTalk(this)">
-      <div class="talk-card-face">
-        <div class="talk-date">2021 – Present</div>
-        <div>
-          <span class="talk-type tt-invited">PhD</span>
-          <div class="talk-title-text">Chemistry · Purdue University</div>
-          <div class="talk-event-text">Advisor: Prof. Gaurav Chopra · Chopra Lab</div>
-        </div>
+    <div class="drives-section">
+      <h3>Questions I'm Exploring</h3>
+      <div class="drives-item">
+        <strong>Placeholder question one</strong>
+        <p>Why is this question interesting to you? What excites you about it?</p>
       </div>
-      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      <div class="talk-card-body">
-        <div>
-          <div class="talk-section">
-            <div class="talk-section-label">Research Focus</div>
-            <div class="talk-section-text">Placeholder — describe your dissertation topic, the central question you are investigating, and the broader significance of this work.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">Key Training & Skills</div>
-            <div class="talk-section-text">Placeholder — list key techniques, methods, and skills developed during your PhD (e.g. fluorescence microscopy, lipid biochemistry, Python image analysis pipelines).</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">Highlights</div>
-            <div class="talk-section-text">Placeholder — notable achievements, fellowships, publications, or milestones from this degree.</div>
-          </div>
-        </div>
-        <div class="talk-photo">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add photo or lab image</span>
-        </div>
+      <div class="drives-item">
+        <strong>Placeholder question two</strong>
+        <p>Another question that drives your curiosity in science.</p>
+      </div>
+      <div class="drives-item">
+        <strong>Placeholder question three</strong>
+        <p>What are you wondering about right now?</p>
       </div>
     </div>
 
-    <div class="talk-card" onclick="toggleTalk(this)">
-      <div class="talk-card-face">
-        <div class="talk-date">Add year</div>
-        <div>
-          <span class="talk-type tt-contributed">MS</span>
-          <div class="talk-title-text">Biochemistry &amp; Cell Biology · Add Institution</div>
-          <div class="talk-event-text">Placeholder — thesis title or research area</div>
-        </div>
+    <div class="drives-section">
+      <h3>Things I'm Building</h3>
+      <div class="drives-item">
+        <strong>Placeholder project or tool</strong>
+        <p>What are you developing? A method, software, a new approach?</p>
       </div>
-      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      <div class="talk-card-body">
-        <div>
-          <div class="talk-section">
-            <div class="talk-section-label">Thesis / Research</div>
-            <div class="talk-section-text">Placeholder — describe your MS thesis topic or research project and what you investigated.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">Key Training & Skills</div>
-            <div class="talk-section-text">Placeholder — list key skills and techniques developed during your MS.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">Highlights</div>
-            <div class="talk-section-text">Placeholder — notable achievements, awards, or outcomes from this degree.</div>
-          </div>
-        </div>
-        <div class="talk-photo">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add photo or campus image</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="talk-card" onclick="toggleTalk(this)">
-      <div class="talk-card-face">
-        <div class="talk-date">Add year</div>
-        <div>
-          <span class="talk-type tt-poster">BTech</span>
-          <div class="talk-title-text">Biotechnology · IIT Guwahati</div>
-          <div class="talk-event-text">Placeholder — thesis title or final year project</div>
-        </div>
-      </div>
-      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      <div class="talk-card-body">
-        <div>
-          <div class="talk-section">
-            <div class="talk-section-label">Final Year Project</div>
-            <div class="talk-section-text">Placeholder — describe your undergraduate thesis or capstone project.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">Key Training & Skills</div>
-            <div class="talk-section-text">Placeholder — foundational skills and coursework that shaped your scientific direction.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">Highlights</div>
-            <div class="talk-section-text">Placeholder — notable achievements, honors, or experiences from IIT Guwahati.</div>
-          </div>
-        </div>
-        <div class="talk-photo">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add campus or graduation photo</span>
-        </div>
+      <div class="drives-item">
+        <strong>Placeholder collaboration or direction</strong>
+        <p>What are you exploring that isn't yet fully formed?</p>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- ══ RESEARCH ══ -->
-<section class="std alt" id="research">
-  <div class="s-eyebrow">What I study</div>
-  <h2 class="s-title">Research Focus</h2>
-  <p class="s-sub">My work sits at the intersection of lipid biochemistry and neurodegeneration, using both experimental and computational approaches to understand Alzheimer's disease.</p>
-  <div class="r-grid" id="rGrid">
+<!-- OUTSIDE THE LAB -->
+<section class="section" id="outside">
+  <div class="outside-grid">
 
-    <div class="r-card" onclick="openCard(this)">
-      <div class="r-card-face">
-        <div class="r-card-lab">Chopra Lab · Purdue University</div>
-        <div class="r-card-title">Lipid Dysregulation in Alzheimer's Disease</div>
-        <div class="r-card-hint">Click to explore →</div>
-      </div>
-      <div class="r-card-body">
-        <div>
-          <div class="r-expanded-title">Lipid Dysregulation in Alzheimer's Disease</div>
-          <div class="r-section">
-            <div class="r-section-label">The Question</div>
-            <div class="r-section-text">Placeholder — what central question does this project address? What gap in knowledge motivated it?</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Did</div>
-            <div class="r-section-text">Placeholder — describe the experimental approach, models used, techniques applied.</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Established</div>
-            <div class="r-section-text">Placeholder — key findings, results, or contributions from this work.</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Learned</div>
-            <div class="r-section-text">Placeholder — broader insights, unexpected lessons, or implications for the field.</div>
-          </div>
-        </div>
-        <div class="r-figure">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add figure or diagram</span>
-        </div>
-      </div>
-      <div class="r-card-close" onclick="closeCard(event)">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    <div class="outside-card reveal">
+      <div class="outside-image">Add photo</div>
+      <div class="outside-text">
+        <div class="outside-title">Activity One</div>
+        <div class="outside-desc">Placeholder — what do you do outside the lab? A hobby, interest, or passion?</div>
       </div>
     </div>
 
-    <div class="r-card" onclick="openCard(this)">
-      <div class="r-card-face">
-        <div class="r-card-lab">Chopra Lab · Purdue University</div>
-        <div class="r-card-title">Lipid–Protein Interactions in Neurodegeneration</div>
-        <div class="r-card-hint">Click to explore →</div>
-      </div>
-      <div class="r-card-body">
-        <div>
-          <div class="r-expanded-title">Lipid–Protein Interactions in Neurodegeneration</div>
-          <div class="r-section">
-            <div class="r-section-label">The Question</div>
-            <div class="r-section-text">Placeholder — what central question does this project address?</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Did</div>
-            <div class="r-section-text">Placeholder — describe the experimental approach and techniques applied.</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Established</div>
-            <div class="r-section-text">Placeholder — key findings and contributions from this work.</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Learned</div>
-            <div class="r-section-text">Placeholder — broader insights and implications for the field.</div>
-          </div>
-        </div>
-        <div class="r-figure">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add figure or diagram</span>
-        </div>
-      </div>
-      <div class="r-card-close" onclick="closeCard(event)">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    <div class="outside-card reveal">
+      <div class="outside-image">Add photo</div>
+      <div class="outside-text">
+        <div class="outside-title">Activity Two</div>
+        <div class="outside-desc">Another interest or activity you're passionate about.</div>
       </div>
     </div>
 
-    <div class="r-card" onclick="openCard(this)">
-      <div class="r-card-face">
-        <div class="r-card-lab">Chopra Lab · Purdue University</div>
-        <div class="r-card-title">Computational Image Analysis Pipeline</div>
-        <div class="r-card-hint">Click to explore →</div>
-      </div>
-      <div class="r-card-body">
-        <div>
-          <div class="r-expanded-title">Computational Image Analysis Pipeline</div>
-          <div class="r-section">
-            <div class="r-section-label">The Question</div>
-            <div class="r-section-text">Placeholder — what central question does this project address?</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Did</div>
-            <div class="r-section-text">Placeholder — describe the tools built, pipelines developed, methods automated.</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Established</div>
-            <div class="r-section-text">Placeholder — key outputs, performance benchmarks, or validated results.</div>
-          </div>
-          <div class="r-section">
-            <div class="r-section-label">What I Learned</div>
-            <div class="r-section-text">Placeholder — insights on building computational tools for neuroscience research.</div>
-          </div>
-        </div>
-        <div class="r-figure">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          <span>Add figure or diagram</span>
-        </div>
-      </div>
-      <div class="r-card-close" onclick="closeCard(event)">
-        <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    <div class="outside-card reveal">
+      <div class="outside-image">Add photo</div>
+      <div class="outside-text">
+        <div class="outside-title">Activity Three</div>
+        <div class="outside-desc">What lights you up when you're not in the lab?</div>
       </div>
     </div>
 
-  </div>
-</section>
-
-<!-- ══ PUBLICATIONS ══ -->
-<section class="std" id="publications">
-  <div class="s-eyebrow">Peer-reviewed work</div>
-  <h2 class="s-title">Publications</h2>
-  <div class="pub-wrapper">
-    <div class="pub-list">
-      <div class="pub-year-group">
-        <div class="pub-year-label">2025</div>
-        <div class="pub-entry reveal">
-          <div class="pub-num">1.</div>
-          <div>
-            <div class="pub-title">Placeholder paper title — replace with your actual publication title</div>
-            <div class="pub-authors"><strong>Rajpoot J</strong>, Co-Author A, Co-Author B, Senior Author Z.</div>
-            <div class="pub-journal">Journal Name · Volume(Issue):Pages · 2025</div>
-            <div class="pub-links">
-              <a href="#" class="pub-link" target="_blank">PubMed</a>
-              <button class="pub-link" onclick="showAbstract(this,
-                'Placeholder paper title — replace with your actual publication title',
-                'Journal Name · Volume(Issue):Pages · 2025',
-                'Placeholder abstract text. Replace this with the actual abstract of your paper. This should be a concise summary of the background, methods, results, and conclusions of the study.'
-              )">Abstract Preview</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="pub-year-group">
-        <div class="pub-year-label">2024</div>
-        <div class="pub-entry reveal">
-          <div class="pub-num">2.</div>
-          <div>
-            <div class="pub-title">Placeholder paper title — replace with your second publication</div>
-            <div class="pub-authors"><strong>Rajpoot J</strong>, Co-Author A, Senior Author Z.</div>
-            <div class="pub-journal">Journal Name · Volume(Issue):Pages · 2024</div>
-            <div class="pub-links">
-              <a href="#" class="pub-link" target="_blank">PubMed</a>
-              <button class="pub-link" onclick="showAbstract(this,
-                'Placeholder paper title — replace with your second publication',
-                'Journal Name · Volume(Issue):Pages · 2024',
-                'Placeholder abstract text. Replace this with the actual abstract of your second paper.'
-              )">Abstract Preview</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="pub-abstract-panel" id="abstractPanel">
-      <button class="pap-close" onclick="closeAbstract()">✕</button>
-      <div class="pap-label">Abstract</div>
-      <div class="pap-title" id="abstractTitle"></div>
-      <div class="pap-journal" id="abstractJournal"></div>
-      <div class="pap-text" id="abstractText"></div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ TALKS & PRESENTATIONS ══ -->
-<section class="std alt" id="talks">
-  <div class="s-eyebrow">Speaking</div>
-  <h2 class="s-title">Talks &amp; Presentations</h2>
-  <div class="talks-list">
-
-    <div class="talk-card" onclick="toggleTalk(this)">
-      <div class="talk-card-face">
-        <div class="talk-date">Month 2025</div>
-        <div>
-          <span class="talk-type tt-invited">Invited Talk</span>
-          <div class="talk-title-text">Placeholder talk title — replace with actual presentation title</div>
-          <div class="talk-event-text">Conference or Symposium Name · City, State</div>
-        </div>
-      </div>
-      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      <div class="talk-card-body">
-        <div>
-          <div class="talk-section">
-            <div class="talk-section-label">What I Presented</div>
-            <div class="talk-section-text">Placeholder — describe what you presented, the key message, and the audience it was aimed at.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">About the Conference</div>
-            <div class="talk-section-text">Placeholder — a brief description of the conference, its scope, and why it was relevant to your work.</div>
-          </div>
-        </div>
-        <div class="talk-photo">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span>Add photo from presentation</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="talk-card" onclick="toggleTalk(this)">
-      <div class="talk-card-face">
-        <div class="talk-date">Month 2024</div>
-        <div>
-          <span class="talk-type tt-poster">Poster</span>
-          <div class="talk-title-text">Placeholder poster title — replace with actual poster title</div>
-          <div class="talk-event-text">Conference Name · City, State</div>
-        </div>
-      </div>
-      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      <div class="talk-card-body">
-        <div>
-          <div class="talk-section">
-            <div class="talk-section-label">What I Presented</div>
-            <div class="talk-section-text">Placeholder — describe what you presented and the key findings shared.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">About the Conference</div>
-            <div class="talk-section-text">Placeholder — a brief description of the conference and its significance.</div>
-          </div>
-        </div>
-        <div class="talk-photo">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span>Add photo from presentation</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="talk-card" onclick="toggleTalk(this)">
-      <div class="talk-card-face">
-        <div class="talk-date">Month 2024</div>
-        <div>
-          <span class="talk-type tt-contributed">Contributed Talk</span>
-          <div class="talk-title-text">Placeholder talk title — replace with actual presentation title</div>
-          <div class="talk-event-text">Conference Name · City, State</div>
-        </div>
-      </div>
-      <svg class="talk-chevron" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M19 9l-7 7-7-7"/></svg>
-      <div class="talk-card-body">
-        <div>
-          <div class="talk-section">
-            <div class="talk-section-label">What I Presented</div>
-            <div class="talk-section-text">Placeholder — describe what you presented and the key message.</div>
-          </div>
-          <div class="talk-section">
-            <div class="talk-section-label">About the Conference</div>
-            <div class="talk-section-text">Placeholder — a brief description of the conference and audience.</div>
-          </div>
-        </div>
-        <div class="talk-photo">
-          <svg fill="none" stroke="currentColor" stroke-width="1" viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
-          <span>Add photo from presentation</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- ══ AWARDS & RECOGNITION ══ -->
-<section class="std" id="awards">
-  <div class="s-eyebrow">Recognition</div>
-  <h2 class="s-title">Awards &amp; Honors</h2>
-  <div class="awards-list">
-    <div class="award-item reveal">
-      <div class="award-year">2025</div>
-      <div>
-        <div class="award-name">Placeholder Award Name</div>
-        <div class="award-body">Awarding institution or organization · Brief description of what this award recognizes.</div>
-      </div>
-    </div>
-    <div class="award-item reveal">
-      <div class="award-year">2024</div>
-      <div>
-        <div class="award-name">Placeholder Fellowship or Grant</div>
-        <div class="award-body">Awarding institution or organization · Brief description of scope or significance.</div>
-      </div>
-    </div>
-    <div class="award-item reveal">
-      <div class="award-year">2023</div>
-      <div>
-        <div class="award-name">Placeholder Honor or Recognition</div>
-        <div class="award-body">Awarding institution or organization · Brief description.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ LOOKING AHEAD ══ -->
-<section class="std alt" id="ahead">
-  <div class="s-eyebrow">Future directions</div>
-  <h2 class="s-title">Looking Ahead</h2>
-  <p class="s-sub">Where my research is headed and what I hope to build next.</p>
-  <div class="ahead-wrap">
-    <p class="ahead-intro">Placeholder — add a short paragraph here describing your broader vision, what drives your work, and where you see it going in the next few years.</p>
-    <div class="ahead-list">
-      <div class="ahead-item reveal">
-        <div class="ahead-dot"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="ahead-text"><strong>Placeholder goal one</strong> — describe a specific research direction, question, or milestone you are working toward.</div>
-      </div>
-      <div class="ahead-item reveal">
-        <div class="ahead-dot"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="ahead-text"><strong>Placeholder goal two</strong> — another future direction, collaboration, or scientific question you want to pursue.</div>
-      </div>
-      <div class="ahead-item reveal">
-        <div class="ahead-dot"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="ahead-text"><strong>Placeholder goal three</strong> — a tool, method, or application you plan to develop.</div>
-      </div>
-      <div class="ahead-item reveal">
-        <div class="ahead-dot"><svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7"/></svg></div>
-        <div class="ahead-text"><strong>Placeholder goal four</strong> — a broader career or impact goal beyond the lab.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ══ CONTACT ══ -->
-<section class="std alt" id="contact">
-  <div class="s-eyebrow">Get in touch</div>
-  <h2 class="s-title">Let's Connect</h2>
-  <p class="s-sub">Open to collaborations, questions about my research, or conversations about lipid biology and Alzheimer's disease.</p>
-  <div class="contact-grid">
-    <div>
-      <div class="c-links">
-        <a href="mailto:rajpoot@purdue.edu" class="c-link reveal">
-          <div class="c-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg></div>
-          <div><div class="c-lbl">Email</div><div class="c-val">rajpoot@purdue.edu</div></div>
-        </a>
-        <a href="https://scholar.google.com" target="_blank" class="c-link reveal">
-          <div class="c-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg></div>
-          <div><div class="c-lbl">Academic</div><div class="c-val">Google Scholar</div></div>
-        </a>
-        <a href="https://github.com/jitikarajpoot" target="_blank" class="c-link reveal">
-          <div class="c-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg></div>
-          <div><div class="c-lbl">Code</div><div class="c-val">GitHub</div></div>
-        </a>
-        <a href="https://linkedin.com" target="_blank" class="c-link reveal">
-          <div class="c-icon"><svg fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg></div>
-          <div><div class="c-lbl">Professional</div><div class="c-val">LinkedIn</div></div>
-        </a>
-      </div>
-    </div>
-    <div class="c-form reveal">
-      <div class="form-row">
-        <input type="text" placeholder="Your name">
-        <input type="email" placeholder="Your email">
-      </div>
-      <input type="text" placeholder="Subject">
-      <textarea placeholder="Your message — research questions, collaborations, or just hello"></textarea>
-      <a href="#" class="btn btn-warm" style="justify-content:center;">Send Message</a>
-    </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <p>© 2025 Jitika Rajpoot · PhD Student, Purdue University · Chemistry</p>
-  <p>Deploy free on <a href="https://pages.github.com" target="_blank">GitHub Pages</a> or <a href="https://vercel.com" target="_blank">Vercel</a></p>
+  <p>© 2026 Jitika Rajpoot · PhD Student, Purdue University</p>
 </footer>
 
 <script>
-// Nav scroll behaviour
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 80);
-});
-
-// Active nav link on scroll
-const sections = document.querySelectorAll('section[id], div[id]');
-const navLinks = document.querySelectorAll('.nav-links a[href^="#"]');
-window.addEventListener('scroll', () => {
-  let cur = '';
-  sections.forEach(s => { if (window.scrollY >= s.offsetTop - 220) cur = s.id; });
-  navLinks.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + cur));
-});
-
 // Scroll reveal
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Expandable research cards
-function openCard(card) {
-  if (card.classList.contains('open')) return;
-  const grid = card.closest('.r-grid');
-  grid.classList.add('has-open');
-  card.classList.add('open');
-}
-function closeCard(e) {
-  e.stopPropagation();
-  const card = e.currentTarget.closest('.r-card');
-  const grid = card.closest('.r-grid');
-  card.classList.remove('open');
-  grid.classList.remove('has-open');
-}
-
-// Expandable talk cards
-function toggleTalk(card) {
-  const isOpen = card.classList.contains('open');
-  document.querySelectorAll('.talk-card.open').forEach(c => c.classList.remove('open'));
-  if (!isOpen) card.classList.add('open');
-}
-
-// Abstract preview panel
-function showAbstract(btn, title, journal, text) {
-  document.getElementById('abstractTitle').textContent = title;
-  document.getElementById('abstractJournal').textContent = journal;
-  document.getElementById('abstractText').textContent = text;
-  document.getElementById('abstractPanel').classList.add('visible');
-}
-function closeAbstract() {
-  document.getElementById('abstractPanel').classList.remove('visible');
-}
-
-document.addEventListener('keydown', e => {
-  if (e.key !== 'Escape') return;
-  const grid = document.querySelector('.r-grid.has-open');
-  if (grid) { grid.querySelector('.r-card.open')?.classList.remove('open'); grid.classList.remove('has-open'); }
-  document.querySelectorAll('.talk-card.open').forEach(c => c.classList.remove('open'));
-  closeAbstract();
+// Header scroll
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 100);
 });
+
+// Tab switching
+function switchTab(tabName) {
+  // Hide all sections
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+
+  // Show selected section
+  document.getElementById(tabName).classList.add('active');
+
+  // Update tab buttons
+  document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+}
+
+// Go home
+function goHome(e) {
+  e.preventDefault();
+  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+  window.scrollTo(0, 0);
+}
 </script>
+
 </body>
 </html>
