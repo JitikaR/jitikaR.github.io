@@ -235,10 +235,7 @@
     .about-section {
       padding: 6rem 5rem;
       background: var(--bg-main);
-      display: grid;
-      grid-template-columns: 1fr 320px;
-      gap: 4rem;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
     }
 
@@ -256,12 +253,10 @@
       overflow: hidden;
       float: left;
       margin: 0 2rem 2rem 0;
-      grid-column: 1;
     }
 
     .about-content {
-      grid-column: 1;
-      display: flow-root;
+      overflow: auto;
     }
 
     .about-intro {
@@ -305,44 +300,6 @@
     }
 
     .about-text a:hover {
-      border-bottom-color: var(--accent);
-    }
-
-    .about-sidebar {
-      grid-column: 2;
-      grid-row: 1;
-      padding-top: 0;
-    }
-
-    .sidebar-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-      text-align: right;
-    }
-
-    .sidebar-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .sidebar-link {
-      font-family: 'Courier New', monospace;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-dark);
-      text-decoration: none;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 0.5rem;
-      transition: all 0.3s;
-      text-align: right;
-    }
-
-    .sidebar-link:hover {
-      color: var(--accent);
       border-bottom-color: var(--accent);
     }
 
@@ -719,17 +676,6 @@
           <p>When searching for graduate programs, she sought out labs in the United States specifically studying Alzheimer's pathology. She found <a href="#">Stony Brook University</a>, where she spent her Master's years investigating how different amyloid peptides aggregate with distinct propensities. Each structural variant told a story about what might go wrong in the brain. As her work deepened, a natural question emerged: what happens when these aggregated peptides encounter living neural tissue? How do neurons, glia, and immune cells respond?</p>
 
           <p>This question brought her to Purdue, where she now studies the neuroimmune landscape of Alzheimer's disease—how microglial activation, lipid dysregulation, and protein aggregation intersect to drive pathology. Her work bridges wet-lab biochemistry, imaging analysis, and computational approaches, driven by the belief that understanding disease at multiple scales is essential to finding solutions.</p>
-        </div>
-      </div>
-
-      <div class="about-sidebar">
-        <div class="sidebar-title">Elsewhere</div>
-        <div class="sidebar-links">
-          <a href="https://twitter.com" target="_blank" class="sidebar-link">Twitter</a>
-          <a href="https://github.com/jitikarajpoot" target="_blank" class="sidebar-link">GitHub</a>
-          <a href="https://scholar.google.com" target="_blank" class="sidebar-link">Google Scholar</a>
-          <a href="https://linkedin.com" target="_blank" class="sidebar-link">LinkedIn</a>
-          <a href="mailto:rajpoot@purdue.edu" class="sidebar-link">Email</a>
         </div>
       </div>
     </section>
