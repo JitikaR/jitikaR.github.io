@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jitika Rajpoot | Neuroimmunology Research</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-main:    #fffbf7;
+      --bg-light:   #faf8f5;
+      --bg-dark:    #2c2622;
+      --text-dark:  #292420;
+      --text-light: #fbf1e1;
+      --text-muted: #78716c;
+      --accent:     #ea580c;
+      --border:     #e5ddd1;
+      --serif:      'Cormorant Garamond', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--sans);
+      background: var(--bg-main);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      padding: 0;
+      border: none;
+      min-height: 100vh;
+    }
+
+    .page-frame {
+      max-width: 100%;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER / NAV ── */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 2.5rem 5rem 1.5rem;
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .logo {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      text-decoration: none;
+      color: var(--text-dark);
+      letter-spacing: 0.02em;
+    }
+    .logo em { color: var(--accent); font-style: italic; }
+
+    .nav-tabs {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-tabs button {
+      background: none;
+      border: none;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .nav-tabs button:hover {
+      color: var(--accent);
+    }
+
+    .nav-tabs button.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .nav-tabs button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* ── BOTTOM NAV TABS ── */
+    .bottom-nav-tabs {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .bottom-nav-tabs button {
+      background: none;
+      border: none;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s;
+      font-weight: 500;
+    }
+
+    .bottom-nav-tabs button:hover {
+      color: var(--accent);
+    }
+
+    .bottom-nav-tabs button.active {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .bottom-nav-tabs button.active::after {
+      content: '';
+      position: absolute;
+      bottom: -0.5rem;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: var(--accent);
+    }
+
+    /* ── HERO ── */
+    .hero {
+      height: 100vh;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0;
+      margin-bottom: 0;
+    }
+
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(15,10,5,0.55) 0%,
+        rgba(15,10,5,0.35) 50%,
+        rgba(15,10,5,0.75) 100%
+      );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding: 0 2rem;
+    }
+
+    .hero-statement {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 300;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 3rem;
+      letter-spacing: -0.01em;
+    }
+
+    .hero-statement .accent { color: var(--accent); }
+
+    .hero-meta {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-align: center;
+      z-index: 2;
+    }
+
+    .hero-name {
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-intro {
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.75);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── VIEW SECTIONS ── */
+    .view {
+      display: none;
+      flex: 1;
+      padding-bottom: 4rem;
+    }
+
+    .view.active {
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── ABOUT SECTION ── */
+    .about-section {
+      padding: 6rem 5rem;
+      background: var(--bg-main);
+      display: grid;
+      grid-template-columns: 1fr 320px;
+      gap: 4rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-photo {
+      width: 320px;
+      height: 420px;
+      background: var(--bg-light);
+      border: 2px solid var(--text-dark);
+      border-radius: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      overflow: hidden;
+      float: left;
+      margin: 0 2rem 2rem 0;
+      grid-column: 1;
+    }
+
+    .about-content {
+      grid-column: 1;
+      display: flow-root;
+    }
+
+    .about-intro {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: start;
+    }
+
+    .about-dropcap {
+      font-family: var(--sans);
+      font-size: 5.5rem;
+      font-weight: 600;
+      line-height: 0.9;
+      color: var(--text-dark);
+      margin-top: -0.3rem;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 2.1;
+      color: var(--text-dark);
+    }
+
+    .about-text p {
+      margin-bottom: 1.75rem;
+      text-align: left;
+    }
+
+    .about-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
+      transition: all 0.3s;
+    }
+
+    .about-text a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .about-sidebar {
+      grid-column: 2;
+      grid-row: 1;
+      padding-top: 0;
+    }
+
+    .sidebar-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      text-align: right;
+    }
+
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .sidebar-link {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      transition: all 0.3s;
+      text-align: right;
+    }
+
+    .sidebar-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── TAB CONTENT SECTIONS ── */
+    .content-section {
+      padding: 4rem 5rem;
+      border-top: none;
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      margin-bottom: 3rem;
+      text-align: center;
+    }
+
+    /* ── CURRENT WORK ── */
+    .work-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .work-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .work-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
+    }
+
+    .work-image {
+      width: 100%;
+      height: 320px;
+      background: #e8ddd0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      overflow: hidden;
+    }
+
+    .work-content {
+      padding: 2rem;
+    }
+
+    .work-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-title {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      margin-bottom: 0.75rem;
+      color: var(--text-dark);
+    }
+
+    .work-desc {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+
+    .work-pub,
+    .work-recog {
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+      margin-top: 1rem;
+    }
+
+    .work-pub-label,
+    .work-recog-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.4rem;
+    }
+
+    .work-pub-title {
+      font-size: 0.85rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--text-dark);
+    }
+
+    .work-recog-item {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── WHAT DRIVES ME ── */
+    .drives-content {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .drives-subsection {
+      margin-bottom: 3rem;
+    }
+
+    .drives-subsection h3 {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+    }
+
+    .drives-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+    }
+
+    .drives-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.06);
+    }
+
+    .drives-item-title {
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .drives-item-text {
+      font-size: 0.9rem;
+      line-height: 1.75;
+      color: var(--text-muted);
+    }
+
+    /* ── OUTSIDE THE LAB ── */
+    .outside-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .outside-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .outside-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
+    }
+
+    .outside-image {
+      width: 100%;
+      height: 240px;
+      background: #e8ddd0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .outside-text {
+      padding: 1.75rem;
+    }
+
+    .outside-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+    }
+
+    .outside-desc {
+      font-size: 0.85rem;
+      line-height: 1.7;
+      color: var(--text-muted);
+    }
+
+    /* ── CONTACT ── */
+    .contact-content {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .contact-intro {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    .contact-methods {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+    }
+
+    .contact-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 1.75rem;
+      text-align: center;
+    }
+
+    .contact-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.06);
+    }
+
+    .contact-label {
+      font-family: 'Courier New', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-value {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .contact-value a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
+    }
+
+    .contact-value a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .contact-links a {
+      font-size: 0.9rem;
+      color: var(--accent);
+      text-decoration: none;
+      transition: all 0.3s;
+      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
+    }
+
+    .contact-links a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 2rem 5rem;
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+      text-align: center;
+    }
+
+    footer p {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── REVEAL ANIMATION ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .reveal.in {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media(max-width: 1024px) {
+      body { padding: 16px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .outside-grid { grid-template-columns: repeat(2, 1fr); }
+      .hero-statement { font-size: clamp(2rem, 5vw, 4rem); }
+      header { padding: 1.5rem 0 1rem; }
+    }
+
+    @media(max-width: 640px) {
+      body { padding: 12px; }
+      .nav-tabs { gap: 1rem; }
+      .outside-grid { grid-template-columns: 1fr; }
+      .hero-statement { font-size: 2.5rem; }
+      .section-title, .story-title { font-size: 1.8rem; }
+      .hero { margin: 0 -12px -12px -12px; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page-frame">
+
+  <!-- HEADER -->
+  <header>
+    <a href="#" class="logo" onclick="goHome(event)">Jitika <em>Rajpoot</em></a>
+    <nav>
+      <ul class="nav-tabs">
+        <li><button class="active" onclick="switchView('home')">Home</button></li>
+        <li><button onclick="switchView('current-work')">Current Work</button></li>
+        <li><button onclick="switchView('what-drives')">What Drives Me</button></li>
+        <li><button onclick="switchView('outside')">Outside the Lab</button></li>
+        <li><button onclick="switchView('contact')">Contact</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- HOME VIEW -->
+  <div class="view active" id="home">
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline>
+        <source src="brain.mp4" type="video/mp4">
+      </video>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <h1 class="hero-statement">
+          Curiosity drives<br>the <span class="accent">science</span>.
+        </h1>
+      </div>
+      <div class="hero-meta">
+        <div class="hero-name">Jitika Rajpoot</div>
+        <div class="hero-intro">PhD Student · Neuroimmunology · Purdue University</div>
+      </div>
+    </section>
+
+    <section class="about-section">
+      <div class="about-photo">Add your photo</div>
+
+      <div class="about-content">
+        <div class="about-intro">
+          <div class="about-dropcap">J</div>
+          <div class="about-text">
+            <p>itika Rajpoot is a neuroscientist studying how the immune system responds to neurodegeneration. She is a PhD student in Chemistry at Purdue University in the <a href="#">Chopra Lab</a>, where she investigates neuroimmune mechanisms in Alzheimer's disease.</p>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <p>Her scientific journey began in India, where she first encountered the amyloid-β aggregation problem during undergraduate research. Though her thesis took her in a different direction, Alzheimer's disease kept calling her back—the unanswered questions, the absence of effective treatments, the fundamental mystery of it all. She decided to pursue this curiosity deliberately.</p>
+
+          <p>When searching for graduate programs, she sought out labs in the United States specifically studying Alzheimer's pathology. She found <a href="#">Stony Brook University</a>, where she spent her Master's years investigating how different amyloid peptides aggregate with distinct propensities. Each structural variant told a story about what might go wrong in the brain. As her work deepened, a natural question emerged: what happens when these aggregated peptides encounter living neural tissue? How do neurons, glia, and immune cells respond?</p>
+
+          <p>This question brought her to Purdue, where she now studies the neuroimmune landscape of Alzheimer's disease—how microglial activation, lipid dysregulation, and protein aggregation intersect to drive pathology. Her work bridges wet-lab biochemistry, imaging analysis, and computational approaches, driven by the belief that understanding disease at multiple scales is essential to finding solutions.</p>
+        </div>
+      </div>
+
+      <div class="about-sidebar">
+        <div class="sidebar-title">Elsewhere</div>
+        <div class="sidebar-links">
+          <a href="https://twitter.com" target="_blank" class="sidebar-link">Twitter</a>
+          <a href="https://github.com/jitikarajpoot" target="_blank" class="sidebar-link">GitHub</a>
+          <a href="https://scholar.google.com" target="_blank" class="sidebar-link">Google Scholar</a>
+          <a href="https://linkedin.com" target="_blank" class="sidebar-link">LinkedIn</a>
+          <a href="mailto:rajpoot@purdue.edu" class="sidebar-link">Email</a>
+        </div>
+      </div>
+    </section>
+
+    <section style="padding: 3rem 5rem; border-top: 1px solid var(--border); margin-top: 2rem;">
+      <nav class="bottom-nav-tabs">
+        <button class="active" onclick="switchView('home')">Home</button>
+        <button onclick="switchView('current-work')">Current Work</button>
+        <button onclick="switchView('what-drives')">What Drives Me</button>
+        <button onclick="switchView('outside')">Outside the Lab</button>
+        <button onclick="switchView('contact')">Contact</button>
+      </nav>
+    </section>
+  </div>
+
+  <!-- CURRENT WORK VIEW -->
+  <div class="view" id="current-work">
+    <section class="content-section">
+      <h2 class="section-title">Current Work</h2>
+      <div class="work-grid">
+
+        <div class="work-card reveal">
+          <div class="work-image">Add research image</div>
+          <div class="work-content">
+            <div class="work-label">Research Question</div>
+            <div class="work-title">Lipid Dysregulation in Alzheimer's</div>
+            <div class="work-desc">Placeholder — describe your research question and why it matters.</div>
+
+            <div class="work-pub">
+              <div class="work-pub-label">Selected Publication</div>
+              <div class="work-pub-title">Placeholder paper title</div>
+              <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
+            </div>
+
+            <div class="work-recog">
+              <div class="work-recog-label">Recognition</div>
+              <div class="work-recog-item">• Award · Year</div>
+              <div class="work-recog-item">• Talk · Conference, Year</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="work-card reveal">
+          <div class="work-image">Add research image</div>
+          <div class="work-content">
+            <div class="work-label">Research Question</div>
+            <div class="work-title">Lipid–Protein Interactions</div>
+            <div class="work-desc">Placeholder — second project description.</div>
+
+            <div class="work-pub">
+              <div class="work-pub-label">Selected Publication</div>
+              <div class="work-pub-title">Placeholder paper title</div>
+              <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
+            </div>
+
+            <div class="work-recog">
+              <div class="work-recog-label">Recognition</div>
+              <div class="work-recog-item">• Award · Year</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- WHAT DRIVES ME VIEW -->
+  <div class="view" id="what-drives">
+    <section class="content-section">
+      <h2 class="section-title">What Drives Me</h2>
+      <div class="drives-content">
+
+        <div class="drives-subsection">
+          <h3>Questions I'm Exploring</h3>
+          <div class="drives-item reveal">
+            <div class="drives-item-title">Placeholder question one</div>
+            <div class="drives-item-text">Why is this question interesting to you? What excites you about it?</div>
+          </div>
+          <div class="drives-item reveal">
+            <div class="drives-item-title">Placeholder question two</div>
+            <div class="drives-item-text">Another question that drives your curiosity.</div>
+          </div>
+        </div>
+
+        <div class="drives-subsection">
+          <h3>Things I'm Building</h3>
+          <div class="drives-item reveal">
+            <div class="drives-item-title">Placeholder project</div>
+            <div class="drives-item-text">What tool or method are you developing?</div>
+          </div>
+          <div class="drives-item reveal">
+            <div class="drives-item-title">Placeholder exploration</div>
+            <div class="drives-item-text">What are you wondering about right now?</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- OUTSIDE THE LAB VIEW -->
+  <div class="view" id="outside">
+    <section class="content-section">
+      <h2 class="section-title">Outside the Lab</h2>
+      <div class="outside-grid">
+
+        <div class="outside-card reveal">
+          <div class="outside-image">Add photo</div>
+          <div class="outside-text">
+            <div class="outside-title">Activity One</div>
+            <div class="outside-desc">What do you do outside the lab? A hobby or passion?</div>
+          </div>
+        </div>
+
+        <div class="outside-card reveal">
+          <div class="outside-image">Add photo</div>
+          <div class="outside-text">
+            <div class="outside-title">Activity Two</div>
+            <div class="outside-desc">Another interest or activity you care about.</div>
+          </div>
+        </div>
+
+        <div class="outside-card reveal">
+          <div class="outside-image">Add photo</div>
+          <div class="outside-text">
+            <div class="outside-title">Activity Three</div>
+            <div class="outside-desc">What lights you up when you're not in the lab?</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </div>
+
+  <!-- CONTACT VIEW -->
+  <div class="view" id="contact">
+    <section class="content-section">
+      <h2 class="section-title">Get in Touch</h2>
+      <div class="contact-content">
+        <p class="contact-intro">Placeholder — brief message about how you'd like to be contacted and what kinds of inquiries you're open to.</p>
+
+        <div class="contact-methods">
+          <div class="contact-item reveal">
+            <div class="contact-label">Email</div>
+            <div class="contact-value"><a href="mailto:rajpoot@purdue.edu">rajpoot@purdue.edu</a></div>
+          </div>
+
+          <div class="contact-item reveal">
+            <div class="contact-label">Social</div>
+            <div class="contact-links">
+              <a href="https://linkedin.com" target="_blank">LinkedIn</a>
+              <a href="https://github.com/jitikarajpoot" target="_blank">GitHub</a>
+              <a href="https://scholar.google.com" target="_blank">Google Scholar</a>
+            </div>
+          </div>
+
+          <div class="contact-item reveal">
+            <div class="contact-label">Lab</div>
+            <div class="contact-value">Chopra Lab, Purdue University</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 Jitika Rajpoot · PhD Student, Purdue University</p>
+  </footer>
+
+</div>
+
+<script>
+// Scroll reveal
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Tab switching
+function switchView(viewName) {
+  // Hide all views
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+
+  // Show selected view
+  document.getElementById(viewName).classList.add('active');
+
+  // Update top nav buttons
+  document.querySelectorAll('.nav-tabs button').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.textContent.toLowerCase().includes(viewName.replace('-', ' '))) {
+      btn.classList.add('active');
+    }
+  });
+
+  // Update bottom nav buttons (if they exist)
+  const bottomNavButtons = document.querySelectorAll('.bottom-nav-tabs button');
+  if (bottomNavButtons.length > 0) {
+    bottomNavButtons.forEach(btn => {
+      btn.classList.remove('active');
+      if (btn.textContent.toLowerCase().includes(viewName.replace('-', ' '))) {
+        btn.classList.add('active');
+      }
+    });
+  }
+
+  // Scroll to top
+  window.scrollTo(0, 0);
+
+  // Trigger reveal animations
+  setTimeout(() => {
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  }, 100);
+}
+
+// Go home
+function goHome(e) {
+  e.preventDefault();
+  switchView('home');
+}
+</script>
+
+</body>
+</html>
