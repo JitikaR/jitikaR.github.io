@@ -68,23 +68,20 @@
 
     .nav-tabs {
       display: flex;
-      gap: 3rem;
+      gap: 1rem;
       list-style: none;
-      border: 2px solid rgba(255, 255, 255, 0.6);
-      padding: 1rem 2rem;
-      background: rgba(0, 0, 0, 0.2);
     }
 
     .nav-tabs button {
-      background: none;
-      border: none;
+      background: rgba(0, 0, 0, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.6);
       font-family: 'Courier New', monospace;
       font-size: 1rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.8);
       cursor: pointer;
-      padding: 0.5rem 0;
+      padding: 0.75rem 1.25rem;
       position: relative;
       transition: all 0.3s;
       font-weight: 700;
@@ -92,21 +89,24 @@
 
     .nav-tabs button:hover {
       color: #fff;
+      border-color: rgba(255, 255, 255, 0.9);
     }
 
     .nav-tabs button.active {
       color: #fff;
       font-weight: 700;
+      background: rgba(0, 0, 0, 0.4);
+      border-color: rgba(255, 255, 255, 1);
     }
 
     .nav-tabs button.active::after {
       content: '';
       position: absolute;
-      bottom: -0.5rem;
+      bottom: -2px;
       left: 0;
       right: 0;
-      height: 2px;
-      background: #fff;
+      height: 0;
+      background: transparent;
     }
 
     /* ── BOTTOM NAV TABS ── */
