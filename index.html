@@ -231,85 +231,108 @@
       flex-direction: column;
     }
 
-    /* ── STORY SECTION ── */
-    .story-section {
-      padding: 0;
-      border-top: none;
-      scroll-snap-type: y mandatory;
-    }
-
-    .story-title {
-      display: none;
-    }
-
-    .story-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-      scroll-snap-align: start;
-    }
-
-    .story-card {
+    /* ── ABOUT SECTION ── */
+    .about-section {
+      padding: 6rem 5rem;
       background: var(--bg-main);
-      border: none;
       display: grid;
-      grid-template-columns: 40% 60%;
-      align-items: stretch;
-      min-height: 100vh;
-      padding: 0;
-      gap: 0;
-      scroll-snap-align: start;
-      scroll-snap-stop: always;
-      transition: all 0.6s ease;
+      grid-template-columns: 320px 1fr 300px;
+      gap: 4rem;
+      align-items: start;
+      max-width: 1400px;
+      margin: 0 auto;
     }
 
-    .story-card-image {
+    .about-photo {
       width: 100%;
-      height: 100%;
-      background: linear-gradient(135deg, #e8ddd0 0%, #d9cfc2 100%);
-      border: none;
+      aspect-ratio: 3/4;
+      background: var(--bg-light);
+      border: 2px solid var(--text-dark);
       border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
-      font-size: 0.85rem;
-      order: 1;
+      font-size: 0.8rem;
+      overflow: hidden;
     }
 
-    .story-card-content {
-      order: 2;
-      padding: 6rem 5rem;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+    .about-content {
+      padding: 1rem 0;
     }
 
-    .story-card-year {
-      font-family: 'Courier New', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--text-dark);
-      font-weight: 400;
-      margin-bottom: 0;
-      display: none;
+    .about-intro {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+      align-items: start;
     }
 
-    .story-card-title {
+    .about-dropcap {
       font-family: var(--serif);
-      font-size: 1.2rem;
+      font-size: 4rem;
+      font-weight: 400;
+      line-height: 0.8;
+      color: var(--text-dark);
+      margin-top: 0.2rem;
+    }
+
+    .about-text {
+      font-size: 1rem;
+      line-height: 1.95;
+      color: var(--text-muted);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+    }
+
+    .about-text a {
+      color: var(--accent);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
+      transition: all 0.3s;
+    }
+
+    .about-text a:hover {
+      border-bottom-color: var(--accent);
+    }
+
+    .about-sidebar {
+      padding-top: 1rem;
+    }
+
+    .sidebar-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
       font-weight: 400;
       margin-bottom: 1.5rem;
-      color: var(--accent);
-      letter-spacing: 0.02em;
+      text-align: right;
     }
 
-    .story-card-text {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: var(--text-muted);
-      max-width: 100%;
+    .sidebar-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .sidebar-link {
+      font-family: 'Courier New', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dark);
+      text-decoration: none;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.5rem;
+      transition: all 0.3s;
+      text-align: right;
+    }
+
+    .sidebar-link:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
     }
 
     /* ── TAB CONTENT SECTIONS ── */
@@ -668,49 +691,39 @@
       </div>
     </section>
 
-    <section class="story-section">
-      <h2 class="story-title">How I Got Here</h2>
-      <div class="story-cards">
+    <section class="about-section">
+      <div class="about-photo">Add your photo</div>
 
-        <div class="story-card">
-          <div class="story-card-image">Add photo</div>
-          <div class="story-card-content">
-            <div class="story-card-title">Who am I</div>
-            <div class="story-card-text">Placeholder — introduce yourself, your background, what drives your work. This is the opening to your story — what should someone know about you before diving into your journey?</div>
+      <div class="about-content">
+        <div class="about-intro">
+          <div class="about-dropcap">J</div>
+          <div class="about-text">
+            <p>itika Rajpoot is a neuroscientist studying how the immune system responds to neurodegeneration. She is a PhD student in Chemistry at Purdue University in the <a href="#">Chopra Lab</a>, where she investigates neuroimmune mechanisms in Alzheimer's disease.</p>
           </div>
         </div>
 
-        <div class="story-card">
-          <div class="story-card-image">Add image</div>
-          <div class="story-card-content">
-            <div class="story-card-year">Undergrad + First Lab</div>
-            <div class="story-card-title">The Question Emerges</div>
-            <div class="story-card-text">Placeholder — I started in India, working on amyloid peptide synthesis. But my undergraduate thesis took me in a different direction. Still, something kept pulling me back: Alzheimer's disease. No cure. So little known. Why was that such an engaging mystery?</div>
-          </div>
-        </div>
+        <div class="about-text">
+          <p>Her scientific journey began in India, where she first encountered the amyloid-β aggregation problem during undergraduate research. Though her thesis took her in a different direction, Alzheimer's disease kept calling her back—the unanswered questions, the absence of effective treatments, the fundamental mystery of it all. She decided to pursue this curiosity deliberately.</p>
 
-        <div class="story-card">
-          <div class="story-card-image">Add image</div>
-          <div class="story-card-content">
-            <div class="story-card-year">Master's Degree</div>
-            <div class="story-card-title">Stony Brook · Amyloid Aggregation</div>
-            <div class="story-card-text">Placeholder — When searching for master's programs, I deliberately looked for labs in the US studying Alzheimer's. I found Stony Brook, and it was exactly what I needed. Here, I studied how different amyloid peptides aggregate differently — tiny structural variations leading to distinct pathological outcomes.</div>
-          </div>
-        </div>
+          <p>When searching for graduate programs, she sought out labs in the United States specifically studying Alzheimer's pathology. She found <a href="#">Stony Brook University</a>, where she spent her Master's years investigating how different amyloid peptides aggregate with distinct propensities. Each structural variant told a story about what might go wrong in the brain. As her work deepened, a natural question emerged: what happens when these aggregated peptides encounter living neural tissue? How do neurons, glia, and immune cells respond?</p>
 
-        <div class="story-card">
-          <div class="story-card-image">Add image</div>
-          <div class="story-card-content">
-            <div class="story-card-year">PhD (Current)</div>
-            <div class="story-card-title">Purdue · Neuroimmunology</div>
-            <div class="story-card-text">Placeholder — As aggregation work deepened, I naturally asked: but what happens when these peptides are in the *brain*? In neurons, glia, immune cells? This led me to Purdue and to my current work: understanding neuroimmune responses in Alzheimer's disease pathology.</div>
-          </div>
+          <p>This question brought her to Purdue, where she now studies the neuroimmune landscape of Alzheimer's disease—how microglial activation, lipid dysregulation, and protein aggregation intersect to drive pathology. Her work bridges wet-lab biochemistry, imaging analysis, and computational approaches, driven by the belief that understanding disease at multiple scales is essential to finding solutions.</p>
         </div>
+      </div>
 
+      <div class="about-sidebar">
+        <div class="sidebar-title">Elsewhere</div>
+        <div class="sidebar-links">
+          <a href="https://twitter.com" target="_blank" class="sidebar-link">Twitter</a>
+          <a href="https://github.com/jitikarajpoot" target="_blank" class="sidebar-link">GitHub</a>
+          <a href="https://scholar.google.com" target="_blank" class="sidebar-link">Google Scholar</a>
+          <a href="https://linkedin.com" target="_blank" class="sidebar-link">LinkedIn</a>
+          <a href="mailto:rajpoot@purdue.edu" class="sidebar-link">Email</a>
+        </div>
       </div>
     </section>
 
-    <section class="story-section" style="border-top: 1px solid var(--border); padding-top: 3rem; margin-top: 3rem;">
+    <section style="padding: 3rem 5rem; border-top: 1px solid var(--border); margin-top: 2rem;">
       <nav class="bottom-nav-tabs">
         <button class="active" onclick="switchView('home')">Home</button>
         <button onclick="switchView('current-work')">Current Work</button>
