@@ -231,36 +231,68 @@
 
     /* ── STORY SECTION ── */
     .story-section {
-      padding: 4rem 0;
+      padding: 0;
       border-top: none;
+      scroll-snap-type: y mandatory;
     }
 
     .story-title {
       font-family: var(--serif);
       font-size: 2.5rem;
       font-weight: 300;
-      margin-bottom: 3rem;
+      padding: 4rem 0;
       text-align: center;
     }
 
     .story-cards {
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
-      max-width: 820px;
-      margin: 0 auto;
+      gap: 0;
+      scroll-snap-align: start;
     }
 
     .story-card {
       background: var(--bg-light);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      transition: all 0.3s;
+      border: none;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      min-height: 85vh;
+      padding: 4rem;
+      gap: 4rem;
+      scroll-snap-align: start;
+      scroll-snap-stop: always;
+      transition: all 0.6s ease;
     }
 
-    .story-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
+    .story-card:nth-child(even) {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .story-card:nth-child(even) .story-card-image {
+      order: 2;
+    }
+
+    .story-card:nth-child(even) .story-card-content {
+      order: 1;
+    }
+
+    .story-card-image {
+      width: 100%;
+      height: 400px;
+      background: linear-gradient(135deg, #e8ddd0 0%, #d9cfc2 100%);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      order: 2;
+    }
+
+    .story-card-content {
+      order: 1;
     }
 
     .story-card-year {
@@ -270,21 +302,22 @@
       text-transform: uppercase;
       color: var(--accent);
       font-weight: 600;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
     }
 
     .story-card-title {
       font-family: var(--serif);
-      font-size: 1.8rem;
+      font-size: 2.2rem;
       font-weight: 400;
-      margin-bottom: 0.75rem;
+      margin-bottom: 1rem;
       color: var(--text-dark);
     }
 
     .story-card-text {
-      font-size: 0.95rem;
-      line-height: 1.85;
+      font-size: 1rem;
+      line-height: 1.95;
       color: var(--text-muted);
+      max-width: 520px;
     }
 
     /* ── TAB CONTENT SECTIONS ── */
