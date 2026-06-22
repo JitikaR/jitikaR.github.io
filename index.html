@@ -239,11 +239,7 @@
     }
 
     .story-title {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      font-weight: 300;
-      padding: 4rem 5rem;
-      text-align: center;
+      display: none;
     }
 
     .story-cards {
@@ -254,47 +250,39 @@
     }
 
     .story-card {
-      background: var(--bg-light);
+      background: var(--bg-main);
       border: none;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      min-height: 85vh;
-      padding: 4rem 5rem;
-      gap: 4rem;
+      grid-template-columns: 40% 60%;
+      align-items: stretch;
+      min-height: 100vh;
+      padding: 0;
+      gap: 0;
       scroll-snap-align: start;
       scroll-snap-stop: always;
       transition: all 0.6s ease;
     }
 
-    .story-card:nth-child(even) {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .story-card:nth-child(even) .story-card-image {
-      order: 2;
-    }
-
-    .story-card:nth-child(even) .story-card-content {
-      order: 1;
-    }
-
     .story-card-image {
       width: 100%;
-      height: 400px;
+      height: 100%;
       background: linear-gradient(135deg, #e8ddd0 0%, #d9cfc2 100%);
-      border: 1px solid var(--border);
-      border-radius: 4px;
+      border: none;
+      border-radius: 0;
       display: flex;
       align-items: center;
       justify-content: center;
       color: var(--text-muted);
       font-size: 0.85rem;
-      order: 2;
+      order: 1;
     }
 
     .story-card-content {
-      order: 1;
+      order: 2;
+      padding: 6rem 5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
     .story-card-year {
@@ -302,24 +290,26 @@
       font-size: 0.65rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 1rem;
+      color: var(--text-dark);
+      font-weight: 400;
+      margin-bottom: 0;
+      display: none;
     }
 
     .story-card-title {
       font-family: var(--serif);
-      font-size: 2.2rem;
+      font-size: 1.2rem;
       font-weight: 400;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
+      margin-bottom: 1.5rem;
+      color: var(--accent);
+      letter-spacing: 0.02em;
     }
 
     .story-card-text {
-      font-size: 1rem;
-      line-height: 1.95;
+      font-size: 0.95rem;
+      line-height: 1.9;
       color: var(--text-muted);
-      max-width: 520px;
+      max-width: 100%;
     }
 
     /* ── TAB CONTENT SECTIONS ── */
@@ -682,22 +672,39 @@
       <h2 class="story-title">How I Got Here</h2>
       <div class="story-cards">
 
-        <div class="story-card reveal">
-          <div class="story-card-year">Undergrad + First Lab</div>
-          <div class="story-card-title">The Question Emerges</div>
-          <div class="story-card-text">Placeholder — I started in India, working on amyloid peptide synthesis. But my undergraduate thesis took me in a different direction. Still, something kept pulling me back: Alzheimer's disease. No cure. So little known. Why was that such an engaging mystery?</div>
+        <div class="story-card">
+          <div class="story-card-image">Add photo</div>
+          <div class="story-card-content">
+            <div class="story-card-title">Who am I</div>
+            <div class="story-card-text">Placeholder — introduce yourself, your background, what drives your work. This is the opening to your story — what should someone know about you before diving into your journey?</div>
+          </div>
         </div>
 
-        <div class="story-card reveal">
-          <div class="story-card-year">Master's Degree</div>
-          <div class="story-card-title">Stony Brook · Amyloid Aggregation</div>
-          <div class="story-card-text">Placeholder — When searching for master's programs, I deliberately looked for labs in the US studying Alzheimer's. I found Stony Brook, and it was exactly what I needed. Here, I studied how different amyloid peptides aggregate differently — tiny structural variations leading to distinct pathological outcomes.</div>
+        <div class="story-card">
+          <div class="story-card-image">Add image</div>
+          <div class="story-card-content">
+            <div class="story-card-year">Undergrad + First Lab</div>
+            <div class="story-card-title">The Question Emerges</div>
+            <div class="story-card-text">Placeholder — I started in India, working on amyloid peptide synthesis. But my undergraduate thesis took me in a different direction. Still, something kept pulling me back: Alzheimer's disease. No cure. So little known. Why was that such an engaging mystery?</div>
+          </div>
         </div>
 
-        <div class="story-card reveal">
-          <div class="story-card-year">PhD (Current)</div>
-          <div class="story-card-title">Purdue · Neuroimmunology</div>
-          <div class="story-card-text">Placeholder — As aggregation work deepened, I naturally asked: but what happens when these peptides are in the *brain*? In neurons, glia, immune cells? This led me to Purdue and to my current work: understanding neuroimmune responses in Alzheimer's disease pathology.</div>
+        <div class="story-card">
+          <div class="story-card-image">Add image</div>
+          <div class="story-card-content">
+            <div class="story-card-year">Master's Degree</div>
+            <div class="story-card-title">Stony Brook · Amyloid Aggregation</div>
+            <div class="story-card-text">Placeholder — When searching for master's programs, I deliberately looked for labs in the US studying Alzheimer's. I found Stony Brook, and it was exactly what I needed. Here, I studied how different amyloid peptides aggregate differently — tiny structural variations leading to distinct pathological outcomes.</div>
+          </div>
+        </div>
+
+        <div class="story-card">
+          <div class="story-card-image">Add image</div>
+          <div class="story-card-content">
+            <div class="story-card-year">PhD (Current)</div>
+            <div class="story-card-title">Purdue · Neuroimmunology</div>
+            <div class="story-card-text">Placeholder — As aggregation work deepened, I naturally asked: but what happens when these peptides are in the *brain*? In neurons, glia, immune cells? This led me to Purdue and to my current work: understanding neuroimmune responses in Alzheimer's disease pathology.</div>
+          </div>
         </div>
 
       </div>
