@@ -409,6 +409,50 @@
       margin-bottom: 0.2rem;
     }
 
+    /* ── EXPANDABLE RESEARCH CARDS ── */
+    .work-card {
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .work-card.expanded {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 400px 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .work-card.expanded .work-image {
+      height: 350px;
+      width: 100%;
+    }
+
+    .work-card.expanded .work-content {
+      padding: 0;
+    }
+
+    .work-expanded-content {
+      grid-column: 1 / -1;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--text-dark);
+      margin-top: 1.5rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border);
+    }
+
+    .work-pub-clickable {
+      color: var(--accent);
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s;
+    }
+
+    .work-pub-clickable:hover {
+      text-decoration: underline;
+    }
+
     /* ── WORK TABS ── */
     .work-tabs {
       display: flex;
@@ -972,7 +1016,7 @@
       <!-- RESEARCH TAB -->
       <div class="work-tab-content active" id="research-tab">
         <div class="work-grid">
-          <div class="work-card reveal">
+          <div class="work-card reveal" onclick="toggleResearchCard(this)">
             <div class="work-image">Add research image</div>
             <div class="work-content">
               <div class="work-label">Research Question</div>
@@ -980,12 +1024,15 @@
               <div class="work-desc">Placeholder — describe your research question and why it matters.</div>
               <div class="work-pub">
                 <div class="work-pub-label">Selected Publication</div>
-                <div class="work-pub-title">Placeholder paper title</div>
+                <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Placeholder paper title')">Placeholder paper title</div>
                 <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
               </div>
             </div>
+            <div class="work-expanded-content" style="display: none;">
+              <p>Expanded research details and findings about lipid dysregulation in Alzheimer's disease. This section includes more comprehensive information about the research methodology, key results, and implications.</p>
+            </div>
           </div>
-          <div class="work-card reveal">
+          <div class="work-card reveal" onclick="toggleResearchCard(this)">
             <div class="work-image">Add research image</div>
             <div class="work-content">
               <div class="work-label">Research Question</div>
@@ -993,9 +1040,12 @@
               <div class="work-desc">Placeholder — second project description.</div>
               <div class="work-pub">
                 <div class="work-pub-label">Selected Publication</div>
-                <div class="work-pub-title">Placeholder paper title</div>
+                <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Another paper title')">Placeholder paper title</div>
                 <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
               </div>
+            </div>
+            <div class="work-expanded-content" style="display: none;">
+              <p>Expanded research details about lipid-protein interactions. This section provides deeper insights into the research questions, experimental approaches, and discoveries made during this project.</p>
             </div>
           </div>
         </div>
@@ -1337,6 +1387,52 @@ function scrollGallery(galleryContainer, imageIndex) {
   dots.forEach((dot, idx) => {
     dot.classList.toggle('active', idx === imageIndex);
   });
+}
+
+// Toggle research card expand/collapse
+function toggleResearchCard(card) {
+  // Collapse other cards
+  document.querySelectorAll('.work-card.expanded').forEach(c => {
+    if (c !== card) {
+      c.classList.remove('expanded');
+      c.querySelector('.work-expanded-content').style.display = 'none';
+    }
+  });
+
+  // Toggle current card
+  card.classList.toggle('expanded');
+  const expandedContent = card.querySelector('.work-expanded-content');
+  if (card.classList.contains('expanded')) {
+    expandedContent.style.display = 'block';
+  } else {
+    expandedContent.style.display = 'none';
+  }
+}
+
+// Navigate to publication
+function navigateToPublication(event, pubTitle) {
+  event.stopPropagation();
+
+  // Switch to Publications tab
+  switchWorkTab('publications');
+
+  // Find and expand the matching publication
+  setTimeout(() => {
+    const publications = document.querySelectorAll('.publication-item');
+    publications.forEach(pub => {
+      const title = pub.querySelector('.pub-title').textContent;
+      if (title.includes(pubTitle)) {
+        const abstractContent = pub.querySelector('.pub-abstract-content');
+        const btn = pub.querySelector('.abstract-toggle');
+        if (abstractContent.style.display === 'none') {
+          abstractContent.style.display = 'block';
+          btn.textContent = 'Hide Abstract';
+        }
+        // Scroll to publication
+        pub.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    });
+  }, 100);
 }
 
 // Go home
