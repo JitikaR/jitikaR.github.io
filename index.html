@@ -55,7 +55,6 @@
       right: 0;
       z-index: 10;
       background: #000;
-      transition: background 0.3s ease;
     }
 
     .view.active:not(#home) ~ header,
@@ -86,7 +85,7 @@
       background: none;
       border: none;
       font-family: 'Courier New', monospace;
-      font-size: 0.85rem;
+      font-size: 1rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: rgba(255, 255, 255, 0.7);
@@ -855,14 +854,6 @@ function switchView(viewName) {
 
   // Show selected view
   document.getElementById(viewName).classList.add('active');
-
-  // Update header background color
-  const header = document.querySelector('header');
-  if (viewName === 'home') {
-    header.style.background = '#000';
-  } else {
-    header.style.background = '#ea580c';
-  }
 
   // Update top nav buttons
   document.querySelectorAll('.nav-tabs button').forEach(btn => {
