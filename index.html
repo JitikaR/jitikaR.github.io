@@ -46,19 +46,29 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 2.5rem 5rem 1.5rem;
+      padding: 1.5rem 5rem;
       border-bottom: none;
       margin-bottom: 0;
-      position: absolute;
+      position: sticky;
       top: 0;
       left: 0;
       right: 0;
       z-index: 10;
+      background: #000;
+      transition: background 0.3s ease;
+    }
+
+    .view.active:not(#home) ~ header,
+    #current-work ~ header,
+    #what-drives ~ header,
+    #outside ~ header,
+    #contact ~ header {
+      background: var(--accent);
     }
 
     .logo {
       font-family: var(--serif);
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: 400;
       text-decoration: none;
       color: #fff;
@@ -68,45 +78,42 @@
 
     .nav-tabs {
       display: flex;
-      gap: 1rem;
+      gap: 2rem;
       list-style: none;
     }
 
     .nav-tabs button {
-      background: rgba(0, 0, 0, 0.2);
-      border: 2px solid rgba(255, 255, 255, 0.6);
+      background: none;
+      border: none;
       font-family: 'Courier New', monospace;
-      font-size: 1rem;
-      letter-spacing: 0.15em;
+      font-size: 0.85rem;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.8);
+      color: rgba(255, 255, 255, 0.7);
       cursor: pointer;
-      padding: 0.75rem 1.25rem;
+      padding: 0.5rem 0;
       position: relative;
       transition: all 0.3s;
-      font-weight: 700;
+      font-weight: 600;
     }
 
     .nav-tabs button:hover {
       color: #fff;
-      border-color: rgba(255, 255, 255, 0.9);
     }
 
     .nav-tabs button.active {
       color: #fff;
-      font-weight: 700;
-      background: rgba(0, 0, 0, 0.4);
-      border-color: rgba(255, 255, 255, 1);
+      font-weight: 600;
     }
 
     .nav-tabs button.active::after {
       content: '';
       position: absolute;
-      bottom: -2px;
+      bottom: -0.5rem;
       left: 0;
       right: 0;
-      height: 0;
-      background: transparent;
+      height: 2px;
+      background: #fff;
     }
 
     /* ── BOTTOM NAV TABS ── */
