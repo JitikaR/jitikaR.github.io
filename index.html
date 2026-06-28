@@ -1259,6 +1259,11 @@ function switchView(viewName) {
   // Show selected view
   document.getElementById(viewName).classList.add('active');
 
+  // If switching to current-work, reset to Research tab
+  if (viewName === 'current-work') {
+    switchWorkTab('research');
+  }
+
   // Update top nav buttons
   document.querySelectorAll('.nav-tabs button').forEach(btn => {
     btn.classList.remove('active');
