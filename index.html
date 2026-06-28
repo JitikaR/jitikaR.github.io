@@ -72,8 +72,16 @@
       text-decoration: none;
       color: #fff;
       letter-spacing: 0.02em;
+      display: flex;
+      align-items: flex-start;
+      gap: 0.3rem;
     }
-    .logo em { color: #fff; font-style: italic; }
+    .logo em {
+      color: var(--accent);
+      font-style: italic;
+      font-size: 1.5rem;
+      font-weight: 400;
+    }
 
     .nav-tabs {
       display: flex;
@@ -87,7 +95,7 @@
       font-family: var(--serif);
       font-size: 1rem;
       letter-spacing: 0.05em;
-      text-transform: uppercase;
+      text-transform: capitalize;
       color: rgba(255, 255, 255, 0.7);
       cursor: pointer;
       padding: 0.5rem 0;
