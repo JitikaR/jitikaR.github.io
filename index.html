@@ -1531,21 +1531,18 @@ function toggleResearchCard(card) {
   // Get the corresponding expanded view (paired by order)
   const expandedView = Array.from(allExpandedViews)[cardIndex];
 
-  // Check if this expanded view is already open BEFORE hiding anything
+  // Check if this expanded view is already open
   const isCurrentlyOpen = expandedView.style.display === 'grid';
 
-  // If it was already open, close it (show all cards again, hide expanded views)
+  // If it was already open, close it
   if (isCurrentlyOpen) {
-    allCards.forEach(c => c.style.display = 'block');
-    allExpandedViews.forEach(view => view.style.display = 'none');
+    card.style.display = 'block';
+    expandedView.style.display = 'none';
     return;
   }
 
-  // If opening a new expanded view: hide only the clicked card, hide all expanded views
-  allCards.forEach(c => c.style.display = 'block');
-  allExpandedViews.forEach(view => view.style.display = 'none');
-
-  // Hide only the clicked card and show its expanded view
+  // If opening a new expanded view, just hide this card and show expanded view
+  // Don't close other expanded views - allow multiple to be open
   card.style.display = 'none';
   expandedView.style.display = 'grid';
 }
@@ -1557,9 +1554,13 @@ function closeResearchCard(btn) {
   const allCards = workGrid.querySelectorAll('.work-card');
   const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
 
-  // Show all cards and hide all expanded views
-  allCards.forEach(c => c.style.display = 'block');
-  allExpandedViews.forEach(view => view.style.display = 'none');
+  // Find which card this expanded view corresponds to
+  const expandedIndex = Array.from(allExpandedViews).indexOf(expandedView);
+  const cardToShow = Array.from(allCards)[expandedIndex];
+
+  // Only show the card for this expanded view and hide the expanded view
+  cardToShow.style.display = 'block';
+  expandedView.style.display = 'none';
 }
 
 // Navigate to publication
