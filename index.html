@@ -1481,21 +1481,27 @@ function toggleResearchCard(card) {
   const workGrid = card.closest('.work-grid');
   const allCards = workGrid.querySelectorAll('.work-card');
   const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
+
+  // Find the position of clicked card
   const cardIndex = Array.from(allCards).indexOf(card);
 
-  // Get the corresponding expanded view (every other element after cards)
-  const expandedView = allExpandedViews[Math.floor(cardIndex / 2)];
+  // Get the corresponding expanded view (paired by order)
+  const expandedView = Array.from(allExpandedViews)[cardIndex];
 
-  // If expanded view is already showing, close it
-  if (expandedView.style.display === 'block') {
-    expandedView.style.display = 'none';
+  // Check if this expanded view is already open
+  const isCurrentlyOpen = expandedView.style.display === 'grid' || expandedView.style.display === 'block';
+
+  // Hide all cards and expanded views
+  allCards.forEach(c => c.style.display = 'none');
+  allExpandedViews.forEach(view => view.style.display = 'none');
+
+  // If it was already open, close it (show cards again)
+  if (isCurrentlyOpen) {
+    allCards.forEach(c => c.style.display = 'block');
     return;
   }
 
-  // Close all other expanded views
-  allExpandedViews.forEach(view => view.style.display = 'none');
-
-  // Show the corresponding expanded view
+  // Otherwise show the clicked card's expanded view
   expandedView.style.display = 'grid';
 }
 
