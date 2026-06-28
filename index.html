@@ -433,6 +433,7 @@
       padding: 2.5rem;
       background: var(--bg-light);
       border: 1px solid var(--border);
+      position: relative;
     }
 
     .research-gallery {
@@ -484,29 +485,40 @@
 
     .research-pub-title {
       font-size: 0.95rem;
-      color: var(--text-dark);
+      color: var(--accent);
       margin-bottom: 0.2rem;
+      cursor: pointer;
+      display: inline-block;
+      transition: all 0.3s;
+    }
+
+    .research-pub-title:hover {
+      text-decoration: underline;
     }
 
     .research-pub-meta {
       font-size: 0.8rem;
       color: var(--text-muted);
+      cursor: default;
     }
 
     .research-close-btn {
+      position: absolute;
+      top: 2.5rem;
+      right: 2.5rem;
       background: none;
       border: none;
-      color: var(--accent);
-      font-size: 0.9rem;
+      color: var(--text-dark);
+      font-size: 1.5rem;
       cursor: pointer;
       padding: 0;
-      margin-bottom: 1rem;
       transition: all 0.3s;
       font-family: inherit;
+      line-height: 1;
     }
 
     .research-close-btn:hover {
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
     .work-pub-clickable {
@@ -1067,6 +1079,7 @@
 
           <!-- EXPANDED VIEW FOR CARD 1 -->
           <div class="research-expanded" style="display: none;">
+            <button class="research-close-btn" onclick="closeResearchCard(this)">✕</button>
             <div class="research-gallery">
               <div class="gallery-scroll">
                 <div class="gallery-image">Add image</div>
@@ -1080,7 +1093,6 @@
               </div>
             </div>
             <div class="research-info">
-              <button class="research-close-btn" onclick="closeResearchCard(this)">✕ Close</button>
               <div class="research-title">Lipid Dysregulation in Alzheimer's</div>
 
               <div class="research-section">
@@ -1126,6 +1138,7 @@
 
           <!-- EXPANDED VIEW FOR CARD 2 -->
           <div class="research-expanded" style="display: none;">
+            <button class="research-close-btn" onclick="closeResearchCard(this)">✕</button>
             <div class="research-gallery">
               <div class="gallery-scroll">
                 <div class="gallery-image">Add image</div>
@@ -1137,7 +1150,6 @@
               </div>
             </div>
             <div class="research-info">
-              <button class="research-close-btn" onclick="closeResearchCard(this)">✕ Close</button>
               <div class="research-title">Lipid–Protein Interactions</div>
 
               <div class="research-section">
