@@ -1589,8 +1589,23 @@ function closeResearchCard(btn) {
 function navigateToPublication(event, pubTitle) {
   event.stopPropagation();
 
-  // Switch to Publications tab
-  switchWorkTab('publications');
+  // Switch to Publications tab WITHOUT closing research cards
+  // Hide all work tabs
+  document.querySelectorAll('.work-tab-content').forEach(t => t.classList.remove('active'));
+
+  // Show publications tab
+  document.getElementById('publications-tab').classList.add('active');
+
+  // Update tab buttons
+  document.querySelectorAll('.work-tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.textContent.toLowerCase() === 'publications') {
+      btn.classList.add('active');
+    }
+  });
+
+  // Re-observe reveal elements
+  document.querySelectorAll('.work-tab-content.active .reveal').forEach(el => observer.observe(el));
 
   // Find and expand the matching publication
   setTimeout(() => {
