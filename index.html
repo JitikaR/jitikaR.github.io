@@ -1541,11 +1541,12 @@ function toggleResearchCard(card) {
     return;
   }
 
-  // If opening a new expanded view: hide all cards, hide all expanded views
-  allCards.forEach(c => c.style.display = 'none');
+  // If opening a new expanded view: hide only the clicked card, hide all expanded views
+  allCards.forEach(c => c.style.display = 'block');
   allExpandedViews.forEach(view => view.style.display = 'none');
 
-  // Show the clicked card's expanded view
+  // Hide only the clicked card and show its expanded view
+  card.style.display = 'none';
   expandedView.style.display = 'grid';
 }
 
