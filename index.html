@@ -415,39 +415,73 @@
       transition: all 0.3s;
     }
 
-    .work-card.expanded {
+    .research-expanded {
       grid-column: 1 / -1;
       display: grid;
-      grid-template-columns: 400px 1fr;
-      gap: 2rem;
+      grid-template-columns: 450px 1fr;
+      gap: 3rem;
       align-items: start;
-      background: none;
+      padding: 2.5rem;
+      background: var(--bg-light);
       border: 1px solid var(--border);
-      padding: 2rem;
     }
 
-    .work-card.expanded .work-image {
-      height: 350px;
-      width: 100%;
-      grid-column: 1;
-      grid-row: 1;
+    .research-gallery {
+      position: relative;
     }
 
-    .work-card.expanded .work-content {
+    .research-info {
       padding: 0;
-      grid-column: 2;
-      grid-row: 1;
     }
 
-    .work-expanded-content {
-      grid-column: 2;
-      grid-row: 2;
+    .research-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .research-section {
+      margin-bottom: 1.5rem;
+    }
+
+    .research-section:last-child {
+      margin-bottom: 0;
+    }
+
+    .section-label {
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.75rem;
+    }
+
+    .section-text {
       font-size: 0.95rem;
       line-height: 1.7;
       color: var(--text-dark);
-      margin-top: 0;
-      padding-top: 1.5rem;
-      border-top: 1px solid var(--border);
+    }
+
+    .research-pub-item {
+      margin-bottom: 1rem;
+    }
+
+    .research-pub-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .research-pub-title {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .research-pub-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
     }
 
     .work-pub-clickable {
@@ -1014,6 +1048,7 @@
       <!-- RESEARCH TAB -->
       <div class="work-tab-content active" id="research-tab">
         <div class="work-grid">
+          <!-- RESEARCH CARD 1 -->
           <div class="work-card reveal" onclick="toggleResearchCard(this)">
             <div class="work-image">Add research image</div>
             <div class="work-content">
@@ -1026,10 +1061,52 @@
                 <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
               </div>
             </div>
-            <div class="work-expanded-content" style="display: none;">
-              <p>Expanded research details and findings about lipid dysregulation in Alzheimer's disease. This section includes more comprehensive information about the research methodology, key results, and implications.</p>
+          </div>
+
+          <!-- EXPANDED VIEW FOR CARD 1 -->
+          <div class="research-expanded" style="display: none;">
+            <div class="research-gallery">
+              <div class="gallery-scroll">
+                <div class="gallery-image">Add image</div>
+                <div class="gallery-image">Add image</div>
+                <div class="gallery-image">Add image</div>
+              </div>
+              <div class="gallery-dots">
+                <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
+                <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
+                <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 2)"></span>
+              </div>
+            </div>
+            <div class="research-info">
+              <div class="research-title">Lipid Dysregulation in Alzheimer's</div>
+
+              <div class="research-section">
+                <div class="section-label">Project Description</div>
+                <div class="section-text">Detailed description of the research project, its objectives, and significance. Explain the problem you're addressing and why it matters.</div>
+              </div>
+
+              <div class="research-section">
+                <div class="section-label">Skills Mastered</div>
+                <div class="section-text">Cell culture and genetic knockout models, Advanced imaging and microscopy, LC-MS metabolomics, Bioinformatics analysis, Scientific writing and presentation</div>
+              </div>
+
+              <div class="research-section">
+                <div class="section-label">Publications</div>
+                <div class="section-text">
+                  <div class="research-pub-item">
+                    <div class="research-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title One')">Publication Title One</div>
+                    <div class="research-pub-meta">Journal · Year</div>
+                  </div>
+                  <div class="research-pub-item">
+                    <div class="research-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title Two')">Publication Title Two</div>
+                    <div class="research-pub-meta">Journal · Year</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
+
+          <!-- RESEARCH CARD 2 -->
           <div class="work-card reveal" onclick="toggleResearchCard(this)">
             <div class="work-image">Add research image</div>
             <div class="work-content">
@@ -1042,8 +1119,42 @@
                 <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
               </div>
             </div>
-            <div class="work-expanded-content" style="display: none;">
-              <p>Expanded research details about lipid-protein interactions. This section provides deeper insights into the research questions, experimental approaches, and discoveries made during this project.</p>
+          </div>
+
+          <!-- EXPANDED VIEW FOR CARD 2 -->
+          <div class="research-expanded" style="display: none;">
+            <div class="research-gallery">
+              <div class="gallery-scroll">
+                <div class="gallery-image">Add image</div>
+                <div class="gallery-image">Add image</div>
+              </div>
+              <div class="gallery-dots">
+                <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
+                <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
+              </div>
+            </div>
+            <div class="research-info">
+              <div class="research-title">Lipid–Protein Interactions</div>
+
+              <div class="research-section">
+                <div class="section-label">Project Description</div>
+                <div class="section-text">Description of this research project investigating lipid-protein interactions. Outline the methodology and key research questions explored.</div>
+              </div>
+
+              <div class="research-section">
+                <div class="section-label">Skills Mastered</div>
+                <div class="section-text">Protein biochemistry, Structural analysis, Computational modeling, Data interpretation, Technical documentation</div>
+              </div>
+
+              <div class="research-section">
+                <div class="section-label">Publications</div>
+                <div class="section-text">
+                  <div class="research-pub-item">
+                    <div class="research-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Another Publication')">Another Publication</div>
+                    <div class="research-pub-meta">Journal · Year</div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1389,22 +1500,25 @@ function scrollGallery(galleryContainer, imageIndex) {
 
 // Toggle research card expand/collapse
 function toggleResearchCard(card) {
-  // Collapse other cards
-  document.querySelectorAll('.work-card.expanded').forEach(c => {
-    if (c !== card) {
-      c.classList.remove('expanded');
-      c.querySelector('.work-expanded-content').style.display = 'none';
-    }
-  });
+  const workGrid = card.closest('.work-grid');
+  const allCards = workGrid.querySelectorAll('.work-card');
+  const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
+  const cardIndex = Array.from(allCards).indexOf(card);
 
-  // Toggle current card
-  card.classList.toggle('expanded');
-  const expandedContent = card.querySelector('.work-expanded-content');
-  if (card.classList.contains('expanded')) {
-    expandedContent.style.display = 'block';
-  } else {
-    expandedContent.style.display = 'none';
+  // Get the corresponding expanded view (every other element after cards)
+  const expandedView = allExpandedViews[Math.floor(cardIndex / 2)];
+
+  // If expanded view is already showing, close it
+  if (expandedView.style.display === 'block') {
+    expandedView.style.display = 'none';
+    return;
   }
+
+  // Close all other expanded views
+  allExpandedViews.forEach(view => view.style.display = 'none');
+
+  // Show the corresponding expanded view
+  expandedView.style.display = 'grid';
 }
 
 // Navigate to publication
