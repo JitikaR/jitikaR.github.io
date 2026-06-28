@@ -409,6 +409,192 @@
       margin-bottom: 0.2rem;
     }
 
+    /* ── WORK TABS ── */
+    .work-tabs {
+      display: flex;
+      gap: 1.5rem;
+      margin-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 1rem;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .work-tab-btn {
+      background: none;
+      border: none;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 0.5rem 0;
+      position: relative;
+      transition: all 0.3s;
+      font-weight: 400;
+    }
+
+    .work-tab-btn:hover {
+      color: var(--text-dark);
+    }
+
+    .work-tab-btn.active {
+      color: var(--text-dark);
+      font-weight: 500;
+    }
+
+    .work-tab-btn.active::after {
+      content: '';
+      position: absolute;
+      bottom: -1rem;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--accent);
+    }
+
+    .work-tab-content {
+      display: none;
+    }
+
+    .work-tab-content.active {
+      display: block;
+    }
+
+    /* ── PUBLICATIONS ── */
+    .publications-list {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .publication-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .publication-item:hover {
+      border-color: var(--accent);
+      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.06);
+    }
+
+    .pub-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 400;
+      margin-bottom: 0.5rem;
+      color: var(--text-dark);
+    }
+
+    .pub-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .pub-abstract {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    /* ── AWARDS ── */
+    .awards-list {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .award-item {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      padding: 1.5rem 2rem;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+    }
+
+    .award-item:hover {
+      border-color: var(--accent);
+    }
+
+    .award-name {
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .award-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    /* ── CONFERENCES ── */
+    .conference-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .conference-card {
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+
+    .conference-card:hover {
+      border-color: var(--accent);
+      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
+    }
+
+    .conference-image {
+      width: 100%;
+      height: 250px;
+      background: #e8ddd0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      overflow: hidden;
+    }
+
+    .conference-content {
+      padding: 2rem;
+    }
+
+    .conference-title {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-bottom: 0.4rem;
+      color: var(--text-dark);
+    }
+
+    .conference-meta {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .conference-learned {
+      font-size: 0.9rem;
+      color: var(--text-dark);
+      margin-bottom: 0.8rem;
+      font-weight: 500;
+    }
+
+    .conference-desc {
+      font-size: 0.9rem;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
     /* ── WHAT DRIVES ME ── */
     .drives-content {
       max-width: 820px;
@@ -687,49 +873,98 @@
   <div class="view" id="current-work">
     <section class="content-section">
       <h2 class="section-title">Current Work</h2>
-      <div class="work-grid">
 
-        <div class="work-card reveal">
-          <div class="work-image">Add research image</div>
-          <div class="work-content">
-            <div class="work-label">Research Question</div>
-            <div class="work-title">Lipid Dysregulation in Alzheimer's</div>
-            <div class="work-desc">Placeholder — describe your research question and why it matters.</div>
+      <div class="work-tabs">
+        <button class="work-tab-btn active" onclick="switchWorkTab('research')">Research</button>
+        <button class="work-tab-btn" onclick="switchWorkTab('publications')">Publications</button>
+        <button class="work-tab-btn" onclick="switchWorkTab('awards')">Awards</button>
+        <button class="work-tab-btn" onclick="switchWorkTab('conferences')">Conferences</button>
+      </div>
 
-            <div class="work-pub">
-              <div class="work-pub-label">Selected Publication</div>
-              <div class="work-pub-title">Placeholder paper title</div>
-              <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
+      <!-- RESEARCH TAB -->
+      <div class="work-tab-content active" id="research-tab">
+        <div class="work-grid">
+          <div class="work-card reveal">
+            <div class="work-image">Add research image</div>
+            <div class="work-content">
+              <div class="work-label">Research Question</div>
+              <div class="work-title">Lipid Dysregulation in Alzheimer's</div>
+              <div class="work-desc">Placeholder — describe your research question and why it matters.</div>
+              <div class="work-pub">
+                <div class="work-pub-label">Selected Publication</div>
+                <div class="work-pub-title">Placeholder paper title</div>
+                <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
+              </div>
             </div>
-
-            <div class="work-recog">
-              <div class="work-recog-label">Recognition</div>
-              <div class="work-recog-item">• Award · Year</div>
-              <div class="work-recog-item">• Talk · Conference, Year</div>
+          </div>
+          <div class="work-card reveal">
+            <div class="work-image">Add research image</div>
+            <div class="work-content">
+              <div class="work-label">Research Question</div>
+              <div class="work-title">Lipid–Protein Interactions</div>
+              <div class="work-desc">Placeholder — second project description.</div>
+              <div class="work-pub">
+                <div class="work-pub-label">Selected Publication</div>
+                <div class="work-pub-title">Placeholder paper title</div>
+                <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <div class="work-card reveal">
-          <div class="work-image">Add research image</div>
-          <div class="work-content">
-            <div class="work-label">Research Question</div>
-            <div class="work-title">Lipid–Protein Interactions</div>
-            <div class="work-desc">Placeholder — second project description.</div>
+      <!-- PUBLICATIONS TAB -->
+      <div class="work-tab-content" id="publications-tab">
+        <div class="publications-list">
+          <div class="publication-item reveal">
+            <div class="pub-title">Placeholder Publication Title</div>
+            <div class="pub-meta">Authors · Journal · Year</div>
+            <div class="pub-abstract">Brief abstract preview goes here. This shows the main findings and context of the research.</div>
+          </div>
+          <div class="publication-item reveal">
+            <div class="pub-title">Another Publication Title</div>
+            <div class="pub-meta">Authors · Journal · Year</div>
+            <div class="pub-abstract">Another abstract preview describing the research contributions and findings.</div>
+          </div>
+        </div>
+      </div>
 
-            <div class="work-pub">
-              <div class="work-pub-label">Selected Publication</div>
-              <div class="work-pub-title">Placeholder paper title</div>
-              <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
+      <!-- AWARDS TAB -->
+      <div class="work-tab-content" id="awards-tab">
+        <div class="awards-list">
+          <div class="award-item reveal">
+            <div class="award-name">Award Name</div>
+            <div class="award-meta">Organization · Year</div>
+          </div>
+          <div class="award-item reveal">
+            <div class="award-name">Another Award</div>
+            <div class="award-meta">Organization · Year</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CONFERENCES TAB -->
+      <div class="work-tab-content" id="conferences-tab">
+        <div class="conference-grid">
+          <div class="conference-card reveal">
+            <div class="conference-image">Add conference image</div>
+            <div class="conference-content">
+              <div class="conference-title">Conference Name</div>
+              <div class="conference-meta">Location · Year</div>
+              <div class="conference-learned">What I learned: Placeholder text about key takeaways</div>
+              <div class="conference-desc">Conference description and relevance to research.</div>
             </div>
-
-            <div class="work-recog">
-              <div class="work-recog-label">Recognition</div>
-              <div class="work-recog-item">• Award · Year</div>
+          </div>
+          <div class="conference-card reveal">
+            <div class="conference-image">Add conference image</div>
+            <div class="conference-content">
+              <div class="conference-title">Another Conference</div>
+              <div class="conference-meta">Location · Year</div>
+              <div class="conference-learned">What I learned: Placeholder about insights gained</div>
+              <div class="conference-desc">Description of the conference and its impact.</div>
             </div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
@@ -881,6 +1116,26 @@ function switchView(viewName) {
   setTimeout(() => {
     document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
   }, 100);
+}
+
+// Work tab switching
+function switchWorkTab(tabName) {
+  // Hide all work tabs
+  document.querySelectorAll('.work-tab-content').forEach(t => t.classList.remove('active'));
+
+  // Show selected tab
+  document.getElementById(tabName + '-tab').classList.add('active');
+
+  // Update tab buttons
+  document.querySelectorAll('.work-tab-btn').forEach(btn => {
+    btn.classList.remove('active');
+    if (btn.textContent.toLowerCase() === tabName) {
+      btn.classList.add('active');
+    }
+  });
+
+  // Re-observe reveal elements
+  document.querySelectorAll('.work-tab-content.active .reveal').forEach(el => observer.observe(el));
 }
 
 // Go home
