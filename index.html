@@ -485,6 +485,22 @@
       color: var(--text-muted);
     }
 
+    .research-close-btn {
+      background: none;
+      border: none;
+      color: var(--accent);
+      font-size: 0.9rem;
+      cursor: pointer;
+      padding: 0;
+      margin-bottom: 1rem;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+
+    .research-close-btn:hover {
+      opacity: 0.7;
+    }
+
     .work-pub-clickable {
       color: var(--accent);
       cursor: pointer;
@@ -1056,6 +1072,7 @@
               </div>
             </div>
             <div class="research-info">
+              <button class="research-close-btn" onclick="closeResearchCard(this)">✕ Close</button>
               <div class="research-title">Lipid Dysregulation in Alzheimer's</div>
 
               <div class="research-section">
@@ -1112,6 +1129,7 @@
               </div>
             </div>
             <div class="research-info">
+              <button class="research-close-btn" onclick="closeResearchCard(this)">✕ Close</button>
               <div class="research-title">Lipid–Protein Interactions</div>
 
               <div class="research-section">
@@ -1504,6 +1522,18 @@ function toggleResearchCard(card) {
 
   // Show the clicked card's expanded view
   expandedView.style.display = 'grid';
+}
+
+// Close research card
+function closeResearchCard(btn) {
+  const expandedView = btn.closest('.research-expanded');
+  const workGrid = expandedView.closest('.work-grid');
+  const allCards = workGrid.querySelectorAll('.work-card');
+  const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
+
+  // Show all cards and hide all expanded views
+  allCards.forEach(c => c.style.display = 'block');
+  allExpandedViews.forEach(view => view.style.display = 'none');
 }
 
 // Navigate to publication
