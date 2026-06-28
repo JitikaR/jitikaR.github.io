@@ -1488,20 +1488,21 @@ function toggleResearchCard(card) {
   // Get the corresponding expanded view (paired by order)
   const expandedView = Array.from(allExpandedViews)[cardIndex];
 
-  // Check if this expanded view is already open
-  const isCurrentlyOpen = expandedView.style.display === 'grid' || expandedView.style.display === 'block';
+  // Check if this expanded view is already open BEFORE hiding anything
+  const isCurrentlyOpen = expandedView.style.display === 'grid';
 
-  // Hide all cards and expanded views
-  allCards.forEach(c => c.style.display = 'none');
-  allExpandedViews.forEach(view => view.style.display = 'none');
-
-  // If it was already open, close it (show cards again)
+  // If it was already open, close it (show all cards again, hide expanded views)
   if (isCurrentlyOpen) {
     allCards.forEach(c => c.style.display = 'block');
+    allExpandedViews.forEach(view => view.style.display = 'none');
     return;
   }
 
-  // Otherwise show the clicked card's expanded view
+  // If opening a new expanded view: hide all cards, hide all expanded views
+  allCards.forEach(c => c.style.display = 'none');
+  allExpandedViews.forEach(view => view.style.display = 'none');
+
+  // Show the clicked card's expanded view
   expandedView.style.display = 'grid';
 }
 
