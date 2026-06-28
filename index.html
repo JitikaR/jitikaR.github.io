@@ -421,23 +421,31 @@
       grid-template-columns: 400px 1fr;
       gap: 2rem;
       align-items: start;
+      background: none;
+      border: 1px solid var(--border);
+      padding: 2rem;
     }
 
     .work-card.expanded .work-image {
       height: 350px;
       width: 100%;
+      grid-column: 1;
+      grid-row: 1;
     }
 
     .work-card.expanded .work-content {
       padding: 0;
+      grid-column: 2;
+      grid-row: 1;
     }
 
     .work-expanded-content {
-      grid-column: 1 / -1;
+      grid-column: 2;
+      grid-row: 2;
       font-size: 0.95rem;
       line-height: 1.7;
       color: var(--text-dark);
-      margin-top: 1.5rem;
+      margin-top: 0;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border);
     }
