@@ -856,6 +856,14 @@ function switchView(viewName) {
   // Show selected view
   document.getElementById(viewName).classList.add('active');
 
+  // Update header background color
+  const header = document.querySelector('header');
+  if (viewName === 'home') {
+    header.style.background = '#000';
+  } else {
+    header.style.background = '#ea580c';
+  }
+
   // Update top nav buttons
   document.querySelectorAll('.nav-tabs button').forEach(btn => {
     btn.classList.remove('active');
