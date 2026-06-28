@@ -741,31 +741,21 @@
     }
 
     .outside-item {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
+      padding: 3rem 0;
+      margin-bottom: 0;
       display: grid;
       gap: 3rem;
       align-items: center;
-      transition: all 0.3s;
+      border-bottom: 3px solid var(--accent);
+      background: none;
     }
 
-    .outside-item:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
+    .outside-item:last-child {
+      border-bottom: none;
     }
 
-    .outside-image {
-      width: 100%;
-      height: 350px;
-      background: #e8ddd0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      border: 1px solid var(--border);
+    .outside-gallery {
+      position: relative;
     }
 
     .outside-content {
@@ -1156,7 +1146,18 @@
       <div class="outside-list">
 
         <div class="outside-item reveal" style="grid-template-columns: 450px 1fr;">
-          <div class="outside-image">Add photo</div>
+          <div class="outside-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.outside-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.outside-gallery'), 1)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.outside-gallery'), 2)"></span>
+            </div>
+          </div>
           <div class="outside-content">
             <div class="outside-title">Activity One</div>
             <div class="outside-text">Placeholder text about what you do outside the lab. This is a hobby or passion that brings you joy and helps you recharge outside of research. Share what makes this activity meaningful to you.</div>
@@ -1168,11 +1169,33 @@
             <div class="outside-title">Activity Two</div>
             <div class="outside-text">Placeholder text describing another interest or activity you care about. Explain how this connects to who you are and what you value beyond your scientific work.</div>
           </div>
-          <div class="outside-image">Add photo</div>
+          <div class="outside-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.outside-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.outside-gallery'), 1)"></span>
+            </div>
+          </div>
         </div>
 
         <div class="outside-item reveal" style="grid-template-columns: 450px 1fr;">
-          <div class="outside-image">Add photo</div>
+          <div class="outside-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.outside-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.outside-gallery'), 1)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.outside-gallery'), 2)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.outside-gallery'), 3)"></span>
+            </div>
+          </div>
           <div class="outside-content">
             <div class="outside-title">Activity Three</div>
             <div class="outside-text">Placeholder text about what lights you up when you're not in the lab. Share the passion, creativity, or fulfillment you find in this activity and why it matters to you.</div>
