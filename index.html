@@ -1436,6 +1436,17 @@ function switchView(viewName) {
   // Hide all views
   document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
 
+  // Close all expanded research cards when leaving current-work
+  if (viewName !== 'current-work') {
+    const workGrid = document.querySelector('.work-grid');
+    if (workGrid) {
+      const allCards = workGrid.querySelectorAll('.work-card');
+      const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
+      allCards.forEach(c => c.style.display = 'block');
+      allExpandedViews.forEach(view => view.style.display = 'none');
+    }
+  }
+
   // Show selected view
   document.getElementById(viewName).classList.add('active');
 
@@ -1474,6 +1485,17 @@ function switchView(viewName) {
 
 // Work tab switching
 function switchWorkTab(tabName) {
+  // Close all expanded research cards when switching tabs
+  const workGrid = document.querySelector('.work-grid');
+  if (workGrid) {
+    const allCards = workGrid.querySelectorAll('.work-card');
+    const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
+
+    // Show all cards and hide all expanded views
+    allCards.forEach(c => c.style.display = 'block');
+    allExpandedViews.forEach(view => view.style.display = 'none');
+  }
+
   // Hide all work tabs
   document.querySelectorAll('.work-tab-content').forEach(t => t.classList.remove('active'));
 
