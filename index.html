@@ -1095,7 +1095,10 @@
           <div style="padding-top: 0;">
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Research Question</div>
             <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">How does dysregulated lipid metabolism drive neuroinflammation in Alzheimer's disease?</h3>
-            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
+            <div class="desc-wrapper" style="margin-bottom: 2rem;">
+              <p class="desc-text" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); max-height: 3.4rem; overflow: hidden; transition: max-height 0.3s ease;">One-line description of the project goes here</p>
+              <button class="desc-toggle" onclick="toggleDescription(this)" style="background: none; border: none; color: var(--accent); font-size: 0.9rem; cursor: pointer; padding: 0; margin-top: 0.5rem; font-weight: 500;">Read more</button>
+            </div>
 
             <div style="margin-bottom: 2rem;">
               <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
@@ -1128,7 +1131,10 @@
           <div style="padding-top: 0;">
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Research Question</div>
             <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Lipid–Protein Interactions</h3>
-            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
+            <div class="desc-wrapper" style="margin-bottom: 2rem;">
+              <p class="desc-text" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); max-height: 3.4rem; overflow: hidden; transition: max-height 0.3s ease;">One-line description of the project goes here</p>
+              <button class="desc-toggle" onclick="toggleDescription(this)" style="background: none; border: none; color: var(--accent); font-size: 0.9rem; cursor: pointer; padding: 0; margin-top: 0.5rem; font-weight: 500;">Read more</button>
+            </div>
 
             <div style="margin-bottom: 2rem;">
               <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
@@ -1161,7 +1167,10 @@
           <div style="padding-top: 0;">
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Platform Built</div>
             <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Placeholder</h3>
-            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
+            <div class="desc-wrapper" style="margin-bottom: 2rem;">
+              <p class="desc-text" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); max-height: 3.4rem; overflow: hidden; transition: max-height 0.3s ease;">One-line description of the project goes here</p>
+              <button class="desc-toggle" onclick="toggleDescription(this)" style="background: none; border: none; color: var(--accent); font-size: 0.9rem; cursor: pointer; padding: 0; margin-top: 0.5rem; font-weight: 500;">Read more</button>
+            </div>
 
             <div style="margin-bottom: 2rem;">
               <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
@@ -1194,7 +1203,10 @@
           <div style="padding-top: 0;">
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Research Foundation</div>
             <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Placeholder</h3>
-            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
+            <div class="desc-wrapper" style="margin-bottom: 2rem;">
+              <p class="desc-text" style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); max-height: 3.4rem; overflow: hidden; transition: max-height 0.3s ease;">One-line description of the project goes here</p>
+              <button class="desc-toggle" onclick="toggleDescription(this)" style="background: none; border: none; color: var(--accent); font-size: 0.9rem; cursor: pointer; padding: 0; margin-top: 0.5rem; font-weight: 500;">Read more</button>
+            </div>
 
             <div style="margin-bottom: 2rem;">
               <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
@@ -1699,7 +1711,20 @@ function scrollGallery(galleryContainer, imageIndex) {
   });
 }
 
-// Toggle research card expand/collapse
+// Toggle description read more/read less
+function toggleDescription(btn) {
+  const wrapper = btn.closest('.desc-wrapper');
+  const text = wrapper.querySelector('.desc-text');
+  const isExpanded = text.style.maxHeight === 'none';
+
+  if (isExpanded) {
+    text.style.maxHeight = '3.4rem';
+    btn.textContent = 'Read more';
+  } else {
+    text.style.maxHeight = 'none';
+    btn.textContent = 'Read less';
+  }
+}
 
 // Navigate to publication
 function navigateToPublication(event, pubTitle) {
