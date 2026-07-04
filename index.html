@@ -1078,176 +1078,34 @@
 
       <!-- RESEARCH TAB -->
       <div class="work-tab-content active" id="research-tab">
-        <!-- RESEARCH QUESTION SECTION -->
-        <div style="margin-bottom: 3rem;">
-          <div class="work-grid">
-          <!-- RESEARCH CARD 1 -->
-          <div class="work-card reveal" onclick="toggleResearchCard(this)">
-            <div class="work-image">Add research image</div>
-            <div class="work-content">
-              <div class="work-label">Research Question</div>
-              <div class="work-title">How does dysregulated lipid metabolism drive neuroinflammation in Alzheimer's disease?</div>
-              <div class="work-desc">One-line description of the project goes here</div>
-              <div class="work-pub">
-                <div class="work-pub-label">Selected Publication</div>
-                <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Amyloid-β induces lipid droplet-mediated microglial dysfunction via the enzyme DGAT2 in Alzheimer\'s disease')">Amyloid-β induces lipid droplet-mediated microglial dysfunction via the enzyme DGAT2 in Alzheimer's disease</div>
-                <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Immunity · 2025</div>
-              </div>
+        <!-- RESEARCH CARD 1 -->
+        <div class="research-card reveal" style="display: grid; grid-template-columns: 450px 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start;">
+          <div class="research-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 2)"></span>
             </div>
           </div>
+          <div style="padding-top: 0;">
+            <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Research Question</div>
+            <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">How does dysregulated lipid metabolism drive neuroinflammation in Alzheimer's disease?</h3>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
 
-          <!-- EXPANDED VIEW FOR CARD 1 -->
-          <div class="research-expanded" style="display: none;">
-            <button class="research-close-btn" onclick="closeResearchCard(this)">✕</button>
-            <div class="research-gallery">
-              <div class="gallery-scroll">
-                <div class="gallery-image">Add image</div>
-                <div class="gallery-image">Add image</div>
-                <div class="gallery-image">Add image</div>
-              </div>
-              <div class="gallery-dots">
-                <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
-                <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
-                <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 2)"></span>
-              </div>
-            </div>
-            <div class="research-info">
-              <div class="research-title">How does dysregulated lipid metabolism drive neuroinflammation in Alzheimer's disease?</div>
-
-              <div class="research-section">
-                <div class="section-label">Question</div>
-                <div class="section-text">Enter the research question</div>
-              </div>
-
-              <div class="research-section">
-                <div class="section-label">Approach</div>
-                <div class="section-text">Enter your approach to answering the question</div>
-              </div>
-
-              <div class="research-section">
-                <div class="section-label">Key Findings</div>
-                <div class="section-text">Enter your key findings</div>
-              </div>
-
-              <div class="research-section">
-                <div class="section-label">Capabilities I built</div>
-                <div class="section-text">Enter the capabilities or skills you developed</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- RESEARCH CARD 2 -->
-          <div class="work-card reveal" onclick="toggleResearchCard(this)">
-            <div class="work-image">Add research image</div>
-            <div class="work-content">
-              <div class="work-label">Research Question</div>
-              <div class="work-title">Lipid–Protein Interactions</div>
-              <div class="work-desc">One-line description of the project goes here</div>
-              <div class="work-pub">
-                <div class="work-pub-label">Selected Publication</div>
-                <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title')">Publication Title</div>
-                <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- EXPANDED VIEW FOR CARD 2 -->
-          <div class="research-expanded" style="display: none;">
-            <button class="research-close-btn" onclick="closeResearchCard(this)">✕</button>
-            <div class="research-gallery">
-              <div class="gallery-scroll">
-                <div class="gallery-image">Add image</div>
-                <div class="gallery-image">Add image</div>
-              </div>
-              <div class="gallery-dots">
-                <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
-                <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
-              </div>
-            </div>
-            <div class="research-info">
-              <div class="research-title">Lipid–Protein Interactions</div>
-
-              <div class="research-section">
-                <div class="section-label">Question</div>
-                <div class="section-text">Enter the research question</div>
-              </div>
-
-              <div class="research-section">
-                <div class="section-label">Approach</div>
-                <div class="section-text">Enter your approach to answering the question</div>
-              </div>
-
-              <div class="research-section">
-                <div class="section-label">Key Findings</div>
-                <div class="section-text">Enter your key findings</div>
-              </div>
-
-              <div class="research-section">
-                <div class="section-label">Capabilities I built</div>
-                <div class="section-text">Enter the capabilities or skills you developed</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        </div>
-
-        <!-- DIVIDER -->
-        <div style="height: 1px; background: var(--accent); margin: 4rem 0; opacity: 0.3;"></div>
-
-        <!-- PLATFORMS BUILT SECTION -->
-        <div style="margin-bottom: 3rem;">
-          <div class="work-grid">
-            <!-- PLACEHOLDER FOR PLATFORMS BUILT CARD -->
-            <div class="work-card reveal" onclick="toggleResearchCard(this)">
-              <div class="work-image">Add research image</div>
-              <div class="work-content">
-                <div class="work-label">Platform Built</div>
-                <div class="work-title">Placeholder</div>
-                <div class="work-desc">One-line description of the project goes here</div>
-                <div class="work-pub">
-                  <div class="work-pub-label">Selected Publication</div>
-                  <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title')">Publication Title</div>
-                  <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
-                </div>
-              </div>
+            <div style="margin-bottom: 2rem;">
+              <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Enter the capabilities or skills you developed</p>
             </div>
 
-            <!-- EXPANDED VIEW FOR PLATFORMS BUILT CARD -->
-            <div class="research-expanded" style="display: none;">
-              <button class="research-close-btn" onclick="closeResearchCard(this)">✕</button>
-              <div class="research-gallery">
-                <div class="gallery-scroll">
-                  <div class="gallery-image">Add image</div>
-                  <div class="gallery-image">Add image</div>
-                </div>
-                <div class="gallery-dots">
-                  <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
-                  <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
-                </div>
-              </div>
-              <div class="research-info">
-                <div class="research-title">Placeholder</div>
-
-                <div class="research-section">
-                  <div class="section-label">Question</div>
-                  <div class="section-text">Enter the research question</div>
-                </div>
-
-                <div class="research-section">
-                  <div class="section-label">Approach</div>
-                  <div class="section-text">Enter your approach to answering the question</div>
-                </div>
-
-                <div class="research-section">
-                  <div class="section-label">Key Findings</div>
-                  <div class="section-text">Enter your key findings</div>
-                </div>
-
-                <div class="research-section">
-                  <div class="section-label">Capabilities I built</div>
-                  <div class="section-text">Enter the capabilities or skills you developed</div>
-                </div>
-              </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 1.5rem;">
+              <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Selected Publication</div>
+              <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Amyloid-β induces lipid droplet-mediated microglial dysfunction via the enzyme DGAT2 in Alzheimer\'s disease')" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 0.95rem; margin-bottom: 0.25rem;">Amyloid-β induces lipid droplet-mediated microglial dysfunction via the enzyme DGAT2 in Alzheimer's disease</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">Immunity · 2025</div>
             </div>
           </div>
         </div>
@@ -1255,60 +1113,98 @@
         <!-- DIVIDER -->
         <div style="height: 1px; background: var(--accent); margin: 4rem 0; opacity: 0.3;"></div>
 
-        <!-- RESEARCH FOUNDATION SECTION -->
-        <div style="margin-bottom: 3rem;">
-          <div class="work-grid">
-            <!-- PLACEHOLDER FOR RESEARCH FOUNDATION CARD -->
-            <div class="work-card reveal" onclick="toggleResearchCard(this)">
-              <div class="work-image">Add research image</div>
-              <div class="work-content">
-                <div class="work-label">Research Foundation</div>
-                <div class="work-title">Placeholder</div>
-                <div class="work-desc">One-line description of the project goes here</div>
-                <div class="work-pub">
-                  <div class="work-pub-label">Selected Publication</div>
-                  <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title')">Publication Title</div>
-                  <div class="work-pub-title" style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400; margin-top: 0.25rem;">Journal · Year</div>
-                </div>
-              </div>
+        <!-- RESEARCH CARD 2 -->
+        <div class="research-card reveal" style="display: grid; grid-template-columns: 450px 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start;">
+          <div class="research-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
+            </div>
+          </div>
+          <div style="padding-top: 0;">
+            <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Research Question</div>
+            <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Lipid–Protein Interactions</h3>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
+
+            <div style="margin-bottom: 2rem;">
+              <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Enter the capabilities or skills you developed</p>
             </div>
 
-            <!-- EXPANDED VIEW FOR RESEARCH FOUNDATION CARD -->
-            <div class="research-expanded" style="display: none;">
-              <button class="research-close-btn" onclick="closeResearchCard(this)">✕</button>
-              <div class="research-gallery">
-                <div class="gallery-scroll">
-                  <div class="gallery-image">Add image</div>
-                  <div class="gallery-image">Add image</div>
-                </div>
-                <div class="gallery-dots">
-                  <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
-                  <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
-                </div>
-              </div>
-              <div class="research-info">
-                <div class="research-title">Placeholder</div>
+            <div style="border-top: 1px solid var(--border); padding-top: 1.5rem;">
+              <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Selected Publication</div>
+              <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title')" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 0.95rem; margin-bottom: 0.25rem;">Publication Title</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">Journal · Year</div>
+            </div>
+          </div>
+        </div>
 
-                <div class="research-section">
-                  <div class="section-label">Question</div>
-                  <div class="section-text">Enter the research question</div>
-                </div>
+        <!-- DIVIDER -->
+        <div style="height: 1px; background: var(--accent); margin: 4rem 0; opacity: 0.3;"></div>
 
-                <div class="research-section">
-                  <div class="section-label">Approach</div>
-                  <div class="section-text">Enter your approach to answering the question</div>
-                </div>
+        <!-- RESEARCH CARD 3 -->
+        <div class="research-card reveal" style="display: grid; grid-template-columns: 450px 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start;">
+          <div class="research-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
+            </div>
+          </div>
+          <div style="padding-top: 0;">
+            <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Platform Built</div>
+            <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Placeholder</h3>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
 
-                <div class="research-section">
-                  <div class="section-label">Key Findings</div>
-                  <div class="section-text">Enter your key findings</div>
-                </div>
+            <div style="margin-bottom: 2rem;">
+              <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Enter the capabilities or skills you developed</p>
+            </div>
 
-                <div class="research-section">
-                  <div class="section-label">Capabilities I built</div>
-                  <div class="section-text">Enter the capabilities or skills you developed</div>
-                </div>
-              </div>
+            <div style="border-top: 1px solid var(--border); padding-top: 1.5rem;">
+              <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Selected Publication</div>
+              <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title')" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 0.95rem; margin-bottom: 0.25rem;">Publication Title</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">Journal · Year</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div style="height: 1px; background: var(--accent); margin: 4rem 0; opacity: 0.3;"></div>
+
+        <!-- RESEARCH CARD 4 -->
+        <div class="research-card reveal" style="display: grid; grid-template-columns: 450px 1fr; gap: 3rem; margin-bottom: 4rem; align-items: start;">
+          <div class="research-gallery">
+            <div class="gallery-scroll">
+              <div class="gallery-image">Add image</div>
+              <div class="gallery-image">Add image</div>
+            </div>
+            <div class="gallery-dots">
+              <span class="dot active" onclick="scrollGallery(this.closest('.research-gallery'), 0)"></span>
+              <span class="dot" onclick="scrollGallery(this.closest('.research-gallery'), 1)"></span>
+            </div>
+          </div>
+          <div style="padding-top: 0;">
+            <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Research Foundation</div>
+            <h3 style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 1rem;">Placeholder</h3>
+            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">One-line description of the project goes here</p>
+
+            <div style="margin-bottom: 2rem;">
+              <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
+              <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Enter the capabilities or skills you developed</p>
+            </div>
+
+            <div style="border-top: 1px solid var(--border); padding-top: 1.5rem;">
+              <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Selected Publication</div>
+              <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Publication Title')" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 0.95rem; margin-bottom: 0.25rem;">Publication Title</div>
+              <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">Journal · Year</div>
             </div>
           </div>
         </div>
@@ -1804,48 +1700,6 @@ function scrollGallery(galleryContainer, imageIndex) {
 }
 
 // Toggle research card expand/collapse
-function toggleResearchCard(card) {
-  const workGrid = card.closest('.work-grid');
-  const allCards = workGrid.querySelectorAll('.work-card');
-  const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
-
-  // Find the position of clicked card
-  const cardIndex = Array.from(allCards).indexOf(card);
-
-  // Get the corresponding expanded view (paired by order)
-  const expandedView = Array.from(allExpandedViews)[cardIndex];
-
-  // Check if this expanded view is already open
-  const isCurrentlyOpen = expandedView.style.display === 'grid';
-
-  // If it was already open, close it
-  if (isCurrentlyOpen) {
-    card.style.display = 'block';
-    expandedView.style.display = 'none';
-    return;
-  }
-
-  // If opening a new expanded view, just hide this card and show expanded view
-  // Don't close other expanded views - allow multiple to be open
-  card.style.display = 'none';
-  expandedView.style.display = 'grid';
-}
-
-// Close research card
-function closeResearchCard(btn) {
-  const expandedView = btn.closest('.research-expanded');
-  const workGrid = expandedView.closest('.work-grid');
-  const allCards = workGrid.querySelectorAll('.work-card');
-  const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
-
-  // Find which card this expanded view corresponds to
-  const expandedIndex = Array.from(allExpandedViews).indexOf(expandedView);
-  const cardToShow = Array.from(allCards)[expandedIndex];
-
-  // Only show the card for this expanded view and hide the expanded view
-  cardToShow.style.display = 'block';
-  expandedView.style.display = 'none';
-}
 
 // Navigate to publication
 function navigateToPublication(event, pubTitle) {
