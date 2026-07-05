@@ -1201,8 +1201,44 @@
         <!-- BOTTOM SECTION: Capabilities and Publications -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
           <div>
-            <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 0.8rem;">Capabilities I built</div>
-            <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Enter the capabilities or skills you developed</p>
+            <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 1.5rem;">Capabilities I built</div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+              <!-- Capability Card 1 -->
+              <div style="border: 1px solid var(--border); padding: 1.25rem; cursor: pointer;" onclick="toggleCapabilityExpand(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <div style="font-weight: 500; color: var(--text-dark);">Capability 1</div>
+                  <span style="color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem;">▼</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); display: none;">Description for capability 1</div>
+              </div>
+
+              <!-- Capability Card 2 -->
+              <div style="border: 1px solid var(--border); padding: 1.25rem; cursor: pointer;" onclick="toggleCapabilityExpand(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <div style="font-weight: 500; color: var(--text-dark);">Capability 2</div>
+                  <span style="color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem;">▼</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); display: none;">Description for capability 2</div>
+              </div>
+
+              <!-- Capability Card 3 -->
+              <div style="border: 1px solid var(--border); padding: 1.25rem; cursor: pointer;" onclick="toggleCapabilityExpand(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <div style="font-weight: 500; color: var(--text-dark);">Capability 3</div>
+                  <span style="color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem;">▼</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); display: none;">Description for capability 3</div>
+              </div>
+
+              <!-- Capability Card 4 -->
+              <div style="border: 1px solid var(--border); padding: 1.25rem; cursor: pointer;" onclick="toggleCapabilityExpand(this)">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.75rem;">
+                  <div style="font-weight: 500; color: var(--text-dark);">Capability 4</div>
+                  <span style="color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem;">▼</span>
+                </div>
+                <div style="font-size: 0.85rem; color: var(--text-muted); display: none;">Description for capability 4</div>
+              </div>
+            </div>
           </div>
 
           <div>
