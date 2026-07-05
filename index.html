@@ -663,6 +663,43 @@
       }
     }
 
+    .capability-card {
+      border: 1px solid var(--border);
+      padding: 0.75rem;
+      cursor: pointer;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .capability-card:hover {
+      background: rgba(var(--accent-rgb), 0.05);
+    }
+
+    .capability-description {
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .capability-card:hover .capability-description {
+      max-height: 200px;
+      opacity: 1;
+    }
+
+    .capability-arrow {
+      color: var(--accent);
+      transition: transform 0.3s ease;
+      font-size: 0.9rem;
+    }
+
+    .capability-card:hover .capability-arrow {
+      transform: rotate(180deg);
+    }
+
     .pub-abstract {
       font-size: 0.95rem;
       line-height: 1.6;
@@ -1105,12 +1142,12 @@
             <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 1.5rem;">Capabilities I built</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <!-- Capability Card 1 -->
-              <div style="border: 1px solid var(--border); padding: 0.75rem; cursor: pointer;" onclick="toggleCapabilityExpand(this)">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <div style="font-weight: 500; color: var(--text-dark);">Capability 1</div>
-                  <span style="color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem;">▼</span>
+              <div class="capability-card">
+                <div style="font-weight: 500; color: var(--text-dark); display: flex; justify-content: center; align-items: center; gap: 0.5rem;">
+                  <span>Capability 1</span>
+                  <span class="capability-arrow">▼</span>
                 </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); display: none;">Description for capability 1</div>
+                <div class="capability-description">Description for capability 1</div>
               </div>
 
               <!-- Capability Card 2 -->
@@ -1204,12 +1241,12 @@
             <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 1.5rem;">Capabilities I built</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
               <!-- Capability Card 1 -->
-              <div style="border: 1px solid var(--border); padding: 0.75rem; cursor: pointer;" onclick="toggleCapabilityExpand(this)">
-                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
-                  <div style="font-weight: 500; color: var(--text-dark);">Capability 1</div>
-                  <span style="color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem;">▼</span>
+              <div class="capability-card">
+                <div style="font-weight: 500; color: var(--text-dark); display: flex; justify-content: center; align-items: center; gap: 0.5rem;">
+                  <span>Capability 1</span>
+                  <span class="capability-arrow">▼</span>
                 </div>
-                <div style="font-size: 0.85rem; color: var(--text-muted); display: none;">Description for capability 1</div>
+                <div class="capability-description">Description for capability 1</div>
               </div>
 
               <!-- Capability Card 2 -->
