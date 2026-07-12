@@ -1801,10 +1801,15 @@
           <img src="images-web/Contact page image.jpg" alt="Contact page" style="width: 100%; border-radius: 8px; object-fit: cover;">
 
           <!-- Contact Form -->
-          <form class="contact-form" onsubmit="handleContactSubmit(event)">
+          <form class="contact-form" action="https://formspree.io/f/xovvnzwp" method="POST">
           <div class="form-group">
             <label for="contact-email">Email</label>
             <input type="email" id="contact-email" name="email" placeholder="your.email@example.com" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contact-name">Name</label>
+            <input type="text" id="contact-name" name="name" placeholder="Your name" required>
           </div>
 
           <div class="form-group">
@@ -2045,23 +2050,6 @@ document.addEventListener('click', function(e) {
   }
 });
 
-// Handle contact form submission
-function handleContactSubmit(event) {
-  event.preventDefault();
-  const email = document.getElementById('contact-email').value;
-  const message = document.getElementById('contact-message').value;
-
-  // Create mailto link with form data
-  const subject = 'Contact from Portfolio';
-  const body = 'From: ' + email + '\n\n' + message;
-  const mailtoLink = 'mailto:jitika.rajpoot@gmail.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-
-  // Open email client
-  window.location.href = mailtoLink;
-
-  // Clear form
-  event.target.reset();
-}
 </script>
 
 </body>
