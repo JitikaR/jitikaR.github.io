@@ -2050,6 +2050,13 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// Clear form after submission
+document.querySelector('.contact-form').addEventListener('submit', function(e) {
+  setTimeout(() => {
+    this.reset();
+  }, 500);
+});
+
 </script>
 
 </body>
