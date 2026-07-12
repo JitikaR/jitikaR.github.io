@@ -1072,16 +1072,18 @@
       z-index: 3;
       background: rgba(255, 255, 255, 0.15);
       border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
+      border-radius: 25px;
+      padding: 0.6rem 1.2rem;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      font-size: 1.2rem;
       color: #fff;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      font-weight: 500;
       transition: all 0.3s ease;
+      white-space: nowrap;
     }
 
     .hero-info-btn:hover {
@@ -1178,7 +1180,7 @@
         <source src="Hero video.mp4" type="video/mp4">
       </video>
       <div class="hero-overlay"></div>
-      <button class="hero-info-btn" onclick="openVisualizationModal()" title="About this visualization">ⓘ</button>
+      <button class="hero-info-btn" onclick="openVisualizationModal()" title="About this visualization"><span style="font-size: 1.2rem; margin-right: 0.5rem;">ⓘ</span>About the visualization</button>
       <div class="hero-content">
         <h1 class="hero-statement">
           Curiosity drives<br>the <span class="accent">science</span>.
