@@ -324,6 +324,65 @@
       border-bottom-color: var(--accent);
     }
 
+    /* ── NEW ABOUT NARRATIVE SECTION ── */
+    .about-section-new {
+      padding: 4rem 5rem;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .about-narrative-section {
+      margin-bottom: 4rem;
+      padding-bottom: 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-narrative-section:last-child {
+      border-bottom: none;
+    }
+
+    .section-header {
+      font-family: var(--sans);
+      font-size: 3rem;
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      color: rgba(0, 0, 0, 0.08);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .about-narrative-section .section-title {
+      font-family: var(--serif);
+      font-size: 2rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+      text-align: left;
+      color: var(--text-dark);
+    }
+
+    .about-narrative-section p {
+      font-family: var(--sans);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 1.5rem;
+      color: var(--text-dark);
+    }
+
+    .quote-box {
+      background: rgba(234, 88, 12, 0.05);
+      padding: 1.5rem;
+      border-left: 4px solid var(--accent);
+      margin: 2rem 0;
+    }
+
+    .quote-box p {
+      margin-bottom: 1rem;
+    }
+
+    .quote-box p:last-child {
+      margin-bottom: 0;
+    }
+
     /* ── TAB CONTENT SECTIONS ── */
     .content-section {
       padding: 4rem 5rem;
@@ -1302,23 +1361,142 @@
       </div>
     </div>
 
-    <section class="about-section">
-      <div class="about-photo"><img src="images-web/Home page image 1.JPG" alt="Home page" style="width: 100%; height: 100%; object-fit: cover;"></div>
+    <!-- ABOUT SECTION - NEW NARRATIVE FORMAT -->
+    <section class="about-section-new">
+      <!-- PROLOGUE SECTION -->
+      <div class="about-narrative-section reveal">
+        <div class="section-header">PROLOGUE</div>
+        <h2 class="section-title">There wasn't anyone left to teach us.</h2>
 
-      <div class="about-content">
-        <p><span class="about-dropcap">I</span>'ve always been drawn to understanding how complex systems work. The brain just happens to be the most fascinating one I've found.</p>
+        <p>Within a few weeks, our lab had lost the two postdoctoral researchers who knew how to perform many of our core experiments. Overnight, another graduate student and I found ourselves trying to learn procedures that nobody around us could teach anymore.</p>
 
-        <p>My interest in Alzheimer's disease began with an undergraduate research project that first introduced me to protein misfolding through amyloid-β aggregation, one of the defining pathological features of the disease. I became fascinated by the molecular events that initiate disease, believing that understanding how pathology begins could help explain how it progresses. But the deeper I explored these mechanisms, the more I realized that neurodegeneration could not be explained by proteins alone. What started as a question about molecular pathology gradually became a much broader question: how do events occurring at one biological scale ultimately shape disease at another?</p>
+        <p style="margin: 2rem 0;">So we did what we could:<br>
+        We watched JOVE videos.<br>
+        We replayed old notes.<br>
+        We practiced.<br>
+        We made mistakes.<br>
+        We started again.</p>
 
-        <p>That question has guided every step of my PhD. Rather than following a single pathway, each project expanded the way I thought about neurodegeneration. What began as a question about protein misfolding grew to encompass cellular metabolism, neuroimmune interactions, human disease models, and therapeutic development. Looking back, I don't see these as different research directions, but as different perspectives on the same biological problem.</p>
+        <p>Around the same time, I found myself facing a completely different problem.</p>
 
-        <p>One of my favorite parts of research has been collaborating with people who think completely differently from I do. Working alongside biologists, chemists, computational scientists, and engineers has taught me that meaningful progress rarely comes from studying one mechanism in isolation. The most rewarding collaborations have been the ones where different perspectives come together to solve problems that none of us could have tackled alone.</p>
+        <p>If I was going to spend months learning image analysis, why was I using software simply because it was what everyone else in the lab used?</p>
 
-        <p>That way of thinking has become one of the things I enjoy most about science. I love connecting ideas that don't obviously belong together and building tools that make difficult problems easier to solve. Whether it's developing new experimental models, creating image analysis pipelines, or exploring how AI can complement experimental biology, I enjoy building things that help us ask better questions.</p>
+        <p>So I started over there too.<br>
+        I taught myself Imaris and rebuilt much of our image analysis workflow from scratch.</p>
 
-        <p>Outside the lab, those same instincts shape many of the things I enjoy. I love building practical tools that make everyday life a little easier, exploring new places through camping, and investing in the friendships that have become one of the most meaningful parts of my life. To me, curiosity isn't confined to research. It's simply how I move through the world.</p>
+        <p>At the time, those felt like unrelated problems.<br>
+        Looking back, I think they were the same.</p>
 
-        <p>Today, I'm excited by research that bridges fundamental biology and therapeutic discovery, asking not only what drives neurodegeneration but also how we can translate those insights into better interventions. Ultimately, I want my work to help bridge the gap between understanding neurodegeneration and changing its course.</p>
+        <div class="quote-box" style="margin: 2rem 0; padding-left: 1.5rem; border-left: 3px solid var(--accent);">
+          <p style="font-weight: 500;">Neither began with knowing how.<br>
+          Both began with believing the problem was worth learning for.</p>
+          <p style="margin-top: 1rem; font-size: 0.95rem; color: var(--text-muted);">I didn't realize it then, but I'd been answering that same question for most of my life.</p>
+        </div>
+      </div>
+
+      <!-- ABOUT SECTION -->
+      <div class="about-narrative-section reveal">
+        <div class="section-header">ABOUT</div>
+        <h2 class="section-title">A little about me</h2>
+
+        <p>Hi, I'm Jitika.</p>
+
+        <p>For a long time, I told one story about becoming a neuroscientist. Looking back, I don't think that's true. I think it's about becoming someone who grows into the problems she cares deeply enough to solve. I don't think I've ever followed a master plan. Instead, my life has been shaped by questions that kept getting bigger.</p>
+      </div>
+
+      <!-- QUESTIONS SECTION -->
+      <div class="about-narrative-section reveal">
+        <div class="section-header">QUESTIONS</div>
+        <h2 class="section-title">Questions that stayed with me</h2>
+
+        <p>My first experience with research introduced me to problem-solving through iterative thinking and applied β aggregation.</p>
+
+        <p>When it came time to choose a master's lab, I surprised myself.</p>
+
+        <p>I could have availed with strategy. Instead, I returned to a question that had slowly stayed with me for almost two years. Simply because I was still curious.</p>
+
+        <p>When I left that lab six months later, I didn't immediately start studying Alzheimer's. Instead, I spent the rest of my undergraduate years studying protein disease via my thesis.</p>
+
+        <p>Looking back, those experiences gave me two different gifts.</p>
+
+        <div style="margin: 2rem 0;">
+          <p style="font-weight: 500; margin-bottom: 1rem;"><strong>The first introduced me to a question I couldn't quite let go of.</strong></p>
+          <p style="font-weight: 500;"><strong>The second made me fall in love with research itself.</strong></p>
+        </div>
+
+        <div class="quote-box" style="margin: 2rem 0;">
+          <p style="font-weight: 500; margin-bottom: 1rem;">Protein aggregation led to lipid metabolism</p>
+          <p style="font-weight: 500; margin-bottom: 1rem;">Lipid metabolism led to neuroimmune interactions</p>
+          <p style="font-weight: 500; margin-bottom: 0;">These connections eventually expanded into human disease models and therapeutic development.</p>
+          <p style="margin-top: 1.5rem; font-weight: 500;"><strong>I don't think I changed research directions.<br>I think I kept zooming out.</strong></p>
+        </div>
+      </div>
+
+      <!-- BUILDING SECTION -->
+      <div class="about-narrative-section reveal">
+        <div class="section-header">BUILDING</div>
+        <h2 class="section-title">Building</h2>
+
+        <p>Somewhere during my PhD, I realized that what excited me wasn't only discovering biology. It was building.</p>
+
+        <div style="display: grid; grid-template-columns: repeat(5, 1fr); gap: 2rem; margin: 3rem 0; text-align: center;">
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🧪</div>
+            <div style="font-size: 0.9rem; font-weight: 500;">Building experimental models</div>
+          </div>
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 1rem;">📊</div>
+            <div style="font-size: 0.9rem; font-weight: 500;">Building image analysis pipelines</div>
+          </div>
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 1rem;">🤝</div>
+            <div style="font-size: 0.9rem; font-weight: 500;">Building collaborations</div>
+          </div>
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 1rem;">❓</div>
+            <div style="font-size: 0.9rem; font-weight: 500;">Building better ways to ask difficult questions</div>
+          </div>
+          <div>
+            <div style="font-size: 2rem; margin-bottom: 1rem;">💊</div>
+            <div style="font-size: 0.9rem; font-weight: 500;">Building toward better medicines</div>
+          </div>
+        </div>
+
+        <p>I've never been interested in collecting techniques. I enjoy solving a problem demands. The tools change. The questions evolve. The mindset stays the same.</p>
+      </div>
+
+      <!-- PEOPLE SECTION -->
+      <div class="about-narrative-section reveal">
+        <div class="section-header">PEOPLE</div>
+        <h2 class="section-title">People</h2>
+
+        <p>Looking back, almost every meaningful opportunity in my life has come through people I've had to learn it.</p>
+
+        <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+          <li style="margin-bottom: 1rem;">• An undergraduate advisor who trusted me with real responsibility</li>
+          <li style="margin-bottom: 1rem;">• A postdoctoral researcher who eventually raised to the persistent student</li>
+          <li style="margin-bottom: 1rem;">• A former lab member who helped me find the lab</li>
+          <li style="margin-bottom: 1rem;">• A colleague who gave me permission calls when I had just moved halfway across the world</li>
+          <li>• Parents who simply believed I should build a life</li>
+        </ul>
+
+        <div class="quote-box" style="margin: 2rem 0;">
+          <p style="font-weight: 500; margin-bottom: 0;">It's about people who challenge one another, trust one another, and build something together that none of them could have built alone. That's the kind of scientist I hope to become.</p>
+        </div>
+      </div>
+
+      <!-- WHY SECTION -->
+      <div class="about-narrative-section reveal">
+        <div class="section-header">WHY</div>
+        <h2 class="section-title">Why this website exists</h2>
+
+        <p>A CV can tell you what I've done.<br>
+        It can't tell you how I think.<br>
+        Or why my questions keep changing.</p>
+
+        <p>I wanted one place where those parts of my could exist alongside the science. Whether it's a scientific question, a shared curiosity, or simply a way of thinking, I genuinely love to hear from you.</p>
+
+        <p style="font-style: italic; margin-top: 2rem;">After all, every meaningful chapter of my own story began with a conversation.</p>
       </div>
     </section>
   </div>
