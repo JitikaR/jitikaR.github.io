@@ -2210,6 +2210,14 @@
 </div>
 
 <script>
+// Ensure hero video plays on page load
+window.addEventListener('load', () => {
+  const heroVideo = document.querySelector('.hero-video');
+  if (heroVideo) {
+    heroVideo.play().catch(err => console.log('Autoplay prevented:', err));
+  }
+});
+
 // Scroll reveal
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
