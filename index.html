@@ -2265,12 +2265,32 @@
 
 <script>
 // Ensure hero video plays on page load
-window.addEventListener('load', () => {
+function playHeroVideo() {
   const heroVideo = document.querySelector('.hero-video');
   if (heroVideo) {
-    heroVideo.play().catch(err => console.log('Autoplay prevented:', err));
+    const playPromise = heroVideo.play();
+    if (playPromise !== undefined) {
+      playPromise
+        .then(() => {
+          console.log('Video autoplay successful');
+        })
+        .catch(error => {
+          console.log('Video autoplay failed:', error);
+          // Retry after a brief delay
+          setTimeout(() => {
+            heroVideo.play().catch(err => console.log('Retry failed:', err));
+          }, 500);
+        });
+    }
   }
-});
+}
+
+// Try to play on load
+window.addEventListener('load', playHeroVideo);
+// Also try immediately in case load fires before this script
+if (document.readyState === 'complete' || document.readyState === 'interactive') {
+  playHeroVideo();
+}
 
 // Scroll reveal
 const observer = new IntersectionObserver(entries => {
