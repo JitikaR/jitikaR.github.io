@@ -1187,15 +1187,21 @@
     }
 
     @media(max-width: 640px) {
-      body { padding: 12px; }
+      body { padding: 0; margin: 0; }
 
       /* Header */
       header {
-        padding: 0.5rem 0.8rem;
+        padding: 0.6rem 0.8rem;
         flex-direction: column;
         align-items: flex-start;
         gap: 0.8rem;
-        margin: 0 -12px 0 -12px;
+        margin: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
       }
       .logo { font-size: 1.3rem; }
       .logo em { font-size: 1.3rem; }
@@ -1217,7 +1223,15 @@
       /* Hero Section */
       .hero-statement { font-size: 2rem; }
       .hero-tagline { font-size: 0.85rem; }
-      .hero { margin: 0 -12px -12px -12px; }
+      .hero {
+        margin: 0;
+        width: 100vw;
+        position: relative;
+        left: 50%;
+        right: 50%;
+        margin-left: -50vw;
+        margin-right: -50vw;
+      }
       .hero-info-btn { padding: 0.5rem 1rem; font-size: 0.8rem; bottom: 1.5rem; right: 1.5rem; }
 
       /* Modal */
