@@ -1154,6 +1154,11 @@
       /* Research Cards - Stack gallery and content */
       .research-card { grid-template-columns: 1fr !important; gap: 2rem !important; }
 
+      /* Gallery images on tablet */
+      .research-gallery { max-height: 300px; }
+      .gallery-scroll { max-height: 300px; }
+      .gallery-image { height: 300px; width: 100%; }
+
       /* Work Grid */
       .work-grid { grid-template-columns: 1fr; }
 
@@ -1223,7 +1228,33 @@
 
       /* Research Cards - Stack vertically */
       .research-card { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-      .gallery-scroll { max-height: 250px; }
+
+      /* Gallery on mobile */
+      .research-gallery {
+        max-height: 280px;
+        width: 100%;
+        border-radius: 6px;
+        overflow: hidden;
+      }
+      .gallery-scroll {
+        max-height: 280px;
+        display: flex;
+        scroll-behavior: smooth;
+      }
+      .gallery-image {
+        height: 280px;
+        width: 100%;
+        flex-shrink: 0;
+        object-fit: cover;
+      }
+      .gallery-dots {
+        gap: 0.5rem;
+        padding: 0.75rem;
+      }
+      .dot {
+        width: 6px;
+        height: 6px;
+      }
 
       /* Grids */
       .work-grid { grid-template-columns: 1fr; }
