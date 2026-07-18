@@ -1134,13 +1134,107 @@
       header { padding: 1.5rem 0 1rem; }
     }
 
+    @media(max-width: 768px) {
+      /* Header & Navigation */
+      header { padding: 1rem 1.5rem; }
+      .logo { font-size: 2rem; }
+      .logo em { font-size: 2rem; }
+      .nav-tabs { gap: 1.5rem; font-size: 1rem; }
+
+      /* Hero & Hero Tagline */
+      .hero-statement { font-size: clamp(1.8rem, 5vw, 3.5rem); }
+      .hero-tagline { font-size: 0.95rem; }
+
+      /* About Section - Stack image above text */
+      section.content-section > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 2rem !important;
+      }
+
+      /* Research Cards - Stack gallery and content */
+      .research-card { grid-template-columns: 1fr !important; gap: 2rem !important; }
+
+      /* Work Grid */
+      .work-grid { grid-template-columns: 1fr; }
+
+      /* Capability/Skills Cards */
+      .capability-card { }
+      [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+
+      /* Outside Grid */
+      .outside-grid { grid-template-columns: 1fr; }
+
+      /* Text Sizing */
+      .section-title, .story-title { font-size: 1.6rem; }
+      .hero { margin: 0 -1.5rem -1.5rem -1.5rem; }
+
+      /* Bottom Nav */
+      .bottom-nav-tabs { gap: 1.5rem; }
+    }
+
     @media(max-width: 640px) {
       body { padding: 12px; }
-      .nav-tabs { gap: 1rem; }
-      .outside-grid { grid-template-columns: 1fr; }
-      .hero-statement { font-size: 2.5rem; }
-      .section-title, .story-title { font-size: 1.8rem; }
+
+      /* Header */
+      header { padding: 1rem; }
+      .logo { font-size: 1.5rem; }
+      .logo em { font-size: 1.5rem; }
+
+      /* Navigation */
+      .nav-tabs { gap: 0.8rem; font-size: 0.9rem; }
+      .nav-tabs button { font-size: 0.9rem; }
+
+      /* Hero Section */
+      .hero-statement { font-size: 2rem; }
+      .hero-tagline { font-size: 0.85rem; }
       .hero { margin: 0 -12px -12px -12px; }
+      .hero-info-btn { padding: 0.5rem 1rem; font-size: 0.8rem; bottom: 1.5rem; right: 1.5rem; }
+
+      /* Modal */
+      .modal-box { bottom: 3rem; right: 1rem; max-width: calc(100% - 2rem); width: auto; }
+
+      /* About Section */
+      section.content-section > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+      }
+      section.content-section img { border-radius: 6px; }
+
+      /* Text in About */
+      p { font-size: 0.95rem; line-height: 1.6; }
+
+      /* Headings */
+      h1, .section-title, .story-title { font-size: 1.5rem; }
+      h2 { font-size: 1.3rem; }
+      h3 { font-size: 1.15rem; }
+
+      /* Research Cards - Stack vertically */
+      .research-card { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+      .gallery-scroll { max-height: 250px; }
+
+      /* Grids */
+      .work-grid { grid-template-columns: 1fr; }
+      .outside-grid { grid-template-columns: 1fr; }
+      [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
+      [style*="grid-template-columns: repeat(2"]  { grid-template-columns: 1fr !important; }
+      [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
+      [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
+
+      /* Contact Form */
+      .contact-form { }
+
+      /* Spacing */
+      .content-section { padding: 2rem 1rem; }
+
+      /* Bottom Nav */
+      .bottom-nav-tabs { gap: 1rem; flex-direction: column; }
+      .bottom-nav-tabs button { font-size: 0.7rem; }
+
+      /* Quotes */
+      .quote-box { padding: 1.5rem; margin: 1.5rem 0; }
+
+      /* Lists */
+      ul, ol { padding-left: 1.5rem; }
     }
 
     /* ── INFO ICON ── */
