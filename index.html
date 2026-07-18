@@ -1169,6 +1169,12 @@
       /* Outside Grid */
       .outside-grid { grid-template-columns: 1fr; }
 
+      /* Beyond the Bench - reduce image heights */
+      .outside-grid img {
+        max-height: 300px;
+        object-fit: cover;
+      }
+
       /* Text Sizing */
       .section-title, .story-title { font-size: 1.6rem; }
       .hero { margin: 0 -1.5rem -1.5rem -1.5rem; }
