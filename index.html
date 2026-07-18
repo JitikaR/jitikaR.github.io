@@ -222,6 +222,36 @@
 
     .hero-statement .accent { color: var(--accent); }
 
+    .hero-play-btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 5;
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      border: 2px solid rgba(255, 255, 255, 0.4);
+      color: #fff;
+      font-size: 28px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .hero-play-btn:hover {
+      background: rgba(255, 255, 255, 0.3);
+      border-color: rgba(255, 255, 255, 0.6);
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .hero-play-btn.hidden {
+      display: none;
+    }
+
     .hero-tagline {
       font-family: var(--sans);
       font-size: 1.1rem;
@@ -1551,6 +1581,7 @@
       <video class="hero-video" autoplay muted loop playsinline>
         <source src="Hero video.mp4" type="video/mp4">
       </video>
+      <button class="hero-play-btn" id="heroPlayBtn" onclick="document.querySelector('.hero-video').play()">▶</button>
       <div class="hero-overlay"></div>
       <button class="hero-info-btn" onclick="openVisualizationModal()" title="About this visualization"><span style="font-size: 1.2rem; margin-right: 0.5rem;">ⓘ</span>About the visualization</button>
       <div class="hero-content">
@@ -2267,15 +2298,19 @@
 // Ensure hero video plays on page load
 function playHeroVideo() {
   const heroVideo = document.querySelector('.hero-video');
+  const playBtn = document.getElementById('heroPlayBtn');
   if (heroVideo) {
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
       playPromise
         .then(() => {
           console.log('Video autoplay successful');
+          if (playBtn) playBtn.classList.add('hidden');
         })
         .catch(error => {
           console.log('Video autoplay failed:', error);
+          // Show play button on iOS or if autoplay fails
+          if (playBtn) playBtn.classList.remove('hidden');
           // Retry after a brief delay
           setTimeout(() => {
             heroVideo.play().catch(err => console.log('Retry failed:', err));
@@ -2283,6 +2318,15 @@ function playHeroVideo() {
         });
     }
   }
+}
+
+// Hide play button when video plays
+const heroVideo = document.querySelector('.hero-video');
+if (heroVideo) {
+  heroVideo.addEventListener('play', () => {
+    const playBtn = document.getElementById('heroPlayBtn');
+    if (playBtn) playBtn.classList.add('hidden');
+  });
 }
 
 // Try to play on load
