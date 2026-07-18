@@ -47,7 +47,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 0.5rem 5rem;
+      padding: 0.5rem 1.5rem;
       border-bottom: none;
       margin-bottom: 0;
       position: sticky;
@@ -56,6 +56,8 @@
       right: 0;
       z-index: 10;
       background: #000;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     .view.active:not(#home) ~ header,
@@ -1131,12 +1133,13 @@
       .work-grid { grid-template-columns: 1fr; }
       .outside-grid { grid-template-columns: repeat(2, 1fr); }
       .hero-statement { font-size: clamp(2rem, 5vw, 4rem); }
-      header { padding: 1.5rem 0 1rem; }
+      header { padding: 1.5rem 0 1rem; margin: 0 -16px 0 -16px; }
     }
 
     @media(max-width: 768px) {
+      body { padding: 16px; }
       /* Header & Navigation */
-      header { padding: 0.75rem 1rem; }
+      header { padding: 0.75rem 1rem; margin: 0 -16px 0 -16px; }
       .logo { font-size: 1.8rem; }
       .logo em { font-size: 1.8rem; }
       .nav-tabs { gap: 1rem; font-size: 0.95rem; flex-wrap: wrap; }
@@ -1177,7 +1180,7 @@
 
       /* Text Sizing */
       .section-title, .story-title { font-size: 1.6rem; }
-      .hero { margin: 0 -1.5rem -1.5rem -1.5rem; }
+      .hero { margin: 0 -16px -16px -16px; }
 
       /* Bottom Nav */
       .bottom-nav-tabs { gap: 1.5rem; }
@@ -1191,6 +1194,7 @@
         padding: 0.6rem 0.8rem;
         flex-wrap: wrap;
         gap: 0.5rem;
+        margin: 0 -12px 0 -12px;
       }
       .logo { font-size: 1.4rem; }
       .logo em { font-size: 1.4rem; }
