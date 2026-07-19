@@ -49,22 +49,20 @@
       align-items: center;
       padding: 0.5rem 1.5rem;
       border-bottom: none;
-      margin-bottom: 0;
+      margin: 0;
+      margin-left: -1.5rem;
+      margin-right: -1.5rem;
       position: sticky;
       top: 0;
       left: 0;
       right: 0;
       z-index: 10;
       background: #000;
-      width: 100%;
+      width: calc(100% + 3rem);
       box-sizing: border-box;
     }
 
-    .view.active:not(#home) ~ header,
-    #current-work ~ header,
-    #what-drives ~ header,
-    #outside ~ header,
-    #contact ~ header {
+    header.accent-bg {
       background: var(--accent);
     }
 
@@ -1226,7 +1224,9 @@
         align-items: flex-start;
         gap: 0.8rem;
         margin: 0;
-        width: 100%;
+        margin-left: -0.8rem;
+        margin-right: -0.8rem;
+        width: calc(100% + 1.6rem);
       }
       .logo { font-size: 1.3rem; }
       .logo em { font-size: 1.3rem; }
@@ -2373,6 +2373,14 @@ function switchView(viewName) {
         btn.classList.add('active');
       }
     });
+  }
+
+  // Update header background based on active view
+  const header = document.querySelector('header');
+  if (['current-work', 'what-drives', 'outside', 'contact'].includes(viewName)) {
+    header.classList.add('accent-bg');
+  } else {
+    header.classList.remove('accent-bg');
   }
 
   // Scroll to top
