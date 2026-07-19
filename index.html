@@ -62,9 +62,6 @@
       box-sizing: border-box;
     }
 
-    header.accent-bg {
-      background: var(--accent);
-    }
 
     .logo {
       font-family: var(--serif);
@@ -2394,14 +2391,6 @@ function switchView(viewName) {
         btn.classList.add('active');
       }
     });
-  }
-
-  // Update header background based on active view
-  const header = document.querySelector('header');
-  if (['current-work', 'what-drives', 'outside', 'contact'].includes(viewName)) {
-    header.classList.add('accent-bg');
-  } else {
-    header.classList.remove('accent-bg');
   }
 
   // Scroll to top
