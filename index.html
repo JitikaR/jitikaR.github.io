@@ -429,6 +429,89 @@
       text-align: center;
     }
 
+    /* ── EDUCATION ── */
+    .education-item {
+      margin-bottom: 3.5rem;
+      padding-left: 2rem;
+      border-left: 4px solid var(--accent);
+    }
+
+    .education-header {
+      margin-bottom: 1.5rem;
+    }
+
+    .education-degree {
+      font-family: var(--serif);
+      font-size: 1.8rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin: 0;
+    }
+
+    .education-content {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .degree-item,
+    .mba-item,
+    .internship-item {
+      padding: 1.5rem;
+      background: var(--bg-light);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+    }
+
+    .degree-title {
+      font-family: var(--serif);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--text-dark);
+      margin: 0 0 0.5rem 0;
+    }
+
+    .degree-meta,
+    .internship-description,
+    .mba-description {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+
+    .mba-description,
+    .internship-description {
+      margin-bottom: 0;
+      line-height: 1.7;
+    }
+
+    .degree-highlights,
+    .internship-highlights {
+      margin: 1rem 0 0 0;
+      padding-left: 1.5rem;
+      list-style: none;
+    }
+
+    .degree-highlights li,
+    .internship-highlights li {
+      font-size: 0.95rem;
+      color: var(--text-dark);
+      line-height: 1.7;
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1rem;
+    }
+
+    .degree-highlights li::before,
+    .internship-highlights li::before {
+      content: "▸";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: bold;
+    }
+
     /* ── CURRENT WORK ── */
     .work-grid {
       display: grid;
@@ -1616,6 +1699,7 @@
     <nav>
       <ul class="nav-tabs">
         <li><button class="active" onclick="switchView('home')">About me</button></li>
+        <li><button onclick="switchView('education')">Education</button></li>
         <li><button onclick="switchView('current-work')">Scientific Journey</button></li>
         <li><button onclick="switchView('what-drives')">Explorations</button></li>
         <li><button onclick="switchView('outside')">Beyond the bench</button></li>
@@ -1763,6 +1847,69 @@
           </div>
         </div>
       </div>
+    </section>
+  </div>
+
+  <!-- EDUCATION VIEW -->
+  <div class="view" id="education">
+    <section class="content-section">
+      <h1 class="section-title">Education</h1>
+
+      <!-- Degrees Section -->
+      <div class="education-item">
+        <div class="education-header">
+          <h2 class="education-degree">Undergraduate & Graduate Degrees</h2>
+        </div>
+        <div class="education-content">
+          <div class="degree-item">
+            <h3 class="degree-title">Ph.D. in Chemistry (Integrated Neuroscience)</h3>
+            <p class="degree-meta">Purdue University, Indiana, USA • Aug 2021 - Present | GPA: 3.78</p>
+          </div>
+
+          <div class="degree-item">
+            <h3 class="degree-title">M.S. in Biochemistry and Cell Biology</h3>
+            <p class="degree-meta">Stony Brook University, NY, USA • Aug 2019 - Dec 2020 | GPA: 3.84</p>
+          </div>
+
+          <div class="degree-item">
+            <h3 class="degree-title">B.Tech. in Biotechnology</h3>
+            <p class="degree-meta">Indian Institute of Technology, Guwahati, India • July 2015 - May 2019</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- microMBA Section -->
+      <div class="education-item">
+        <div class="education-header">
+          <h2 class="education-degree">Executive Education</h2>
+        </div>
+        <div class="education-content">
+          <div class="mba-item">
+            <h3 class="degree-title">microMBA</h3>
+            <p class="degree-meta">UC San Diego Rady School of Management • 2024</p>
+            <p class="mba-description">
+              Completed an intensive executive education program combining business strategy, innovation, and leadership principles. Supported by professional grant award from Purdue Graduate Student Government, demonstrating institutional recognition of the program's value. This education bridges scientific expertise with business acumen, preparing for leadership roles that translate fundamental research into therapeutic impact.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Internship Section -->
+      <div class="education-item">
+        <div class="education-header">
+          <h2 class="education-degree">Research Internship</h2>
+        </div>
+        <div class="education-content">
+          <div class="internship-item">
+            <h3 class="degree-title">Summer Research Internship</h3>
+            <p class="degree-meta">University of Nottingham, United Kingdom • Summer 2018</p>
+            <p class="internship-description">
+              Completed a 3-month internship at the University of Nottingham, Derby Hospital with Dr. Wayne Carter.
+            </p>
+          </div>
+        </div>
+      </div>
+
     </section>
   </div>
 
