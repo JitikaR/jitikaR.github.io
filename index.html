@@ -354,6 +354,40 @@
     .skill-card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; color: var(--text-dark); }
     .skill-card-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); }
 
+    /* RESEARCH HIGHLIGHT CARDS */
+    .rh-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .rh-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .rh-card-img { height: 200px; overflow: hidden; flex-shrink: 0; }
+    .rh-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .rh-card-body { padding: 1.5rem; display: flex; flex-direction: column; flex: 1; }
+    .rh-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; margin-bottom: 0.75rem; }
+    .rh-tag {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.06em;
+      text-transform: uppercase; padding: 0.2rem 0.65rem;
+      border-radius: 100px; background: #ede9fe; color: #5b21b6;
+    }
+    .rh-title {
+      font-family: var(--serif); font-size: 1.05rem; font-weight: 400;
+      color: var(--text-dark); margin-bottom: 0.75rem; line-height: 1.4;
+    }
+    .rh-desc { font-size: 0.87rem; line-height: 1.75; color: var(--text-muted); margin-bottom: 1rem; flex: 1; }
+    .rh-journal { font-size: 0.8rem; color: var(--text-muted); font-style: italic; margin-bottom: 0.75rem; }
+    .rh-link {
+      font-size: 0.88rem; font-weight: 600; color: var(--accent);
+      text-decoration: none; display: inline-flex; align-items: center; gap: 0.25rem;
+      transition: gap 0.2s;
+    }
+    .rh-link:hover { gap: 0.5rem; }
+
     .education-item { margin-bottom: 3.5rem; padding-left: 2rem; border-left: 4px solid var(--accent); }
     .education-header { margin-bottom: 1.5rem; }
     .education-degree { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; color: var(--text-dark); margin: 0; }
@@ -787,6 +821,58 @@
         </div>
       </div>
     </section>
+
+    <!-- RESEARCH HIGHLIGHTS SECTION -->
+    <section class="content-section" style="padding-top: 4rem; padding-bottom: 5rem;">
+      <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 2.5rem; max-width: 1100px; margin-left: auto; margin-right: auto;">
+        <div>
+          <div style="font-family: 'Courier New', monospace; font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem;">Selected work</div>
+          <h2 style="font-family: var(--serif); font-size: 2.2rem; font-weight: 300;">Research Highlights</h2>
+        </div>
+        <button onclick="switchView('current-work'); setTimeout(function(){ switchWorkTab('publications'); }, 150);" style="background: none; border: none; font-family: var(--sans); font-size: 0.88rem; font-weight: 500; color: var(--accent); cursor: pointer; padding: 0; text-decoration: underline; text-underline-offset: 3px; white-space: nowrap;">Full list of publications →</button>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
+
+        <!-- CARD 1 -->
+        <div class="rh-card reveal">
+          <div class="rh-card-img"><img src="images-web/Research card 1 image 2.jpg" alt="DGAT2 paper"></div>
+          <div class="rh-card-body">
+            <div class="rh-tags"><span class="rh-tag">Neurodegeneration</span><span class="rh-tag">Lipid Biology</span></div>
+            <div class="rh-title">Amyloid-β induces lipid droplet-mediated microglial dysfunction via DGAT2 in Alzheimer's disease</div>
+            <div class="rh-desc">Microglia form lipid droplets when exposed to amyloid-β, impairing their ability to clear plaques. I showed that eliminating DGAT2 — rather than merely inhibiting it — restores microglial function and reduces pathology in mouse models of Alzheimer's disease.</div>
+            <div class="rh-journal">Immunity · 2025</div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/40393454/" target="_blank" class="rh-link">Read paper →</a>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="rh-card reveal">
+          <div class="rh-card-img"><img src="images-web/Research card 2 image 1.jpg" alt="CAA paper"></div>
+          <div class="rh-card-body">
+            <div class="rh-tags"><span class="rh-tag">Biophysics</span><span class="rh-tag">Amyloid</span></div>
+            <div class="rh-title">Insights into Cerebral Amyloid Angiopathy from early-stage aggregation of Aβ40-Iowa and Aβ40-Dutch</div>
+            <div class="rh-desc">The Dutch and Iowa mutations cause distinct vascular amyloid diseases despite differing by a single amino acid. I identified a structural intermediate unique to the Iowa mutation that redirects aggregation into an alternative — and more damaging — pathway.</div>
+            <div class="rh-journal">Biochemistry · 2022</div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/35666749/" target="_blank" class="rh-link">Read paper →</a>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="rh-card reveal">
+          <div class="rh-card-img"><img src="images-web/Research card 2 image 2.jpg" alt="Aβ40 fibril paper"></div>
+          <div class="rh-card-body">
+            <div class="rh-tags"><span class="rh-tag">Biophysics</span><span class="rh-tag">CAA</span></div>
+            <div class="rh-title">Aβ40 fibril assembly on human cerebral smooth muscle cells impairs cell viability</div>
+            <div class="rh-desc">Fibrillar amyloid seeds can propagate new amyloid growth directly on the surface of cerebral vascular smooth muscle cells, disrupting cell membranes and triggering cell death — offering a mechanistic explanation for how CAA pathology spreads through cerebral blood vessels.</div>
+            <div class="rh-journal">Biochemistry · 2025</div>
+            <a href="https://pubmed.ncbi.nlm.nih.gov/39763333/" target="_blank" class="rh-link">Read paper →</a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </div>
 
   <!-- EDUCATION VIEW -->
