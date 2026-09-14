@@ -63,7 +63,6 @@
       position: relative;
     }
 
-    /* ── HEADER / NAV ── */
     header {
       display: flex;
       justify-content: space-between;
@@ -80,7 +79,6 @@
       width: 100%;
       box-sizing: border-box;
     }
-
 
     .logo {
       font-family: var(--serif);
@@ -121,15 +119,8 @@
       font-weight: 400;
     }
 
-    .nav-tabs button:hover {
-      color: #fff;
-    }
-
-    .nav-tabs button.active {
-      color: #fff;
-      font-weight: 600;
-    }
-
+    .nav-tabs button:hover { color: #fff; }
+    .nav-tabs button.active { color: #fff; font-weight: 600; }
     .nav-tabs button.active::after {
       content: '';
       position: absolute;
@@ -140,7 +131,6 @@
       background: #fff;
     }
 
-    /* ── BOTTOM NAV TABS ── */
     .bottom-nav-tabs {
       display: flex;
       gap: 3rem;
@@ -163,15 +153,8 @@
       font-weight: 500;
     }
 
-    .bottom-nav-tabs button:hover {
-      color: var(--accent);
-    }
-
-    .bottom-nav-tabs button.active {
-      color: var(--accent);
-      font-weight: 600;
-    }
-
+    .bottom-nav-tabs button:hover { color: var(--accent); }
+    .bottom-nav-tabs button.active { color: var(--accent); font-weight: 600; }
     .bottom-nav-tabs button.active::after {
       content: '';
       position: absolute;
@@ -182,7 +165,6 @@
       background: var(--accent);
     }
 
-    /* ── HERO ── */
     .hero {
       height: 100vh;
       width: 100%;
@@ -262,9 +244,7 @@
       transform: translate(-50%, -50%) scale(1.1);
     }
 
-    .hero-play-btn.hidden {
-      display: none;
-    }
+    .hero-play-btn.hidden { display: none; }
 
     .hero-tagline {
       font-family: var(--sans);
@@ -289,33 +269,12 @@
       z-index: 2;
     }
 
-    .hero-name {
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: #fff;
-      margin-bottom: 0.4rem;
-    }
+    .hero-name { font-size: 1.3rem; font-weight: 400; color: #fff; margin-bottom: 0.4rem; }
+    .hero-intro { font-size: 0.75rem; color: rgba(255,255,255,0.75); letter-spacing: 0.1em; text-transform: uppercase; }
 
-    .hero-intro {
-      font-size: 0.75rem;
-      color: rgba(255,255,255,0.75);
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-    }
+    .view { display: none; flex: 1; padding-bottom: 4rem; }
+    .view.active { display: flex; flex-direction: column; }
 
-    /* ── VIEW SECTIONS ── */
-    .view {
-      display: none;
-      flex: 1;
-      padding-bottom: 4rem;
-    }
-
-    .view.active {
-      display: flex;
-      flex-direction: column;
-    }
-
-    /* ── ABOUT SECTION ── */
     .about-section {
       padding: 6rem 5rem 2rem;
       background: var(--bg-main);
@@ -339,922 +298,215 @@
       margin: 0 2rem 2rem 0;
     }
 
-    .about-content {
-      font-size: 1rem;
-      line-height: 2.1;
-      color: var(--text-dark);
-    }
+    .about-content { font-size: 1rem; line-height: 2.1; color: var(--text-dark); }
+    .about-dropcap { font-family: var(--sans); font-size: 5.5rem; font-weight: 600; line-height: 0.9; color: var(--text-dark); float: left; margin: 0 0.3rem 0 0; }
+    .about-content p { margin-bottom: 1.75rem; text-align: justify; }
+    .about-content a { color: var(--accent); text-decoration: none; border-bottom: 1px solid rgba(234, 88, 12, 0.3); transition: all 0.3s; }
+    .about-content a:hover { border-bottom-color: var(--accent); }
 
-    .about-dropcap {
-      font-family: var(--sans);
-      font-size: 5.5rem;
-      font-weight: 600;
-      line-height: 0.9;
-      color: var(--text-dark);
-      float: left;
-      margin: 0 0.3rem 0 0;
-    }
+    .about-section-new { padding: 4rem 5rem; max-width: 1000px; margin: 0 auto; }
+    .about-narrative-section { margin-bottom: 4rem; padding-bottom: 4rem; border-bottom: 1px solid var(--border); }
+    .about-narrative-section > *:not(.section-header) { margin-left: 250px; }
+    .about-narrative-section:last-child { border-bottom: none; }
+    .section-header { font-family: var(--sans); font-size: 3rem; font-weight: 300; letter-spacing: 0.15em; color: rgba(0, 0, 0, 0.08); text-transform: uppercase; margin-bottom: 1.5rem; margin-left: -250px; line-height: 1; }
+    .about-narrative-section .section-title { font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 2rem; text-align: left; color: var(--text-dark); }
+    .about-narrative-section p { font-family: var(--sans); font-size: 1rem; line-height: 1.8; margin-bottom: 1.5rem; color: var(--text-dark); }
 
-    .about-content p {
-      margin-bottom: 1.75rem;
-      text-align: justify;
-    }
+    .quote-box { background: rgba(234, 88, 12, 0.05); padding: 1.5rem; border-left: 4px solid var(--accent); margin: 2rem 0; }
+    .quote-box p { margin-bottom: 1rem; }
+    .quote-box p:last-child { margin-bottom: 0; }
 
-    .about-content a {
-      color: var(--accent);
-      text-decoration: none;
-      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
-      transition: all 0.3s;
-    }
+    .content-section { padding: 4rem 5rem; border-top: none; }
 
-    .about-content a:hover {
-      border-bottom-color: var(--accent);
-    }
+    .section-title { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; margin-bottom: 3rem; text-align: center; }
 
-    /* ── NEW ABOUT NARRATIVE SECTION ── */
-    .about-section-new {
-      padding: 4rem 5rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .about-narrative-section {
-      margin-bottom: 4rem;
-      padding-bottom: 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .about-narrative-section > *:not(.section-header) {
-      margin-left: 250px;
-    }
-
-    .about-narrative-section:last-child {
-      border-bottom: none;
-    }
-
-    .section-header {
-      font-family: var(--sans);
-      font-size: 3rem;
-      font-weight: 300;
-      letter-spacing: 0.15em;
-      color: rgba(0, 0, 0, 0.08);
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      margin-left: -250px;
-      line-height: 1;
-    }
-
-    .about-narrative-section .section-title {
-      font-family: var(--serif);
-      font-size: 2rem;
-      font-weight: 400;
-      margin-bottom: 2rem;
-      text-align: left;
-      color: var(--text-dark);
-    }
-
-    .about-narrative-section p {
-      font-family: var(--sans);
-      font-size: 1rem;
-      line-height: 1.8;
-      margin-bottom: 1.5rem;
-      color: var(--text-dark);
-    }
-
-    .quote-box {
-      background: rgba(234, 88, 12, 0.05);
-      padding: 1.5rem;
-      border-left: 4px solid var(--accent);
-      margin: 2rem 0;
-    }
-
-    .quote-box p {
-      margin-bottom: 1rem;
-    }
-
-    .quote-box p:last-child {
-      margin-bottom: 0;
-    }
-
-    /* ── TAB CONTENT SECTIONS ── */
-    .content-section {
-      padding: 4rem 5rem;
-      border-top: none;
-    }
-
-    .section-title {
-      font-family: var(--serif);
-      font-size: 2.5rem;
-      font-weight: 300;
-      margin-bottom: 3rem;
-      text-align: center;
-    }
-
-    /* ── EDUCATION ── */
-    .education-item {
-      margin-bottom: 3.5rem;
-      padding-left: 2rem;
-      border-left: 4px solid var(--accent);
-    }
-
-    .education-header {
-      margin-bottom: 1.5rem;
-    }
-
-    .education-degree {
-      font-family: var(--serif);
-      font-size: 1.8rem;
-      font-weight: 400;
-      color: var(--text-dark);
-      margin: 0;
-    }
-
-    .education-content {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-
-    .degree-item,
-    .mba-item,
-    .internship-item {
-      padding: 1.5rem;
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: 4px;
-    }
-
-    .degree-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      color: var(--text-dark);
-      margin: 0 0 0.5rem 0;
-    }
-
-    .degree-meta,
-    .internship-description,
-    .mba-description {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 500;
-      margin-bottom: 1rem;
-    }
-
-    .mba-description,
-    .internship-description {
-      margin-bottom: 0;
-      line-height: 1.7;
-    }
-
-    .degree-highlights,
-    .internship-highlights {
-      margin: 1rem 0 0 0;
-      padding-left: 1.5rem;
-      list-style: none;
-    }
-
-    .degree-highlights li,
-    .internship-highlights li {
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      line-height: 1.7;
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-left: 1rem;
-    }
-
-    .degree-highlights li::before,
-    .internship-highlights li::before {
-      content: "▸";
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-      font-weight: bold;
-    }
-
-    /* ── CURRENT WORK ── */
-    .work-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 2.5rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .work-card {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      transition: all 0.3s;
-      cursor: pointer;
-    }
-
-    .work-card:hover {
-      border-color: var(--accent);
-      box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08);
-    }
-
-    .work-image {
-      width: 100%;
-      height: 320px;
-      background: #e8ddd0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.8rem;
-      overflow: hidden;
-    }
-
-    .work-content {
-      padding: 2rem;
-    }
-
-    .work-label {
-      font-family: 'Courier New', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .work-title {
-      font-family: var(--serif);
-      font-size: 1.4rem;
-      font-weight: 400;
-      margin-bottom: 0.75rem;
-      color: var(--text-dark);
-    }
-
-    .work-desc {
-      font-size: 0.9rem;
-      line-height: 1.8;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-    }
-
-    .work-pub,
-    .work-recog {
-      border-top: 1px solid var(--border);
-      padding-top: 1rem;
-      margin-top: 1rem;
-    }
-
-    .work-pub-label,
-    .work-recog-label {
-      font-family: 'Courier New', monospace;
-      font-size: 0.6rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      font-weight: 600;
-      margin-bottom: 0.4rem;
-    }
-
-    .work-pub-title {
-      font-size: 0.85rem;
-      font-weight: 500;
-      line-height: 1.5;
-      color: var(--text-dark);
-    }
-
-    .work-recog-item {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      margin-bottom: 0.2rem;
-    }
-
-    /* ── EXPANDABLE RESEARCH CARDS ── */
-    .work-card {
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .research-expanded {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 450px 1fr;
-      gap: 3rem;
-      align-items: start;
-      padding: 2.5rem;
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      position: relative;
-    }
-
-    .research-gallery {
-      position: relative;
-    }
-
-    .research-info {
-      padding: 0;
-    }
-
-    .research-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-      color: var(--text-dark);
-    }
-
-    .research-section {
-      margin-bottom: 1.5rem;
-    }
-
-    .research-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.75rem;
-    }
-
-    .section-text {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-dark);
-    }
-
-    .research-pub-item {
-      margin-bottom: 1rem;
-    }
-
-    .research-pub-item:last-child {
-      margin-bottom: 0;
-    }
-
-    .research-pub-title {
-      font-size: 0.95rem;
-      color: var(--accent);
-      margin-bottom: 0.2rem;
-      cursor: pointer;
-      display: inline-block;
-      transition: all 0.3s;
-    }
-
-    .research-pub-title:hover {
-      text-decoration: underline;
-    }
-
-    .research-pub-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-      cursor: default;
-    }
-
-    .research-close-btn {
-      position: absolute;
-      top: -15px;
-      right: -15px;
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      color: var(--text-dark);
-      font-size: 1.5rem;
-      cursor: pointer;
-      padding: 0;
-      transition: all 0.3s;
-      font-family: inherit;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .research-close-btn:hover {
-      opacity: 0.6;
-    }
-
-    .work-pub-clickable {
-      color: var(--accent);
-      cursor: pointer;
-      text-decoration: none;
-      transition: all 0.3s;
-    }
-
-    .work-pub-clickable:hover {
-      text-decoration: underline;
-    }
-
-    /* ── WORK TABS ── */
-    .work-tabs {
-      display: flex;
-      gap: 1.5rem;
-      margin-bottom: 3rem;
-      border-bottom: 1px solid var(--border);
-      padding-bottom: 1rem;
-      max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .work-tab-btn {
+    /* READ MORE */
+    .read-more-btn {
       background: none;
       border: none;
-      font-family: var(--serif);
-      font-size: 1rem;
-      color: var(--text-muted);
-      cursor: pointer;
-      padding: 0.5rem 0;
-      position: relative;
-      transition: all 0.3s;
-      font-weight: 400;
-    }
-
-    .work-tab-btn:hover {
-      color: var(--text-dark);
-    }
-
-    .work-tab-btn.active {
-      color: var(--text-dark);
-      font-weight: 500;
-    }
-
-    .work-tab-btn.active::after {
-      content: '';
-      position: absolute;
-      bottom: -1rem;
-      left: 0;
-      right: 0;
-      height: 2px;
-      background: var(--accent);
-    }
-
-    .work-tab-content {
-      display: none;
-    }
-
-    .work-tab-content.active {
-      display: block;
-    }
-
-    /* ── PUBLICATIONS ── */
-    .publications-list {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .publication-item {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      padding: 2rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .pub-header {
-      margin-bottom: 1rem;
-    }
-
-    .pub-title {
-      font-family: var(--serif);
-      font-size: 1.1rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .pub-meta {
-      font-size: 0.8rem;
-      color: var(--text-muted);
-    }
-
-    .pub-actions {
-      display: flex;
-      gap: 1rem;
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-    }
-
-    .pub-link {
-      font-size: 0.85rem;
       color: var(--accent);
-      text-decoration: none;
-      border: none;
-      background: none;
+      font-family: var(--sans);
+      font-size: 0.95rem;
+      font-weight: 500;
       cursor: pointer;
       padding: 0;
-      font-family: inherit;
-      transition: all 0.3s;
-    }
-
-    .pub-link:hover {
-      text-decoration: underline;
-    }
-
-    .pub-abstract-content {
-      margin-top: 1rem;
-      padding-top: 1rem;
-      border-top: 1px solid var(--border);
-      animation: slideDown 0.3s ease-out;
-    }
-
-    @keyframes slideDown {
-      from {
-        opacity: 0;
-        max-height: 0;
-        overflow: hidden;
-      }
-      to {
-        opacity: 1;
-        max-height: 500px;
-      }
-    }
-
-    .capability-card {
-      border: 1px solid var(--border);
-      padding: 0.75rem;
-      cursor: pointer;
-      text-align: center;
-      transition: all 0.3s ease;
-    }
-
-    .capability-card:hover {
-      background: rgba(var(--accent-rgb), 0.05);
-    }
-
-    .capability-title {
-      transition: opacity 0.3s ease;
-    }
-
-    .capability-card:hover .capability-title {
-      display: none;
-    }
-
-    .capability-description {
-      max-height: 0;
-      opacity: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease, opacity 0.3s ease;
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    .capability-card:hover .capability-description {
-      max-height: 200px;
-      opacity: 1;
-    }
-
-    .capability-arrow {
-      color: var(--accent);
-      transition: transform 0.3s ease;
-      font-size: 0.9rem;
-    }
-
-    .capability-card:hover .capability-arrow {
-      transform: rotate(180deg);
-    }
-
-    .pub-abstract {
-      font-size: 0.95rem;
-      line-height: 1.6;
-      color: var(--text-dark);
-    }
-
-    /* ── AWARDS ── */
-    .awards-list {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    #research-tab {
-      max-width: 1200px;
-      margin: 0 auto;
-      width: 100%;
-    }
-
-    .award-item {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      padding: 1.5rem 2rem;
-      margin-bottom: 1rem;
-    }
-
-    .award-name {
-      font-family: var(--serif);
-      font-size: 1rem;
-      font-weight: 400;
-      color: var(--text-dark);
-      margin-bottom: 0.3rem;
-    }
-
-    .award-meta {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-    }
-
-    /* ── CONFERENCES ── */
-    .conferences-list {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .conference-item {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      padding: 2.5rem;
-      margin-bottom: 2.5rem;
-      display: grid;
-      grid-template-columns: 450px 1fr;
-      gap: 3rem;
-      align-items: start;
-    }
-
-    .conference-gallery {
-      position: relative;
-    }
-
-    .gallery-scroll {
-      display: flex;
-      overflow-x: auto;
-      scroll-behavior: smooth;
-      gap: 0;
-      border: 1px solid var(--border);
-    }
-
-    .gallery-scroll::-webkit-scrollbar {
-      height: 0;
-    }
-
-    .gallery-image {
-      min-width: 450px;
-      height: 350px;
-      background: #e8ddd0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.85rem;
-      flex-shrink: 0;
-    }
-
-    .publication-gallery {
-      width: 100%;
-      margin: 0 auto;
-      overflow: hidden;
-    }
-
-    .publication-gallery .gallery-scroll {
-      width: 100%;
-    }
-
-    .gallery-dots {
-      display: flex;
-      gap: 0.5rem;
-      margin-top: 1rem;
-      justify-content: center;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: var(--border);
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-
-    .dot.active {
-      background: var(--accent);
-      width: 24px;
-      border-radius: 4px;
-    }
-
-    .conference-info {
-      padding: 0;
-    }
-
-    .conference-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .conference-location {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      margin-bottom: 1.5rem;
-      font-weight: 500;
-    }
-
-    .conference-section {
-      margin-bottom: 1.5rem;
-    }
-
-    .conference-section:last-child {
-      margin-bottom: 0;
-    }
-
-    .section-label {
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-
-    .section-text {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-dark);
-    }
-
-    /* ── WHAT DRIVES ME ── */
-    .drives-content {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .drives-subsection {
-      margin-bottom: 3rem;
-    }
-
-    .drives-subsection h3 {
-      font-family: var(--serif);
-      font-size: 1.5rem;
-      font-weight: 400;
-      margin-bottom: 1.5rem;
-    }
-
-    .drives-item {
-      background: var(--bg-light);
-      border: 1px solid var(--border);
-      padding: 1.75rem;
-      margin-bottom: 1rem;
-    }
-
-    .drives-item-title {
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      color: var(--text-dark);
-    }
-
-    .drives-item-text {
-      font-size: 0.9rem;
-      line-height: 1.75;
-      color: var(--text-muted);
-    }
-
-    /* ── OUTSIDE THE LAB ── */
-    .outside-list {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .outside-item {
-      padding: 3rem 0;
-      margin-bottom: 0;
-      display: grid;
-      gap: 3rem;
-      align-items: center;
       border-bottom: 1px solid var(--accent);
-      background: none;
+      transition: all 0.2s;
+      margin-top: 1.5rem;
+      display: inline-block;
     }
+    .read-more-btn:hover { color: #c44a00; border-bottom-color: #c44a00; }
 
-    .outside-item:last-child {
-      border-bottom: none;
-    }
-
-    .outside-gallery {
-      position: relative;
-    }
-
-    .outside-content {
-      padding: 0;
-    }
-
-    .outside-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 400;
-      margin-bottom: 1rem;
-      color: var(--text-dark);
-    }
-
-    .outside-text {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-dark);
-    }
-
-    /* ── CONTACT ── */
-    .contact-content {
-      max-width: 820px;
-      margin: 0 auto;
-    }
-
-    .contact-intro {
-      font-size: 0.95rem;
-      line-height: 1.85;
-      color: var(--text-muted);
-      margin-bottom: 2.5rem;
-      text-align: center;
-    }
-
-    .contact-methods {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-    }
-
-    .contact-item {
-      background: var(--bg-light);
+    /* SKILL CARDS */
+    .skill-card {
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
       border: 1px solid var(--border);
-      padding: 1.75rem;
-      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: transform 0.2s, box-shadow 0.2s;
     }
+    .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
+    .skill-card-img { height: 200px; overflow: hidden; }
+    .skill-card-img img { width: 100%; height: 100%; object-fit: cover; }
+    .skill-card-body { padding: 1.5rem; }
+    .skill-card-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+    .skill-card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; color: var(--text-dark); }
+    .skill-card-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); }
 
-    .contact-item:hover {
-      border-color: var(--accent);
-      box-shadow: 0 2px 8px rgba(234, 88, 12, 0.06);
-    }
+    .education-item { margin-bottom: 3.5rem; padding-left: 2rem; border-left: 4px solid var(--accent); }
+    .education-header { margin-bottom: 1.5rem; }
+    .education-degree { font-family: var(--serif); font-size: 1.8rem; font-weight: 400; color: var(--text-dark); margin: 0; }
+    .education-content { display: flex; flex-direction: column; gap: 2rem; }
+    .degree-item, .mba-item, .internship-item { padding: 1.5rem; background: var(--bg-light); border: 1px solid var(--border); border-radius: 4px; }
+    .degree-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; color: var(--text-dark); margin: 0 0 0.5rem 0; }
+    .degree-meta, .internship-description, .mba-description { font-size: 0.9rem; color: var(--text-muted); font-weight: 500; margin-bottom: 1rem; }
+    .mba-description, .internship-description { margin-bottom: 0; line-height: 1.7; }
+    .degree-highlights, .internship-highlights { margin: 1rem 0 0 0; padding-left: 1.5rem; list-style: none; }
+    .degree-highlights li, .internship-highlights li { font-size: 0.95rem; color: var(--text-dark); line-height: 1.7; margin-bottom: 0.5rem; position: relative; padding-left: 1rem; }
+    .degree-highlights li::before, .internship-highlights li::before { content: "▸"; position: absolute; left: 0; color: var(--accent); font-weight: bold; }
 
-    .contact-label {
-      font-family: 'Courier New', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--accent);
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-    }
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2.5rem; max-width: 1200px; margin: 0 auto; }
+    .work-card { background: var(--bg-light); border: 1px solid var(--border); overflow: hidden; transition: all 0.3s; cursor: pointer; }
+    .work-card:hover { border-color: var(--accent); box-shadow: 0 4px 16px rgba(234, 88, 12, 0.08); }
+    .work-image { width: 100%; height: 320px; background: #e8ddd0; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.8rem; overflow: hidden; }
+    .work-content { padding: 2rem; }
+    .work-label { font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
+    .work-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; margin-bottom: 0.75rem; color: var(--text-dark); }
+    .work-desc { font-size: 0.9rem; line-height: 1.8; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .work-pub, .work-recog { border-top: 1px solid var(--border); padding-top: 1rem; margin-top: 1rem; }
+    .work-pub-label, .work-recog-label { font-family: 'Courier New', monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 0.4rem; }
+    .work-pub-title { font-size: 0.85rem; font-weight: 500; line-height: 1.5; color: var(--text-dark); }
+    .work-recog-item { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.2rem; }
+    .work-card { cursor: pointer; transition: all 0.3s; }
+    .research-expanded { grid-column: 1 / -1; display: grid; grid-template-columns: 450px 1fr; gap: 3rem; align-items: start; padding: 2.5rem; background: var(--bg-light); border: 1px solid var(--border); position: relative; }
+    .research-gallery { position: relative; }
+    .research-info { padding: 0; }
+    .research-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 1.5rem; color: var(--text-dark); }
+    .research-section { margin-bottom: 1.5rem; }
+    .research-section:last-child { margin-bottom: 0; }
+    .section-label { font-size: 0.8rem; text-transform: uppercase; color: var(--accent); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.75rem; }
+    .section-text { font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); }
+    .research-pub-item { margin-bottom: 1rem; }
+    .research-pub-item:last-child { margin-bottom: 0; }
+    .research-pub-title { font-size: 0.95rem; color: var(--accent); margin-bottom: 0.2rem; cursor: pointer; display: inline-block; transition: all 0.3s; }
+    .research-pub-title:hover { text-decoration: underline; }
+    .research-pub-meta { font-size: 0.8rem; color: var(--text-muted); cursor: default; }
+    .research-close-btn { position: absolute; top: -15px; right: -15px; background: var(--bg-light); border: 1px solid var(--border); border-radius: 50%; width: 40px; height: 40px; color: var(--text-dark); font-size: 1.5rem; cursor: pointer; padding: 0; transition: all 0.3s; font-family: inherit; display: flex; align-items: center; justify-content: center; }
+    .research-close-btn:hover { opacity: 0.6; }
+    .work-pub-clickable { color: var(--accent); cursor: pointer; text-decoration: none; transition: all 0.3s; }
+    .work-pub-clickable:hover { text-decoration: underline; }
 
-    .contact-value {
-      font-size: 0.95rem;
-      color: var(--text-dark);
-      font-weight: 500;
-    }
+    .work-tabs { display: flex; gap: 1.5rem; margin-bottom: 3rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem; max-width: 1200px; margin-left: auto; margin-right: auto; }
+    .work-tab-btn { background: none; border: none; font-family: var(--serif); font-size: 1rem; color: var(--text-muted); cursor: pointer; padding: 0.5rem 0; position: relative; transition: all 0.3s; font-weight: 400; }
+    .work-tab-btn:hover { color: var(--text-dark); }
+    .work-tab-btn.active { color: var(--text-dark); font-weight: 500; }
+    .work-tab-btn.active::after { content: ''; position: absolute; bottom: -1rem; left: 0; right: 0; height: 2px; background: var(--accent); }
+    .work-tab-content { display: none; }
+    .work-tab-content.active { display: block; }
 
-    .contact-value a {
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.3s;
-      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
-    }
+    .publications-list { max-width: 1200px; margin: 0 auto; }
+    .publication-item { background: var(--bg-light); border: 1px solid var(--border); padding: 2rem; margin-bottom: 1.5rem; }
+    .pub-header { margin-bottom: 1rem; }
+    .pub-title { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .pub-meta { font-size: 0.8rem; color: var(--text-muted); }
+    .pub-actions { display: flex; gap: 1rem; margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .pub-link { font-size: 0.85rem; color: var(--accent); text-decoration: none; border: none; background: none; cursor: pointer; padding: 0; font-family: inherit; transition: all 0.3s; }
+    .pub-link:hover { text-decoration: underline; }
+    .pub-abstract-content { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border); animation: slideDown 0.3s ease-out; }
+    @keyframes slideDown { from { opacity: 0; max-height: 0; overflow: hidden; } to { opacity: 1; max-height: 500px; } }
+    .capability-card { border: 1px solid var(--border); padding: 0.75rem; cursor: pointer; text-align: center; transition: all 0.3s ease; }
+    .capability-card:hover { background: rgba(var(--accent-rgb), 0.05); }
+    .capability-title { transition: opacity 0.3s ease; }
+    .capability-card:hover .capability-title { display: none; }
+    .capability-description { max-height: 0; opacity: 0; overflow: hidden; transition: max-height 0.3s ease, opacity 0.3s ease; margin-top: 0.5rem; font-size: 0.85rem; color: var(--text-muted); }
+    .capability-card:hover .capability-description { max-height: 200px; opacity: 1; }
+    .capability-arrow { color: var(--accent); transition: transform 0.3s ease; font-size: 0.9rem; }
+    .capability-card:hover .capability-arrow { transform: rotate(180deg); }
+    .pub-abstract { font-size: 0.95rem; line-height: 1.6; color: var(--text-dark); }
 
-    .contact-value a:hover {
-      border-bottom-color: var(--accent);
-    }
+    .awards-list { max-width: 1200px; margin: 0 auto; }
+    #research-tab { max-width: 1200px; margin: 0 auto; width: 100%; }
+    .award-item { background: var(--bg-light); border: 1px solid var(--border); padding: 1.5rem 2rem; margin-bottom: 1rem; }
+    .award-name { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--text-dark); margin-bottom: 0.3rem; }
+    .award-meta { font-size: 0.85rem; color: var(--text-muted); }
 
-    .contact-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .conferences-list { max-width: 1200px; margin: 0 auto; }
+    .conference-item { background: var(--bg-light); border: 1px solid var(--border); padding: 2.5rem; margin-bottom: 2.5rem; display: grid; grid-template-columns: 450px 1fr; gap: 3rem; align-items: start; }
+    .conference-gallery { position: relative; }
+    .gallery-scroll { display: flex; overflow-x: auto; scroll-behavior: smooth; gap: 0; border: 1px solid var(--border); }
+    .gallery-scroll::-webkit-scrollbar { height: 0; }
+    .gallery-image { min-width: 450px; height: 350px; background: #e8ddd0; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.85rem; flex-shrink: 0; }
+    .publication-gallery { width: 100%; margin: 0 auto; overflow: hidden; }
+    .publication-gallery .gallery-scroll { width: 100%; }
+    .gallery-dots { display: flex; gap: 0.5rem; margin-top: 1rem; justify-content: center; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--border); cursor: pointer; transition: all 0.3s; }
+    .dot.active { background: var(--accent); width: 24px; border-radius: 4px; }
+    .conference-info { padding: 0; }
+    .conference-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .conference-location { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1.5rem; font-weight: 500; }
+    .conference-section { margin-bottom: 1.5rem; }
+    .conference-section:last-child { margin-bottom: 0; }
+    .section-label { font-size: 0.8rem; text-transform: uppercase; color: var(--accent); font-weight: 600; letter-spacing: 0.1em; margin-bottom: 0.5rem; }
+    .section-text { font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); }
 
-    .contact-links a {
-      font-size: 0.9rem;
-      color: var(--accent);
-      text-decoration: none;
-      transition: all 0.3s;
-      border-bottom: 1px solid rgba(234, 88, 12, 0.3);
-    }
+    .drives-content { max-width: 820px; margin: 0 auto; }
+    .drives-subsection { margin-bottom: 3rem; }
+    .drives-subsection h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; margin-bottom: 1.5rem; }
+    .drives-item { background: var(--bg-light); border: 1px solid var(--border); padding: 1.75rem; margin-bottom: 1rem; }
+    .drives-item-title { font-weight: 500; margin-bottom: 0.5rem; color: var(--text-dark); }
+    .drives-item-text { font-size: 0.9rem; line-height: 1.75; color: var(--text-muted); }
 
-    .contact-links a:hover {
-      border-bottom-color: var(--accent);
-    }
+    .outside-list { max-width: 1200px; margin: 0 auto; }
+    .outside-item { padding: 3rem 0; margin-bottom: 0; display: grid; gap: 3rem; align-items: center; border-bottom: 1px solid var(--accent); background: none; }
+    .outside-item:last-child { border-bottom: none; }
+    .outside-gallery { position: relative; }
+    .outside-content { padding: 0; }
+    .outside-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 400; margin-bottom: 1rem; color: var(--text-dark); }
+    .outside-text { font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); }
 
-    /* ── FOOTER ── */
-    footer {
-      padding: 2rem 5rem 1rem;
-      border-top: 1px solid var(--border);
-      margin-top: 0;
-      text-align: center;
-    }
+    .contact-content { max-width: 820px; margin: 0 auto; }
+    .contact-intro { font-size: 0.95rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 2.5rem; text-align: center; }
+    .contact-methods { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; }
+    .contact-item { background: var(--bg-light); border: 1px solid var(--border); padding: 1.75rem; text-align: center; }
+    .contact-item:hover { border-color: var(--accent); box-shadow: 0 2px 8px rgba(234, 88, 12, 0.06); }
+    .contact-label { font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 600; margin-bottom: 0.75rem; }
+    .contact-value { font-size: 0.95rem; color: var(--text-dark); font-weight: 500; }
+    .contact-value a { color: var(--accent); text-decoration: none; transition: all 0.3s; border-bottom: 1px solid rgba(234, 88, 12, 0.3); }
+    .contact-value a:hover { border-bottom-color: var(--accent); }
+    .contact-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .contact-links a { font-size: 0.9rem; color: var(--accent); text-decoration: none; transition: all 0.3s; border-bottom: 1px solid rgba(234, 88, 12, 0.3); }
+    .contact-links a:hover { border-bottom-color: var(--accent); }
 
-    footer p {
-      font-size: 0.75rem;
-      color: var(--text-muted);
-      letter-spacing: 0.05em;
-    }
+    footer { padding: 2rem 5rem 1rem; border-top: 1px solid var(--border); margin-top: 0; text-align: center; }
+    footer p { font-size: 0.75rem; color: var(--text-muted); letter-spacing: 0.05em; }
 
-    /* ── REVEAL ANIMATION ── */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
 
-    .reveal.in {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .hero-info-btn { position: absolute; bottom: 2rem; right: 2rem; z-index: 3; background: rgba(255, 255, 255, 0.15); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 25px; padding: 0.6rem 1.2rem; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #fff; font-family: var(--sans); font-size: 0.9rem; font-weight: 500; transition: all 0.3s ease; white-space: nowrap; }
+    .hero-info-btn:hover { background: rgba(255, 255, 255, 0.25); border-color: rgba(255, 255, 255, 0.5); }
 
-    /* ── RESPONSIVE ── */
+    .modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0, 0, 0, 0.6); z-index: 1000; }
+    .modal-overlay.active { display: block; }
+    .modal-box { background: #fff; border-radius: 8px; padding: 2rem; max-width: 450px; width: calc(100% - 4rem); max-height: 60vh; overflow-y: auto; position: fixed; bottom: 5rem; right: 2rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); }
+    .modal-close-btn { position: absolute; top: 1rem; right: 1rem; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-muted); width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; transition: color 0.3s ease; }
+    .modal-close-btn:hover { color: var(--text-dark); }
+    .modal-title { font-family: var(--serif); font-size: 1.3rem; font-weight: 600; margin-bottom: 1rem; margin-right: 2rem; color: var(--text-dark); }
+    .modal-description { font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); }
+
+    .contact-form-section { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin: 3rem 0; }
+    .contact-image-placeholder { width: 100%; height: 300px; background: var(--bg-light); border: 2px solid var(--border); border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.95rem; }
+    .contact-form { display: flex; flex-direction: column; gap: 1.5rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.5rem; }
+    .form-group label { font-family: var(--sans); font-size: 0.9rem; font-weight: 500; color: var(--text-dark); }
+    .form-group input, .form-group textarea { font-family: var(--sans); font-size: 0.95rem; padding: 0.75rem; border: 1px solid var(--border); border-radius: 6px; color: var(--text-dark); background: #fff; transition: border-color 0.3s ease; }
+    .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1); }
+    .form-group textarea { resize: vertical; min-height: 150px; }
+    .contact-submit-btn { background: var(--accent); color: #fff; border: none; padding: 0.75rem 1.5rem; border-radius: 6px; font-family: var(--sans); font-size: 0.95rem; font-weight: 500; cursor: pointer; transition: all 0.3s ease; align-self: flex-start; }
+    .contact-submit-btn:hover { background: #d94d08; transform: translateY(-2px); box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3); }
+    .contact-methods-section { margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border); }
+
     @media(max-width: 1024px) {
       body { padding: 16px; }
       .work-grid { grid-template-columns: 1fr; }
@@ -1265,448 +517,77 @@
 
     @media(max-width: 768px) {
       body { padding: 16px; }
-      /* Header & Navigation */
       header { padding: 0.75rem 1rem; margin: 0 -16px 0 -16px; }
       .logo { font-size: 1.8rem; }
       .logo em { font-size: 1.8rem; }
       .nav-tabs { gap: 1rem; font-size: 0.95rem; flex-wrap: wrap; }
-
-      /* Hero & Hero Tagline */
       .hero-statement { font-size: clamp(1.8rem, 5vw, 3.5rem); }
       .hero-tagline { font-size: 0.95rem; }
-
-      /* About Section - Stack image above text */
-      section.content-section > div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        gap: 2rem !important;
-      }
-
-      /* Research Cards - Stack gallery and content */
+      section.content-section > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 2rem !important; }
       .research-card { grid-template-columns: 1fr !important; gap: 2rem !important; }
-
-      /* Gallery images on tablet */
       .research-gallery { max-height: 300px; }
       .gallery-scroll { max-height: 300px; }
       .gallery-image { height: 300px; width: 100%; }
-
-      /* Work Grid */
       .work-grid { grid-template-columns: 1fr; }
-
-      /* Capability/Skills Cards */
       .capability-card { }
       [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-
-      /* Outside Grid */
       .outside-grid { grid-template-columns: 1fr; }
-
-      /* Beyond the Bench - reduce image heights */
-      .outside-grid img {
-        max-height: 300px;
-        object-fit: cover;
-      }
-
-      /* Text Sizing */
+      .outside-grid img { max-height: 300px; object-fit: cover; }
       .section-title, .story-title { font-size: 1.6rem; }
       .hero { margin: 0 -16px -16px -16px; }
-
-      /* Bottom Nav */
       .bottom-nav-tabs { gap: 1.5rem; }
     }
 
     @media(max-width: 640px) {
       body { padding: 0; margin: 0; }
-
-      /* Header */
-      header {
-        padding: 0.6rem 0.8rem;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 0.8rem;
-        margin: 0;
-        margin-left: -1rem;
-        margin-right: -1rem;
-        width: calc(100% + 2rem);
-      }
+      header { padding: 0.6rem 0.8rem; flex-direction: column; align-items: flex-start; gap: 0.8rem; margin: 0; margin-left: -1rem; margin-right: -1rem; width: calc(100% + 2rem); }
       .logo { font-size: 1.3rem; }
       .logo em { font-size: 1.3rem; }
-
-      /* Navigation */
-      .nav-tabs {
-        gap: 0.5rem;
-        font-size: 0.7rem;
-        flex-wrap: wrap;
-        width: 100%;
-        display: flex;
-        justify-content: flex-start;
-      }
-      .nav-tabs button {
-        font-size: 0.7rem;
-        padding: 0.15rem 0;
-        letter-spacing: 0.02em;
-        white-space: nowrap;
-        position: relative;
-      }
-      .nav-tabs button.active::after {
-        content: '';
-        position: absolute;
-        bottom: -0.5rem;
-        left: 0;
-        right: 0;
-        height: 2px;
-        background: #fff;
-        display: block;
-      }
-
-      /* Hero Section */
+      .nav-tabs { gap: 0.5rem; font-size: 0.7rem; flex-wrap: wrap; width: 100%; display: flex; justify-content: flex-start; }
+      .nav-tabs button { font-size: 0.7rem; padding: 0.15rem 0; letter-spacing: 0.02em; white-space: nowrap; position: relative; }
+      .nav-tabs button.active::after { content: ''; position: absolute; bottom: -0.5rem; left: 0; right: 0; height: 2px; background: #fff; display: block; }
       .hero-statement { font-size: 2rem; }
-      .hero-tagline {
-        font-size: 0.85rem;
-        white-space: normal;
-        line-height: 1.4;
-      }
-      .hero {
-        margin: 0;
-        margin-left: -1rem;
-        margin-right: -1rem;
-        width: calc(100% + 2rem);
-        box-sizing: border-box;
-      }
+      .hero-tagline { font-size: 0.85rem; white-space: normal; line-height: 1.4; }
+      .hero { margin: 0; margin-left: -1rem; margin-right: -1rem; width: calc(100% + 2rem); box-sizing: border-box; }
       .hero-info-btn { padding: 0.5rem 1rem; font-size: 0.8rem; bottom: 1.5rem; right: 1.5rem; }
-
-      /* Modal */
       .modal-box { bottom: 3rem; right: 1rem; max-width: calc(100% - 2rem); width: auto; }
-
-      /* About Section */
-      section.content-section > div[style*="grid-template-columns"] {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-      }
+      section.content-section > div[style*="grid-template-columns"] { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
       section.content-section img { border-radius: 6px; }
-
-      /* Text in About */
       p { font-size: 0.95rem; line-height: 1.6; }
-
-      /* Headings */
       h1, .section-title, .story-title { font-size: 1.5rem; }
       h2 { font-size: 1.3rem; }
       h3 { font-size: 1.15rem; }
-
-      /* Research Cards - Stack vertically */
       .research-card { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
-
-      /* Gallery on mobile */
-      .research-gallery {
-        max-height: 280px;
-        width: 100%;
-        border-radius: 6px;
-        overflow: hidden;
-      }
-      .gallery-scroll {
-        max-height: 280px;
-        display: flex;
-        scroll-behavior: smooth;
-      }
-      .gallery-image {
-        height: 280px;
-        width: 100%;
-        flex-shrink: 0;
-        object-fit: cover;
-      }
-      .gallery-dots {
-        gap: 0.5rem;
-        padding: 0.75rem;
-      }
-      .dot {
-        width: 6px;
-        height: 6px;
-      }
-
-      /* Grids */
+      .research-gallery { max-height: 280px; width: 100%; border-radius: 6px; overflow: hidden; }
+      .gallery-scroll { max-height: 280px; display: flex; scroll-behavior: smooth; }
+      .gallery-image { height: 280px; width: 100%; flex-shrink: 0; object-fit: cover; }
+      .gallery-dots { gap: 0.5rem; padding: 0.75rem; }
+      .dot { width: 6px; height: 6px; }
       .work-grid { grid-template-columns: 1fr; }
       .outside-grid { grid-template-columns: 1fr; }
       [style*="grid-template-columns: 1fr 1fr"] { grid-template-columns: 1fr !important; }
-      [style*="grid-template-columns: repeat(2"]  { grid-template-columns: 1fr !important; }
+      [style*="grid-template-columns: repeat(2"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns: repeat(3"] { grid-template-columns: 1fr !important; }
       [style*="grid-template-columns: repeat(4"] { grid-template-columns: 1fr !important; }
-
-      /* Contact Form */
-      .contact-form { }
-
-      /* Spacing */
       .content-section { padding: 2rem 1rem; }
-
-      /* Bottom Nav */
       .bottom-nav-tabs { gap: 1rem; flex-direction: column; }
       .bottom-nav-tabs button { font-size: 0.7rem; }
-
-      /* Quotes */
       .quote-box { padding: 1.5rem; margin: 1.5rem 0; }
-
-      /* Lists */
       ul, ol { padding-left: 1.5rem; }
-
-      /* Conferences - Stack vertically on mobile */
-      .conferences-list {
-        max-width: 100% !important;
-        padding: 0 1rem !important;
-      }
-      .conference-item {
-        display: block !important;
-        padding: 1.5rem !important;
-        width: 100% !important;
-        max-width: 100% !important;
-        box-sizing: border-box !important;
-      }
-      .conference-gallery {
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-      .conference-info {
-        width: auto !important;
-        max-width: 100% !important;
-        min-width: 0 !important;
-        flex: 1 1 auto !important;
-      }
-      .conference-title {
-        font-size: 1.1rem !important;
-        word-wrap: break-word;
-        word-break: break-word;
-        white-space: normal;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-      .conference-location {
-        font-size: 0.8rem !important;
-        word-wrap: break-word;
-        word-break: break-word;
-        white-space: normal;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-      .section-label {
-        font-size: 0.75rem !important;
-        word-wrap: break-word;
-        word-break: break-word;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-      .conference-section {
-        word-wrap: break-word;
-        word-break: break-word;
-        white-space: normal;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-      .conference-section p {
-        font-size: 0.95rem !important;
-        line-height: 1.5;
-        word-wrap: break-word;
-        word-break: break-word;
-        white-space: normal;
-        width: 100% !important;
-        max-width: 100% !important;
-      }
-
-      /* Beyond the Bench - Stack vertically on mobile */
-      .outside-item {
-        grid-template-columns: 1fr !important;
-        gap: 1.5rem !important;
-        padding: 1.5rem 0 !important;
-      }
-
-      /* Image sizing for mobile - Research and Beyond the Bench */
-      .research-gallery {
-        max-height: 250px !important;
-      }
-      .gallery-image {
-        height: 250px !important;
-      }
-      .outside-item img {
-        max-height: 300px !important;
-        width: 100% !important;
-        object-fit: cover !important;
-      }
-    }
-
-    /* ── INFO ICON ── */
-    .hero-info-btn {
-      position: absolute;
-      bottom: 2rem;
-      right: 2rem;
-      z-index: 3;
-      background: rgba(255, 255, 255, 0.15);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      border-radius: 25px;
-      padding: 0.6rem 1.2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      color: #fff;
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      white-space: nowrap;
-    }
-
-    .hero-info-btn:hover {
-      background: rgba(255, 255, 255, 0.25);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
-
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none;
-      position: fixed;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-      z-index: 1000;
-    }
-
-    .modal-overlay.active {
-      display: block;
-    }
-
-    .modal-box {
-      background: #fff;
-      border-radius: 8px;
-      padding: 2rem;
-      max-width: 450px;
-      width: calc(100% - 4rem);
-      max-height: 60vh;
-      overflow-y: auto;
-      position: fixed;
-      bottom: 5rem;
-      right: 2rem;
-      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
-    }
-
-    .modal-close-btn {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      background: none;
-      border: none;
-      font-size: 1.5rem;
-      cursor: pointer;
-      color: var(--text-muted);
-      width: 32px;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: color 0.3s ease;
-    }
-
-    .modal-close-btn:hover {
-      color: var(--text-dark);
-    }
-
-    .modal-title {
-      font-family: var(--serif);
-      font-size: 1.3rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      margin-right: 2rem;
-      color: var(--text-dark);
-    }
-
-    .modal-description {
-      font-size: 0.95rem;
-      line-height: 1.7;
-      color: var(--text-dark);
-    }
-
-    /* ── CONTACT FORM ── */
-    .contact-form-section {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: start;
-      margin: 3rem 0;
-    }
-
-    .contact-image-placeholder {
-      width: 100%;
-      height: 300px;
-      background: var(--bg-light);
-      border: 2px solid var(--border);
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-    }
-
-    .contact-form {
-      display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
-
-    .form-group label {
-      font-family: var(--sans);
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: var(--text-dark);
-    }
-
-    .form-group input,
-    .form-group textarea {
-      font-family: var(--sans);
-      font-size: 0.95rem;
-      padding: 0.75rem;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      color: var(--text-dark);
-      background: #fff;
-      transition: border-color 0.3s ease;
-    }
-
-    .form-group input:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(234, 88, 12, 0.1);
-    }
-
-    .form-group textarea {
-      resize: vertical;
-      min-height: 150px;
-    }
-
-    .contact-submit-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 6px;
-      font-family: var(--sans);
-      font-size: 0.95rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      align-self: flex-start;
-    }
-
-    .contact-submit-btn:hover {
-      background: #d94d08;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(234, 88, 12, 0.3);
-    }
-
-    .contact-methods-section {
-      margin-top: 4rem;
-      padding-top: 3rem;
-      border-top: 1px solid var(--border);
+      .conferences-list { max-width: 100% !important; padding: 0 1rem !important; }
+      .conference-item { display: block !important; padding: 1.5rem !important; width: 100% !important; max-width: 100% !important; box-sizing: border-box !important; }
+      .conference-gallery { width: 100% !important; max-width: 100% !important; }
+      .conference-info { width: auto !important; max-width: 100% !important; min-width: 0 !important; flex: 1 1 auto !important; }
+      .conference-title { font-size: 1.1rem !important; word-wrap: break-word; word-break: break-word; white-space: normal; width: 100% !important; max-width: 100% !important; }
+      .conference-location { font-size: 0.8rem !important; word-wrap: break-word; word-break: break-word; white-space: normal; width: 100% !important; max-width: 100% !important; }
+      .section-label { font-size: 0.75rem !important; word-wrap: break-word; word-break: break-word; width: 100% !important; max-width: 100% !important; }
+      .conference-section { word-wrap: break-word; word-break: break-word; white-space: normal; width: 100% !important; max-width: 100% !important; }
+      .conference-section p { font-size: 0.95rem !important; line-height: 1.5; word-wrap: break-word; word-break: break-word; white-space: normal; width: 100% !important; max-width: 100% !important; }
+      .outside-item { grid-template-columns: 1fr !important; gap: 1.5rem !important; padding: 1.5rem 0 !important; }
+      .research-gallery { max-height: 250px !important; }
+      .gallery-image { height: 250px !important; }
+      .outside-item img { max-height: 300px !important; width: 100% !important; object-fit: cover !important; }
+      .skill-card-img { height: 160px; }
     }
   </style>
 </head>
@@ -1764,107 +645,143 @@
         <div>
           <p style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem;"><strong>Hi, I'm Jitika.</strong></p>
 
+          <!-- SNIPPET always visible -->
           <p>I'm a neuroscientist, but that's probably the least interesting thing about my story.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-
+          <p style="margin-bottom: 1rem;"></p>
           <p>My career hasn't been shaped by a carefully planned roadmap. Instead, it's been shaped by questions that refused to leave me alone.</p>
+          <p style="margin-bottom: 1rem;"></p>
+          <p>The first one found me during my undergraduate years. I joined a research lab studying protein misfolding in Alzheimer's disease and became fascinated by how something as small as a protein folding incorrectly could have such profound consequences.</p>
 
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
+          <!-- READ FURTHER BUTTON -->
+          <button id="readMoreBtn" class="read-more-btn" onclick="toggleReadMore()">Read further ↓</button>
 
-          <p>The first one found me during my undergraduate years. I joined a research lab studying protein misfolding in Alzheimer's disease and became fascinated by how something as small as a protein folding incorrectly could have such profound consequences. When I left that lab six months later, I didn't continue studying Alzheimer's. Instead, I spent the rest of my undergraduate years working on Newcastle disease virus for my bachelor's thesis.</p>
+          <!-- FULL TEXT hidden by default -->
+          <div id="aboutFullText" style="display:none; margin-top: 1.5rem;">
+            <p>When I left that lab six months later, I didn't continue studying Alzheimer's. Instead, I spent the rest of my undergraduate years working on Newcastle disease virus for my bachelor's thesis.</p>
+            <p style="margin-bottom: 1rem;"></p>
+            <p>Although those projects couldn't have been more different, they shaped me in two important ways.</p>
+            <p style="margin-bottom: 1rem;"></p>
+            <p>The first left me with a question I couldn't quite let go of. The second made me realize that what I loved wasn't a particular field of biology, but research itself.</p>
 
-          <p style="margin-bottom: 2rem;"></p>
+            <div class="quote-box" style="margin: 2rem 0;">
+              <p style="font-weight: 600;"><strong>I loved asking questions, designing experiments, getting something wrong, thinking again, and slowly piecing together an answer that hadn't existed before.</strong></p>
+            </div>
 
-          <p>Although those projects couldn't have been more different, they shaped me in two important ways.</p>
+            <p>When it came time to choose a master's lab, I could have continued working on viruses. I already knew the techniques, the field, and the people. Instead, I returned to the question that had stayed with me for almost two years. Not because I had a plan to become an Alzheimer's researcher, but because I was still curious.</p>
+            <p style="margin-bottom: 2rem;"></p>
 
-          <p style="margin-bottom: 2rem;"></p>
+            <div class="quote-box" style="margin: 2rem 0;">
+              <p style="font-weight: 600;"><strong>It took me years to realize that I wasn't returning to a topic. I was returning to a way of thinking.</strong></p>
+            </div>
 
-          <p>The first left me with a question I couldn't quite let go of. The second made me realize that what I loved wasn't a particular field of biology, but research itself.</p>
+            <p>As my research evolved, so did the questions I was asking.</p>
+            <p style="margin-bottom: 1rem;"></p>
+            <p>Protein aggregation led me to lipid metabolism.</p>
+            <p style="margin-bottom: 1rem;"></p>
+            <p>Lipid metabolism led me to neuroimmune interactions.</p>
+            <p style="margin-bottom: 1rem;"></p>
+            <p>Those questions eventually expanded into human disease models, therapeutic development, and building better ways to study disease.</p>
 
-          <div class="quote-box" style="margin: 2rem 0;">
-            <p style="font-weight: 600;"><strong>I loved asking questions, designing experiments, getting something wrong, thinking again, and slowly piecing together an answer that hadn't existed before.</strong></p>
+            <div class="quote-box" style="margin: 2rem 0;">
+              <p style="font-weight: 600;"><strong>People often see these as different projects. I don't. I think I just kept zooming out.</strong></p>
+            </div>
+
+            <p>During my PhD, another realization emerged. The part of science I enjoyed most wasn't only discovering new biology.</p>
+            <p style="margin-bottom: 2rem;"></p>
+            <p>It was building the things that made discovery possible: experimental models that better capture disease, image analysis pipelines that extract more meaningful information, and collaborations that bring together people with completely different ways of thinking.</p>
+
+            <div class="quote-box" style="margin: 2rem 0;">
+              <p style="font-weight: 600;"><strong>Building has become the lens through which I approach science, and I realized that I'm not limited by the skills I have today. I'm limited only by the problems I care deeply enough to learn for.</strong></p>
+            </div>
+
+            <p>If a question matters to me, I'll learn whatever it takes to answer it. Biology. Imaging. Computational methods. AI. The tools have changed throughout my career, but my approach hasn't.</p>
+            <p style="margin-bottom: 2rem;"></p>
+            <p>Almost every meaningful opportunity I've had began because someone believed in me before I had fully earned it.</p>
+            <p style="margin-bottom: 2rem;"></p>
+            <p>An undergraduate advisor who trusted me with real responsibility.</p>
+            <p>A professor who eventually replied to the persistent emails of an overly enthusiastic master's student.</p>
+            <p>A former lab member who introduced me to the lab that would completely change the direction of my PhD.</p>
+            <p>Friends who answered late-night phone calls when I had just moved halfway across the world.</p>
+            <p>Parents who gave me the freedom to build a life around what genuinely excited me.</p>
+
+            <div class="quote-box" style="margin: 2rem 0;">
+              <p style="font-weight: 600;"><strong>Those experiences changed me just as much as the science did. They taught me that meaningful work is rarely the product of one person. It comes from people who challenge one another, trust one another, and build something together that none of them could have built alone. That's the kind of scientist, collaborator, and teammate I hope to become.</strong></p>
+            </div>
+
+            <p>This website exists because a CV can only tell part of the story.</p>
+            <p style="margin-bottom: 2rem;"></p>
+            <p>It can tell you what I've done, but it can't tell you how I think, what kinds of questions excite me, or why I care so deeply about building. I wanted one place where those parts of me could exist alongside the science.</p>
+            <p style="margin-bottom: 2rem;"></p>
+            <p>If something here resonated with you, whether it was a scientific question, a shared curiosity, or simply a way of thinking, I'd genuinely love to hear from you.</p>
+
+            <div class="quote-box" style="margin: 2rem 0;">
+              <p style="font-weight: 600;"><strong>After all, every meaningful chapter of my own story began with a conversation.</strong></p>
+            </div>
+
+            <button class="read-more-btn" onclick="toggleReadMore()">Read less ↑</button>
           </div>
 
-          <p>When it came time to choose a master's lab, I could have continued working on viruses. I already knew the techniques, the field, and the people. Instead, I returned to the question that had stayed with me for almost two years. Not because I had a plan to become an Alzheimer's researcher, but because I was still curious.</p>
+        </div>
+      </div>
+    </section>
 
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
+    <!-- SKILLS SECTION -->
+    <section class="content-section" style="background: var(--bg-light); padding-top: 4rem; padding-bottom: 5rem;">
+      <h2 style="font-family: var(--serif); font-size: 2.2rem; font-weight: 300; text-align: center; margin-bottom: 0.5rem;">What I bring to the bench</h2>
+      <p style="text-align: center; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 3rem;">Core capabilities built across my research journey</p>
 
-          <div class="quote-box" style="margin: 2rem 0;">
-            <p style="font-weight: 600;"><strong>It took me years to realize that I wasn't returning to a topic. I was returning to a way of thinking.</strong></p>
+      <!-- Row 1 -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto 1.5rem;">
+        <div class="skill-card">
+          <div class="skill-card-img"><img src="images-web/Research card 1 image 2.jpg" alt="Mouse Models"></div>
+          <div class="skill-card-body">
+            <div class="skill-card-tag">In Vivo</div>
+            <div class="skill-card-title">Mouse Disease Models</div>
+            <div class="skill-card-desc">Designed and executed studies in genetically engineered Alzheimer's models, integrating drug delivery, cell isolation, and tissue analysis.</div>
           </div>
-
-          <p>As my research evolved, so did the questions I was asking.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>Protein aggregation led me to lipid metabolism.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>Lipid metabolism led me to neuroimmune interactions.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>Those questions eventually expanded into human disease models, therapeutic development, and building better ways to study disease.</p>
-
-          <div class="quote-box" style="margin: 2rem 0;">
-            <p style="font-weight: 600;"><strong>People often see these as different projects. I don't. I think I just kept zooming out.</strong></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-img"><img src="images-web/Research card 1 image 3.jpg" alt="Quantitative Imaging"></div>
+          <div class="skill-card-body">
+            <div class="skill-card-tag">Imaging</div>
+            <div class="skill-card-title">Quantitative Imaging</div>
+            <div class="skill-card-desc">Built high-throughput confocal imaging and analysis pipelines for quantitative phenotyping across multiple research programs.</div>
           </div>
-
-          <p>During my PhD, another realization emerged. The part of science I enjoyed most wasn't only discovering new biology.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>It was building the things that made discovery possible: experimental models that better capture disease, image analysis pipelines that extract more meaningful information, and collaborations that bring together people with completely different ways of thinking.</p>
-
-          <div class="quote-box" style="margin: 2rem 0;">
-            <p style="font-weight: 600;"><strong>Building has become the lens through which I approach science, and I realized that I'm not limited by the skills I have today. I'm limited only by the problems I care deeply enough to learn for.</strong></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-img"><img src="images-web/Research card 2 image 1.jpg" alt="iPSC Models"></div>
+          <div class="skill-card-body">
+            <div class="skill-card-tag">Human Models</div>
+            <div class="skill-card-title">iPSC Disease Modeling</div>
+            <div class="skill-card-desc">Established the lab's first iPSC culture and glial differentiation platform for mechanistic studies in human-relevant neurodegeneration models.</div>
           </div>
+        </div>
+      </div>
 
-          <p>If a question matters to me, I'll learn whatever it takes to answer it. Biology. Imaging. Computational methods. AI. The tools have changed throughout my career, but my approach hasn't.</p>
-
-          <p>There's another pattern that's impossible for me to ignore.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>Almost every meaningful opportunity I've had began because someone believed in me before I had fully earned it.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>An undergraduate advisor who trusted me with real responsibility.</p>
-
-          <p>A professor who eventually replied to the persistent emails of an overly enthusiastic master's student.</p>
-
-          <p>A former lab member who introduced me to the lab that would completely change the direction of my PhD.</p>
-
-          <p>Friends who answered late-night phone calls when I had just moved halfway across the world.</p>
-
-          <p>Parents who gave me the freedom to build a life around what genuinely excited me.</p>
-
-          <div class="quote-box" style="margin: 2rem 0;">
-            <p style="font-weight: 600;"><strong>Those experiences changed me just as much as the science did. They taught me that meaningful work is rarely the product of one person. It comes from people who challenge one another, trust one another, and build something together that none of them could have built alone. That's the kind of scientist, collaborator, and teammate I hope to become.</strong></p>
+      <!-- Row 2 -->
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
+        <div class="skill-card">
+          <div class="skill-card-img"><img src="images-web/Research card 2 image 2.jpg" alt="Immune Phenotyping"></div>
+          <div class="skill-card-body">
+            <div class="skill-card-tag">Immunology</div>
+            <div class="skill-card-title">Immune Phenotyping</div>
+            <div class="skill-card-desc">Established workflows for brain immune cell isolation and T-cell characterization using flow cytometry and cell sorting.</div>
           </div>
-
-          <p>This website exists because a CV can only tell part of the story.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>It can tell you what I've done, but it can't tell you how I think, what kinds of questions excite me, or why I care so deeply about building. I wanted one place where those parts of me could exist alongside the science.</p>
-
-          <p style="margin-bottom: 2rem;"></p>
-          <p style="margin-bottom: 2rem;"></p>
-
-          <p>If something here resonated with you, whether it was a scientific question, a shared curiosity, or simply a way of thinking, I'd genuinely love to hear from you.</p>
-
-          <div class="quote-box" style="margin: 2rem 0;">
-            <p style="font-weight: 600;"><strong>After all, every meaningful chapter of my own story began with a conversation.</strong></p>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-img"><img src="images-web/Research card 2 image 3.jpg" alt="Cellular Models"></div>
+          <div class="skill-card-body">
+            <div class="skill-card-tag">Cell Engineering</div>
+            <div class="skill-card-title">Engineered Cellular Models</div>
+            <div class="skill-card-desc">Developed genetically engineered mammalian and stem cell-derived models to investigate lipid metabolism and antigen presentation.</div>
+          </div>
+        </div>
+        <div class="skill-card">
+          <div class="skill-card-img"><img src="images-web/Research card 4 image 1.jpg" alt="Biophysics"></div>
+          <div class="skill-card-body">
+            <div class="skill-card-tag">Biophysics</div>
+            <div class="skill-card-title">Biophysical Characterization</div>
+            <div class="skill-card-desc">Applied NMR, FTIR, and TEM to investigate peptide folding, aggregation, and structural transitions underlying amyloid formation.</div>
           </div>
         </div>
       </div>
@@ -1875,8 +792,6 @@
   <div class="view" id="education">
     <section class="content-section">
       <h1 class="section-title">Education</h1>
-
-      <!-- Degrees Section -->
       <div class="education-item">
         <div class="education-header">
           <h2 class="education-degree">Undergraduate & Graduate Degrees</h2>
@@ -1886,20 +801,16 @@
             <h3 class="degree-title"><strong>Ph.D. in Chemistry (Integrated Neuroscience)</strong></h3>
             <p class="degree-meta">Purdue University, Indiana, USA • Aug 2021 - Present | GPA: 3.78</p>
           </div>
-
           <div class="degree-item">
             <h3 class="degree-title"><strong>M.S. in Biochemistry and Cell Biology</strong></h3>
             <p class="degree-meta">Stony Brook University, NY, USA • Aug 2019 - Dec 2020 | GPA: 3.84</p>
           </div>
-
           <div class="degree-item">
             <h3 class="degree-title"><strong>B.Tech. in Biotechnology</strong></h3>
             <p class="degree-meta">Indian Institute of Technology, Guwahati, India • July 2015 - May 2019</p>
           </div>
         </div>
       </div>
-
-      <!-- microMBA Section -->
       <div class="education-item">
         <div class="education-header">
           <h2 class="education-degree">Executive Education</h2>
@@ -1908,14 +819,10 @@
           <div class="mba-item">
             <h3 class="degree-title"><strong>microMBA</strong></h3>
             <p class="degree-meta">UC San Diego Rady School of Management • 2024</p>
-            <p class="mba-description">
-              Completed an intensive executive education program combining business strategy, innovation, and leadership principles. Supported by professional grant award from Purdue Graduate Student Government, demonstrating institutional recognition of the program's value. This education bridges scientific expertise with business acumen, preparing for leadership roles that translate fundamental research into therapeutic impact.
-            </p>
+            <p class="mba-description">Completed an intensive executive education program combining business strategy, innovation, and leadership principles. Supported by professional grant award from Purdue Graduate Student Government, demonstrating institutional recognition of the program's value. This education bridges scientific expertise with business acumen, preparing for leadership roles that translate fundamental research into therapeutic impact.</p>
           </div>
         </div>
       </div>
-
-      <!-- Internship Section -->
       <div class="education-item">
         <div class="education-header">
           <h2 class="education-degree">Research Internship</h2>
@@ -1924,13 +831,10 @@
           <div class="internship-item">
             <h3 class="degree-title"><strong>Summer Research Internship</strong></h3>
             <p class="degree-meta">University of Nottingham, United Kingdom • Summer 2018</p>
-            <p class="internship-description">
-              Completed a 3-month internship at the University of Nottingham, Derby Hospital with Dr. Wayne Carter.
-            </p>
+            <p class="internship-description">Completed a 3-month internship at the University of Nottingham, Derby Hospital with Dr. Wayne Carter.</p>
           </div>
         </div>
       </div>
-
     </section>
   </div>
 
@@ -1962,77 +866,28 @@
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">PhD Thesis</div>
             <h3 style="font-family: var(--serif); font-size: 1.75rem; font-weight: 700; margin-bottom: 1rem;">How does altered lipid metabolism reshape immune responses in Alzheimer's disease?</h3>
             <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1.5rem;">Alzheimer's disease is accompanied by profound changes in lipid metabolism, yet whether these changes actively drive disease or simply reflect it has remained unclear. To address this question, I developed complementary mouse and human iPSC-derived models, quantitative imaging approaches, and chemical biology tools to investigate how disrupted lipid metabolism contributes to neurodegeneration. My research has followed two complementary directions.</p>
-
             <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1.5rem;">In my first project, I identified DGAT2 as a key regulator of lipid droplet accumulation in microglia. By comparing pharmacological inhibition with targeted protein degradation (PROTACs), we found that eliminating the protein, rather than inhibiting its enzymatic activity, restored microglial homeostasis and reduced Alzheimer's pathology in aged mouse models, highlighting targeted protein degradation as a promising therapeutic strategy.</p>
-
             <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 1.5rem;">Building on these findings, I investigated how altered lipid metabolism reshapes adaptive immunity through lipid antigen presentation, uncovering a potential link between lipid dysregulation and neuroinflammation in Alzheimer's disease.</p>
-
             <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark); margin-bottom: 2rem;">Together, these studies suggest that disrupted lipid metabolism is not merely a consequence of disease but an active driver of neuroinflammation and a promising avenue for therapeutic intervention.</p>
           </div>
         </div>
 
-        <!-- BOTTOM SECTION: Capabilities and Publications -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
           <div>
             <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 1.5rem;">Capabilities I built</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-              <!-- Capability Card 1 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Mouse models</span>
-                </div>
-                <div class="capability-description">Designed and executed studies across genetically engineered Alzheimer's disease models, integrating drug delivery, primary cell isolation, and tissue analysis to investigate disease mechanisms and therapeutic strategies.</div>
-              </div>
-
-              <!-- Capability Card 2 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Quantitative Imaging</span>
-                </div>
-                <div class="capability-description">Built high-throughput confocal imaging and analysis pipelines for quantitative phenotyping, enabling reproducible analysis across multiple research programs in the lab.</div>
-              </div>
-
-              <!-- Capability Card 3 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Human iPSC Disease Models</span>
-                </div>
-                <div class="capability-description">Established the lab's first human iPSC culture and glial differentiation platform, enabling mechanistic studies and therapeutic evaluation in a human-relevant model of neurodegeneration.</div>
-              </div>
-
-              <!-- Capability Card 4 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Engineered Cellular Models</span>
-                </div>
-                <div class="capability-description">Developed genetically engineered mammalian and stem cell-derived models as experimental tools to investigate lipid metabolism and antigen presentation.</div>
-              </div>
-
-              <!-- Capability Card 5 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Immune Phenotyping</span>
-                </div>
-                <div class="capability-description">Established workflows for brain immune cell isolation and T-cell characterization, combining flow cytometry and cell sorting to profile disease-associated immune responses.</div>
-              </div>
-
-              <!-- Capability Card 6 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Bridging Disciplines</span>
-                </div>
-                <div class="capability-description">Built collaborations across disciplines and institutions, bringing together expertise in chemistry, neuroscience, immunology, lipid biology, and imaging to advance complex research projects.</div>
-              </div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Mouse models</span></div><div class="capability-description">Designed and executed studies across genetically engineered Alzheimer's disease models, integrating drug delivery, primary cell isolation, and tissue analysis to investigate disease mechanisms and therapeutic strategies.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Quantitative Imaging</span></div><div class="capability-description">Built high-throughput confocal imaging and analysis pipelines for quantitative phenotyping, enabling reproducible analysis across multiple research programs in the lab.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Human iPSC Disease Models</span></div><div class="capability-description">Established the lab's first human iPSC culture and glial differentiation platform, enabling mechanistic studies and therapeutic evaluation in a human-relevant model of neurodegeneration.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Engineered Cellular Models</span></div><div class="capability-description">Developed genetically engineered mammalian and stem cell-derived models as experimental tools to investigate lipid metabolism and antigen presentation.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Immune Phenotyping</span></div><div class="capability-description">Established workflows for brain immune cell isolation and T-cell characterization, combining flow cytometry and cell sorting to profile disease-associated immune responses.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Bridging Disciplines</span></div><div class="capability-description">Built collaborations across disciplines and institutions, bringing together expertise in chemistry, neuroscience, immunology, lipid biology, and imaging to advance complex research projects.</div></div>
             </div>
           </div>
-
-          <!-- Expandable capability cards for Card 1 -->
-
           <div>
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Publications</div>
             <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Amyloid-β induces lipid droplet-mediated microglial dysfunction via the enzyme DGAT2 in Alzheimer\'s disease')" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-bottom: 0.25rem;">Amyloid-β induces lipid droplet-mediated microglial dysfunction via the enzyme DGAT2 in Alzheimer's disease</div>
             <div style="font-size: 0.75rem; color: var(--text-muted); font-weight: 400;">Immunity · 2025</div>
-
             <div style="margin-top: 1.5rem; padding-top: 1.5rem;">
               <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Oral Presentations</div>
               <div style="font-size: 0.85rem; color: var(--text-dark);">
@@ -2044,7 +899,6 @@
           </div>
         </div>
 
-        <!-- DIVIDER -->
         <div style="height: 1px; background: var(--accent); margin: 4rem 0; opacity: 0.3;"></div>
 
         <!-- RESEARCH CARD 2 -->
@@ -2068,30 +922,14 @@
           </div>
         </div>
 
-        <!-- BOTTOM SECTION: Capabilities and Publications -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
           <div>
             <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 1.5rem;">Capabilities I built</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-              <!-- Capability Card 1 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Biophysical Characterization</span>
-                </div>
-                <div class="capability-description">Applied complementary techniques including NMR, FTIR, and TEM to investigate peptide folding, aggregation, and structural transitions underlying amyloid formation.</div>
-              </div>
-
-              <!-- Capability Card 2 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Protein Purification Platforms</span>
-                </div>
-                <div class="capability-description">Established the lab's FPLC purification platform, developing and troubleshooting chromatography workflows that supported multiple research projects.</div>
-              </div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Biophysical Characterization</span></div><div class="capability-description">Applied complementary techniques including NMR, FTIR, and TEM to investigate peptide folding, aggregation, and structural transitions underlying amyloid formation.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Protein Purification Platforms</span></div><div class="capability-description">Established the lab's FPLC purification platform, developing and troubleshooting chromatography workflows that supported multiple research projects.</div></div>
             </div>
           </div>
-
-          <!-- Card 2 publications section -->
           <div>
             <div style="font-family: var(--sans); font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); font-weight: 500; margin-bottom: 0.5rem;">Publications</div>
             <div class="work-pub-title work-pub-clickable" onclick="navigateToPublication(event, 'Insights into Cerebral Amyloid Angiopathy Type 1 and Type 2: Early-Stage Aggregation of Aβ40-Iowa and Aβ40-Dutch')" style="color: var(--accent); text-decoration: underline; cursor: pointer; font-size: 0.85rem; margin-bottom: 0.25rem;">Insights into Cerebral Amyloid Angiopathy Type 1 and Type 2: Early-Stage Aggregation of Aβ40-Iowa and Aβ40-Dutch</div>
@@ -2103,7 +941,6 @@
           </div>
         </div>
 
-        <!-- DIVIDER -->
         <div style="height: 1px; background: var(--accent); margin: 4rem 0; opacity: 0.3;"></div>
 
         <!-- RESEARCH CARD 3 -->
@@ -2125,34 +962,13 @@
           </div>
         </div>
 
-        <!-- BOTTOM SECTION: Capabilities and Publications -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; margin-bottom: 4rem;">
           <div>
             <div style="font-family: var(--serif); font-size: 1.3rem; color: var(--accent); font-weight: 400; margin-bottom: 1.5rem;">Capabilities I built</div>
             <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
-              <!-- Skill Card 1 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Independent Thinking</span>
-                </div>
-                <div class="capability-description">Learned to move beyond following protocols by asking my own scientific questions, interpreting unexpected results, and developing hypotheses from the data.</div>
-              </div>
-
-              <!-- Skill Card 2 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Experimental Design</span>
-                </div>
-                <div class="capability-description">Gained my first experience designing experiments to test biological questions, troubleshooting workflows, and adapting approaches when experiments didn't go as planned.</div>
-              </div>
-
-              <!-- Skill Card 3 -->
-              <div class="capability-card">
-                <div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;">
-                  <span>Scientific Communication</span>
-                </div>
-                <div class="capability-description">Learned to discuss ideas critically with mentors, defend scientific interpretations, and communicate research through presentations and publications.</div>
-              </div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Independent Thinking</span></div><div class="capability-description">Learned to move beyond following protocols by asking my own scientific questions, interpreting unexpected results, and developing hypotheses from the data.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Experimental Design</span></div><div class="capability-description">Gained my first experience designing experiments to test biological questions, troubleshooting workflows, and adapting approaches when experiments didn't go as planned.</div></div>
+              <div class="capability-card"><div class="capability-title" style="font-weight: 500; color: var(--text-dark); text-align: center;"><span>Scientific Communication</span></div><div class="capability-description">Learned to discuss ideas critically with mentors, defend scientific interpretations, and communicate research through presentations and publications.</div></div>
             </div>
           </div>
           <div>
@@ -2183,7 +999,6 @@
               <div class="pub-abstract">Microglial phagocytosis genes have been linked to increased risk for Alzheimer's disease (AD), but the mechanisms translating genetic association to cellular dysfunction remain unknown. Here, we showed that microglia formed lipid droplets (LDs) upon amyloid-β (Aβ) exposure and that LD loads increased with proximity to amyloid plaques in brains from individuals with AD and the 5xFAD mouse model. LD-laden microglia exhibited defects in Aβ phagocytosis, and unbiased lipidomic analyses identified a parallel decrease in free fatty acids (FFAs) and increase in triacylglycerols (TGs) as the key metabolic transition underlying LD formation. Diacylglycerol O-acyltransferase 2 (DGAT2)-a key enzyme that converts FFAs to TGs-promoted microglial LD formation and was increased in mouse 5xFAD and human AD brains. Pharmacologically targeting DGAT2 improved microglial uptake of Aβ and reduced plaque load and neuronal damage in 5xFAD mice. These findings identify a lipid-mediated mechanism underlying microglial dysfunction that could become a therapeutic target for AD.</div>
             </div>
           </div>
-
           <div class="publication-item reveal">
             <div class="pub-header">
               <div class="pub-title">Insights into cerebral amyloid angiopathy type 1 and type 2 from comparisons of the fibrillar assembly and stability of the Aβ40-Iowa and Aβ40-Dutch peptides</div>
@@ -2197,7 +1012,6 @@
               <div class="pub-abstract">Two distinct diseases are associated with the deposition of fibrillar amyloid-β (Aβ) peptides in the human brain in an age-dependent fashion. Alzheimer's disease is primarily associated with parenchymal plaque deposition of Aβ42, while cerebral amyloid angiopathy (CAA) is associated with amyloid formation of predominantly Aβ40 in the cerebral vasculature. In addition, familial mutations at positions 22 and 23 of the Aβ sequence can enhance vascular deposition in the two major subtypes of CAA. The E22Q (Dutch) mutation is associated with CAA type 2, while the D23N (Iowa) mutation is associated with CAA type 1. Here we investigate differences in the formation and structure of fibrils of these mutant Aβ peptides in vitro to gain insights into their biochemical and physiological differences in the brain. Using Fourier transform infrared and nuclear magnetic resonance spectroscopy, we measure the relative propensities of Aβ40-Dutch and Aβ40-Iowa to form antiparallel structure and compare these propensities to those of the wild-type Aβ40 and Aβ42 isoforms. We find that both Aβ40-Dutch and Aβ40-Iowa have strong propensities to form antiparallel β-hairpins in the first step of the fibrillization process. However, there is a marked difference in the ability of these peptides to form elongated antiparallel structures. Importantly, we find marked differences in the stability of the protofibril or fibril states formed by the four Aβ peptides. We discuss these differences with respect to the mechanisms of Aβ fibril formation in CAA.</div>
             </div>
           </div>
-
           <div class="publication-item reveal">
             <div class="pub-header">
               <div class="pub-title">Aβ40 fibril assembly on human cerebral smooth muscle cells impairs cell viability</div>
@@ -2211,7 +1025,6 @@
               <div class="pub-abstract">Cerebral vascular deposition of the amyloid-β (Aβ) peptide, a condition known as cerebral amyloid angiopathy (CAA), is associated with intracerebral hemorrhaging and contributes to disease progression in Alzheimer's disease (AD) and vascular cognitive impairment and dementia (VCID). Familial mutations at positions 22 and 23 within the Aβ peptide lead to early onset and severe CAA pathology. Here, we evaluate the effects of fibrillar Aβ peptides on the viability of primary-cultured human cerebral smooth muscle (HCSM) cells, which are the major site of amyloid deposition in cerebral blood vessel walls. Comparisons are made of the familial E22Q (Dutch) mutant of Aβ40 with wild-type Aβ40 and Aβ42. In agreement with previous studies, we find that there is a significant reduction in cell viability when Aβ40-Dutch or Aβ42-WT peptides are added to HCSM cell cultures as monomeric Aβ, whereas Aβ40-WT is relatively nontoxic. The binding of Aβ fibrils derived from sporadic CAA or familial Dutch-type CAA brain tissue to the membrane surface of HCSM cells does not result in a significant loss of cell viability. In contrast, when Aβ40-WT monomers and sporadic CAA fibrils are coincubated in HCSM cell cultures, there is a significant reduction in HCSM cell viability that is accompanied by an increase in cell surface fibril formation. Lastly, intrathecal administration of Aβ40-Dutch fibrillar seeds promotes fibrillar amyloid accumulation in the smooth muscle of meningeal vessels in the rTg-D transgenic rat model of CAA. Together, the present findings suggest that fibrillar Aβ seeds propagate the expansion of new amyloid fibrils on cerebral vascular smooth muscle, leading to membrane disruption and cell death</div>
             </div>
           </div>
-
           <div class="publication-item reveal">
             <div class="pub-header">
               <div class="pub-title">Characterization of nucleocapsid and matrix proteins of Newcastle disease virus in yeast</div>
@@ -2225,7 +1038,6 @@
               <div class="pub-abstract">Newcastle disease virus is a member of family Paramyxoviridae that infects chicken. Its genome comprises ~15.2 kb negative-sense RNA that encodes six major proteins. The virus encodes various proteins; among all, nucleocapsid (NP) and matrix (M) help in virus replication and its budding from the host cells, respectively. In this study, we investigated the intracellular distribution of NP and M upon expression in the yeast Saccharomyces cerevisiae. We observed nuclear targeting of M, and vacuolar localization of NP was observed in a fraction of yeast cells. Prolonged expression of GFP fused NP or M resulted in altered cell viability and intracellular production of reactive oxygen species in yeast cells. The expression of viral proteins did not alter the morphology and number of the organelles such as nucleus, mitochondria, endoplasmic reticulum, and peroxisomes. However, a significant effect was observed on vacuolar morphology and number in yeast cells. These observations point towards the importance of host cellular reorganization in viral infection. These findings may enable us to understand the conserved pathways affected in eukaryotic cells as a result of viral protein expression.</div>
             </div>
           </div>
-
           <div class="publication-item reveal">
             <div class="pub-header">
               <div class="pub-title">Contribution of yeast models to virus research</div>
@@ -2269,7 +1081,6 @@
               </div>
             </div>
           </div>
-
           <div class="conference-item reveal">
             <div class="conference-gallery">
               <div class="gallery-scroll">
@@ -2294,7 +1105,6 @@
               </div>
             </div>
           </div>
-
           <div class="conference-item reveal">
             <div class="conference-gallery">
               <div class="gallery-scroll">
@@ -2323,22 +1133,10 @@
       <!-- AWARDS TAB -->
       <div class="work-tab-content" id="awards-tab">
         <div class="awards-list">
-          <div class="award-item reveal">
-            <div class="award-name">Trainee Abstract Award</div>
-            <div class="award-meta">American Association of Immunology · 2026</div>
-          </div>
-          <div class="award-item reveal">
-            <div class="award-name">Travel award - Iowa Neuroscience Institute stem cell workshop</div>
-            <div class="award-meta">Iowa Neuroscience Institute · 2024</div>
-          </div>
-          <div class="award-item reveal">
-            <div class="award-name">Travel award - Society for Neuroscience</div>
-            <div class="award-meta">Purdue Institute of Integrated Neuroscience · 2024</div>
-          </div>
-          <div class="award-item reveal">
-            <div class="award-name">Lynn fellowship</div>
-            <div class="award-meta">Purdue University · 2021-22</div>
-          </div>
+          <div class="award-item reveal"><div class="award-name">Trainee Abstract Award</div><div class="award-meta">American Association of Immunology · 2026</div></div>
+          <div class="award-item reveal"><div class="award-name">Travel award - Iowa Neuroscience Institute stem cell workshop</div><div class="award-meta">Iowa Neuroscience Institute · 2024</div></div>
+          <div class="award-item reveal"><div class="award-name">Travel award - Society for Neuroscience</div><div class="award-meta">Purdue Institute of Integrated Neuroscience · 2024</div></div>
+          <div class="award-item reveal"><div class="award-name">Lynn fellowship</div><div class="award-meta">Purdue University · 2021-22</div></div>
         </div>
       </div>
     </section>
@@ -2348,8 +1146,6 @@
   <div class="view" id="what-drives">
     <section class="content-section">
       <div class="drives-content" style="max-width: 1000px; margin: 0 auto;">
-
-        <!-- SECTION HEADER -->
         <div style="margin-bottom: 4rem; display: flex; justify-content: space-between; align-items: flex-start; gap: 3rem;">
           <div style="flex: 1;">
             <h2 style="font-family: var(--serif); font-size: 2.5rem; font-weight: 300; margin-bottom: 1rem; position: relative;">
@@ -2360,10 +1156,7 @@
           </div>
           <div style="width: 200px; height: 200px; background: var(--bg-light); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-size: 0.85rem; flex-shrink: 0; overflow: hidden;"><img src="images-web/What drives me illustration 1.jpg" alt="What drives me illustration" style="width: 100%; height: 100%; object-fit: cover;"></div>
         </div>
-
-        <!-- NUMBERED ITEMS -->
         <div style="margin-bottom: 3rem;">
-          <!-- QUESTION 1 -->
           <div class="reveal" style="display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); align-items: flex-start;">
             <div style="font-size: 1rem; color: var(--accent); flex-shrink: 0; margin-top: -0.35rem; line-height: 1;">●</div>
             <div style="flex: 1;">
@@ -2372,8 +1165,6 @@
               <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Disease labels often hide remarkable biological diversity. I'm fascinated by the challenge of identifying the molecular mechanisms that distinguish one patient from another, with the hope of developing therapies that are guided by biology rather than diagnosis alone.</p>
             </div>
           </div>
-
-          <!-- QUESTION 2 -->
           <div class="reveal" style="display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); align-items: flex-start;">
             <div style="font-size: 1rem; color: var(--accent); flex-shrink: 0; margin-top: -0.35rem; line-height: 1;">●</div>
             <div style="flex: 1;">
@@ -2382,8 +1173,6 @@
               <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Our ability to understand disease is fundamentally limited by the models we use to study it. I'm interested in developing human-relevant experimental systems that better capture the biology of aging and neurodegeneration, enabling deeper mechanistic insight and more predictive translational research.</p>
             </div>
           </div>
-
-          <!-- QUESTION 3 -->
           <div class="reveal" style="display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); align-items: flex-start;">
             <div style="font-size: 1rem; color: var(--accent); flex-shrink: 0; margin-top: -0.35rem; line-height: 1;">●</div>
             <div style="flex: 1;">
@@ -2392,8 +1181,6 @@
               <p style="font-size: 0.95rem; line-height: 1.7; color: var(--text-dark);">Neurodegenerative diseases arise from complex, interconnected biological processes. I want to understand when, where, and how we should intervene, and whether combining complementary therapeutic strategies can lead to more durable and meaningful outcomes.</p>
             </div>
           </div>
-
-          <!-- QUESTION 4 -->
           <div class="reveal" style="display: flex; gap: 2rem; padding: 2rem 0; border-bottom: 1px solid var(--border); align-items: flex-start;">
             <div style="font-size: 1rem; color: var(--accent); flex-shrink: 0; margin-top: -0.35rem; line-height: 1;">●</div>
             <div style="flex: 1;">
@@ -2403,8 +1190,6 @@
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   </div>
@@ -2413,7 +1198,6 @@
   <div class="view" id="outside">
     <section class="content-section">
       <div class="outside-list">
-
         <div class="outside-item reveal" style="grid-template-columns: 450px 1fr;">
           <img src="images-web/Outside the lab/Card 1 image 1.jpg" alt="Camping" style="width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--border);">
           <div class="outside-content">
@@ -2422,7 +1206,6 @@
             <div class="outside-text">Some of my happiest moments have been spent on a trail, by a lake, or waking up in a tent with nowhere to be except the next overlook. Although I only discovered camping after moving to the United States, it has quickly become my favorite way to spend time outside the lab. Whether it's a weekend in the forests of Michigan, along the lakes of Indiana, or in the mountains of Tennessee, each trip feels like stepping into a completely different world. Every trip feels like a small reset, returning me to everyday life with a fresh perspective. I'm always happy to discover a new trail, share a campsite, or meet people who enjoy the outdoors as much as I do.</div>
           </div>
         </div>
-
         <div class="outside-item reveal" style="grid-template-columns: 1fr 450px;">
           <div class="outside-content">
             <div class="outside-title" style="font-family: var(--serif); font-size: 2rem; font-weight: 400; margin-bottom: 0.5rem;">Curiosity Beyond Science</div>
@@ -2431,7 +1214,6 @@
           </div>
           <img src="images-web/Outside the lab/Card 2 image 1.jpg" alt="Curiosity" style="width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--border);">
         </div>
-
         <div class="outside-item reveal" style="grid-template-columns: 450px 1fr;">
           <img src="images-web/Outside the lab/Card 3 image 1.JPG" alt="Technothlon" style="width: 100%; height: 100%; object-fit: cover; border: 1px solid var(--border);">
           <div class="outside-content">
@@ -2440,7 +1222,6 @@
             <div class="outside-text">One of the experiences that shaped me most was organizing Technothlon, an international science competition run by students at IIT Guwahati. As the representative for my hometown, I spent months visiting schools, meeting principals, and encouraging students to participate, eventually bringing more than 1,200 students to the competition. Coordinating the event on exam day alongside dozens of volunteers showed me the power of a shared mission and community effort. The following year, I became one of six Chief Organizers, overseeing registrations from nearly sixty cities across Northern India while also managing finances, branding, and public relations. The work was demanding and unpredictable, but it taught me something that has stayed with me ever since: I genuinely enjoy taking on ambitious challenges that initially seem beyond my abilities and turning them into something real through persistence, teamwork, and problem-solving.</div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
@@ -2451,41 +1232,30 @@
       <h2 class="section-title">Let's Connect</h2>
       <div class="contact-content">
         <p class="contact-intro">Thanks for stopping by. If something on this website sparked a question, an idea, or simply resonated with you, I'd love to hear from you. Great ideas often begin with simple conversations, and the best ones are built together. Let's start one.</p>
-
-        <!-- Image and Form Section -->
         <div class="contact-form-section">
-          <!-- Contact Image -->
           <img src="images-web/Contact page image.jpg" alt="Contact page" style="width: 100%; border-radius: 8px; object-fit: cover;">
-
-          <!-- Contact Form -->
           <form class="contact-form" action="https://formspree.io/f/mzdnpakv" method="POST">
-          <div class="form-group">
-            <label for="contact-email">Email</label>
-            <input type="email" id="contact-email" name="email" placeholder="your.email@example.com" required>
-          </div>
-
-          <div class="form-group">
-            <label for="contact-name">Name</label>
-            <input type="text" id="contact-name" name="name" placeholder="Your name" required>
-          </div>
-
-          <div class="form-group">
-            <label for="contact-message">Message</label>
-            <textarea id="contact-message" name="message" placeholder="Write your message here..." required></textarea>
-          </div>
-
-          <button type="submit" class="contact-submit-btn">Send Message</button>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" placeholder="your.email@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="contact-submit-btn">Send Message</button>
           </form>
         </div>
-
-        <!-- Contact Methods Section -->
         <div class="contact-methods-section">
           <div class="contact-methods">
             <div class="contact-item reveal">
               <div class="contact-label">Email</div>
               <div class="contact-value"><a href="mailto:jitika.rajpoot@gmail.com">jitika.rajpoot@gmail.com</a></div>
             </div>
-
             <div class="contact-item reveal">
               <div class="contact-label">Social</div>
               <div class="contact-links">
@@ -2493,7 +1263,6 @@
                 <a href="https://scholar.google.com/citations?user=a2B645wAAAAJ&hl=en" target="_blank">Google Scholar</a>
               </div>
             </div>
-
             <div class="contact-item reveal">
               <div class="contact-label">Download CV</div>
               <div class="contact-value"><a href="Jitika_Resume.pdf" download>Download My CV</a></div>
@@ -2504,7 +1273,6 @@
     </section>
   </div>
 
-  <!-- FOOTER -->
   <footer>
     <p>© 2026 Jitika Rajpoot · PhD Candidate, Purdue University</p>
   </footer>
@@ -2512,7 +1280,6 @@
 </div>
 
 <script>
-// Ensure hero video plays on page load
 function playHeroVideo() {
   const heroVideo = document.querySelector('.hero-video');
   const playBtn = document.getElementById('heroPlayBtn');
@@ -2520,24 +1287,15 @@ function playHeroVideo() {
     const playPromise = heroVideo.play();
     if (playPromise !== undefined) {
       playPromise
-        .then(() => {
-          console.log('Video autoplay successful');
-          if (playBtn) playBtn.classList.add('hidden');
-        })
+        .then(() => { if (playBtn) playBtn.classList.add('hidden'); })
         .catch(error => {
-          console.log('Video autoplay failed:', error);
-          // Show play button on iOS or if autoplay fails
           if (playBtn) playBtn.classList.remove('hidden');
-          // Retry after a brief delay
-          setTimeout(() => {
-            heroVideo.play().catch(err => console.log('Retry failed:', err));
-          }, 500);
+          setTimeout(() => { heroVideo.play().catch(err => console.log('Retry failed:', err)); }, 500);
         });
     }
   }
 }
 
-// Hide play button when video plays
 const heroVideo = document.querySelector('.hero-video');
 if (heroVideo) {
   heroVideo.addEventListener('play', () => {
@@ -2546,167 +1304,101 @@ if (heroVideo) {
   });
 }
 
-// Try to play on load
 window.addEventListener('load', playHeroVideo);
-// Also try immediately in case load fires before this script
-if (document.readyState === 'complete' || document.readyState === 'interactive') {
-  playHeroVideo();
-}
+if (document.readyState === 'complete' || document.readyState === 'interactive') { playHeroVideo(); }
 
-// Scroll reveal
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-// Tab switching
-function switchView(viewName) {
-  // Hide all views
-  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+// READ MORE TOGGLE
+function toggleReadMore() {
+  const full = document.getElementById('aboutFullText');
+  const btn = document.getElementById('readMoreBtn');
+  if (full.style.display === 'none') {
+    full.style.display = 'block';
+    if (btn) btn.style.display = 'none';
+  } else {
+    full.style.display = 'none';
+    if (btn) btn.style.display = 'inline-block';
+    document.querySelector('#home .content-section').scrollIntoView({ behavior: 'smooth' });
+  }
+}
 
-  // Close all expanded research cards when leaving current-work
+function switchView(viewName) {
+  document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
   if (viewName !== 'current-work') {
     const workGrid = document.querySelector('.work-grid');
     if (workGrid) {
-      const allCards = workGrid.querySelectorAll('.work-card');
-      const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
-      allCards.forEach(c => c.style.display = 'block');
-      allExpandedViews.forEach(view => view.style.display = 'none');
+      workGrid.querySelectorAll('.work-card').forEach(c => c.style.display = 'block');
+      workGrid.querySelectorAll('.research-expanded').forEach(v => v.style.display = 'none');
     }
   }
-
-  // Show selected view
   document.getElementById(viewName).classList.add('active');
-
-  // If switching to current-work, reset to Research tab
-  if (viewName === 'current-work') {
-    switchWorkTab('research');
-  }
-
-  // Update top nav buttons
+  if (viewName === 'current-work') { switchWorkTab('research'); }
   document.querySelectorAll('.nav-tabs button').forEach(btn => {
     btn.classList.remove('active');
-    if (btn.textContent.toLowerCase().includes(viewName.replace('-', ' '))) {
-      btn.classList.add('active');
-    }
+    if (btn.textContent.toLowerCase().includes(viewName.replace('-', ' '))) { btn.classList.add('active'); }
   });
-
-  // Update bottom nav buttons (if they exist)
   const bottomNavButtons = document.querySelectorAll('.bottom-nav-tabs button');
   if (bottomNavButtons.length > 0) {
     bottomNavButtons.forEach(btn => {
       btn.classList.remove('active');
-      if (btn.textContent.toLowerCase().includes(viewName.replace('-', ' '))) {
-        btn.classList.add('active');
-      }
+      if (btn.textContent.toLowerCase().includes(viewName.replace('-', ' '))) { btn.classList.add('active'); }
     });
   }
-
-  // Scroll to top
   window.scrollTo(0, 0);
-
-  // Trigger reveal animations
-  setTimeout(() => {
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-  }, 100);
+  setTimeout(() => { document.querySelectorAll('.reveal').forEach(el => observer.observe(el)); }, 100);
 }
 
-// Work tab switching
 function switchWorkTab(tabName) {
-  // Close all expanded research cards when switching tabs
   const workGrid = document.querySelector('.work-grid');
   if (workGrid) {
-    const allCards = workGrid.querySelectorAll('.work-card');
-    const allExpandedViews = workGrid.querySelectorAll('.research-expanded');
-
-    // Show all cards and hide all expanded views
-    allCards.forEach(c => c.style.display = 'block');
-    allExpandedViews.forEach(view => view.style.display = 'none');
+    workGrid.querySelectorAll('.work-card').forEach(c => c.style.display = 'block');
+    workGrid.querySelectorAll('.research-expanded').forEach(v => v.style.display = 'none');
   }
-
-  // Hide all work tabs
   document.querySelectorAll('.work-tab-content').forEach(t => t.classList.remove('active'));
-
-  // Show selected tab
   document.getElementById(tabName + '-tab').classList.add('active');
-
-  // Update tab buttons
   document.querySelectorAll('.work-tab-btn').forEach(btn => {
     btn.classList.remove('active');
-    if (btn.textContent.toLowerCase() === tabName) {
-      btn.classList.add('active');
-    }
+    if (btn.textContent.toLowerCase() === tabName) { btn.classList.add('active'); }
   });
-
-  // Re-observe reveal elements
   document.querySelectorAll('.work-tab-content.active .reveal').forEach(el => observer.observe(el));
 }
 
-// Toggle abstract preview
 function toggleAbstract(btn) {
   const abstractContent = btn.closest('.publication-item').querySelector('.pub-abstract-content');
   const isVisible = abstractContent.style.display !== 'none';
-
-  if (isVisible) {
-    abstractContent.style.display = 'none';
-    btn.textContent = 'Abstract Preview';
-  } else {
-    abstractContent.style.display = 'block';
-    btn.textContent = 'Hide Abstract';
-  }
+  if (isVisible) { abstractContent.style.display = 'none'; btn.textContent = 'Abstract Preview'; }
+  else { abstractContent.style.display = 'block'; btn.textContent = 'Hide Abstract'; }
 }
 
-// Scroll gallery
 function scrollGallery(galleryContainer, imageIndex) {
   const scroll = galleryContainer.querySelector('.gallery-scroll');
-  const imageWidth = 450;
-  scroll.scrollLeft = imageIndex * imageWidth;
-
-  // Update dots
-  const dots = galleryContainer.querySelectorAll('.dot');
-  dots.forEach((dot, idx) => {
-    dot.classList.toggle('active', idx === imageIndex);
-  });
+  scroll.scrollLeft = imageIndex * 450;
+  galleryContainer.querySelectorAll('.dot').forEach((dot, idx) => { dot.classList.toggle('active', idx === imageIndex); });
 }
 
-// Toggle description read more/read less
 function toggleDescription(btn) {
   const wrapper = btn.closest('.desc-wrapper');
   const text = wrapper.querySelector('.desc-text');
   const isExpanded = text.style.maxHeight === 'none';
-
-  if (isExpanded) {
-    text.style.maxHeight = '3.4rem';
-    btn.textContent = 'Read more';
-  } else {
-    text.style.maxHeight = 'none';
-    btn.textContent = 'Read less';
-  }
+  if (isExpanded) { text.style.maxHeight = '3.4rem'; btn.textContent = 'Read more'; }
+  else { text.style.maxHeight = 'none'; btn.textContent = 'Read less'; }
 }
 
-// Toggle capability card expand
 function toggleCapabilityExpand(card) {
   const descDiv = card.querySelector('div:last-child');
   const arrow = card.querySelector('span');
   const isExpanded = descDiv.style.display !== 'none';
-
-  if (isExpanded) {
-    descDiv.style.display = 'none';
-    arrow.style.transform = 'rotate(0deg)';
-  } else {
-    descDiv.style.display = 'block';
-    arrow.style.transform = 'rotate(180deg)';
-  }
+  if (isExpanded) { descDiv.style.display = 'none'; arrow.style.transform = 'rotate(0deg)'; }
+  else { descDiv.style.display = 'block'; arrow.style.transform = 'rotate(180deg)'; }
 }
 
-// Navigate to publication
 function navigateToPublication(event, pubTitle) {
   event.stopPropagation();
-
-  // Switch to Publications tab
   switchWorkTab('publications');
-
-  // Find and expand the matching publication
   setTimeout(() => {
     const publications = document.querySelectorAll('.publication-item');
     publications.forEach(pub => {
@@ -2714,47 +1406,26 @@ function navigateToPublication(event, pubTitle) {
       if (title.includes(pubTitle)) {
         const abstractContent = pub.querySelector('.pub-abstract-content');
         const btn = pub.querySelector('.abstract-toggle');
-        if (abstractContent.style.display === 'none') {
-          abstractContent.style.display = 'block';
-          btn.textContent = 'Hide Abstract';
-        }
-        // Scroll to publication
+        if (abstractContent.style.display === 'none') { abstractContent.style.display = 'block'; btn.textContent = 'Hide Abstract'; }
         pub.scrollIntoView({ behavior: 'smooth', block: 'center' });
       }
     });
   }, 100);
 }
 
-// Go home
-function goHome(e) {
-  e.preventDefault();
-  switchView('home');
-}
+function goHome(e) { e.preventDefault(); switchView('home'); }
 
-// Visualization modal
-function openVisualizationModal() {
-  document.getElementById('visualizationModal').classList.add('active');
-}
+function openVisualizationModal() { document.getElementById('visualizationModal').classList.add('active'); }
+function closeVisualizationModal() { document.getElementById('visualizationModal').classList.remove('active'); }
 
-function closeVisualizationModal() {
-  document.getElementById('visualizationModal').classList.remove('active');
-}
-
-// Close modal when clicking outside the box
 document.addEventListener('click', function(e) {
   const modal = document.getElementById('visualizationModal');
-  if (e.target === modal) {
-    closeVisualizationModal();
-  }
+  if (e.target === modal) { closeVisualizationModal(); }
 });
 
-// Clear form after submission
 document.querySelector('.contact-form').addEventListener('submit', function(e) {
-  setTimeout(() => {
-    this.reset();
-  }, 500);
+  setTimeout(() => { this.reset(); }, 500);
 });
-
 </script>
 
 </body>
