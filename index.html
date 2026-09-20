@@ -345,14 +345,13 @@
       border: 1px solid var(--border);
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       transition: transform 0.2s, box-shadow 0.2s;
+      border-top: 3px solid var(--accent);
     }
     .skill-card:hover { transform: translateY(-4px); box-shadow: 0 8px 24px rgba(0,0,0,0.10); }
-    .skill-card-img { height: 200px; overflow: hidden; }
-    .skill-card-img img { width: 100%; height: 100%; object-fit: cover; }
-    .skill-card-body { padding: 1.5rem; }
-    .skill-card-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 600; margin-bottom: 0.5rem; }
-    .skill-card-title { font-family: var(--serif); font-size: 1.2rem; font-weight: 400; margin-bottom: 0.6rem; color: var(--text-dark); }
-    .skill-card-desc { font-size: 0.88rem; line-height: 1.7; color: var(--text-muted); }
+    .skill-card-body { padding: 2rem; }
+    .skill-card-tag { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--accent); font-weight: 600; margin-bottom: 0.6rem; }
+    .skill-card-title { font-family: var(--serif); font-size: 1.25rem; font-weight: 400; margin-bottom: 0.75rem; color: var(--text-dark); }
+    .skill-card-desc { font-size: 0.88rem; line-height: 1.75; color: var(--text-muted); }
 
     /* RESEARCH HIGHLIGHT CARDS */
     .rh-card {
@@ -768,27 +767,24 @@
       <!-- Row 1 -->
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto 1.5rem;">
         <div class="skill-card">
-          <div class="skill-card-img"><img src="images-web/Research card 1 image 2.jpg" alt="Mouse Models"></div>
           <div class="skill-card-body">
-            <div class="skill-card-tag">In Vivo</div>
-            <div class="skill-card-title">Mouse Disease Models</div>
-            <div class="skill-card-desc">Designed and executed studies in genetically engineered Alzheimer's models, integrating drug delivery, cell isolation, and tissue analysis.</div>
+            <div class="skill-card-tag">Neurodegeneration</div>
+            <div class="skill-card-title">Alzheimer's disease</div>
+            <div class="skill-card-desc">From the mechanics of amyloid aggregation to lipid-driven microglial dysfunction and neuroinflammation, my research traces Alzheimer's disease from its molecular origins to how it unfolds in the brain.</div>
           </div>
         </div>
         <div class="skill-card">
-          <div class="skill-card-img"><img src="images-web/Research card 1 image 3.jpg" alt="Quantitative Imaging"></div>
           <div class="skill-card-body">
-            <div class="skill-card-tag">Imaging</div>
-            <div class="skill-card-title">Quantitative Imaging</div>
-            <div class="skill-card-desc">Built high-throughput confocal imaging and analysis pipelines for quantitative phenotyping across multiple research programs.</div>
+            <div class="skill-card-tag">Translation</div>
+            <div class="skill-card-title">Mechanism to therapeutics</div>
+            <div class="skill-card-desc">My work spans the full arc of early drug discovery, from identifying disease mechanisms and validating drug targets to testing therapeutic candidates in cellular and in vivo systems.</div>
           </div>
         </div>
         <div class="skill-card">
-          <div class="skill-card-img"><img src="images-web/Research card 2 image 1.jpg" alt="iPSC Models"></div>
           <div class="skill-card-body">
-            <div class="skill-card-tag">Human Models</div>
-            <div class="skill-card-title">iPSC Disease Modeling</div>
-            <div class="skill-card-desc">Established the lab's first iPSC culture and glial differentiation platform for mechanistic studies in human-relevant neurodegeneration models.</div>
+            <div class="skill-card-tag">Communication</div>
+            <div class="skill-card-title">Cross-functional collaboration</div>
+            <div class="skill-card-desc">Led cross-disciplinary projects spanning organic chemistry, computational chemistry, and biology, developing the communication and collaboration skills that come from working across fields rather than within one.</div>
           </div>
         </div>
       </div>
@@ -796,27 +792,24 @@
       <!-- Row 2 -->
       <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; max-width: 1100px; margin: 0 auto;">
         <div class="skill-card">
-          <div class="skill-card-img"><img src="images-web/Research card 2 image 2.jpg" alt="Immune Phenotyping"></div>
           <div class="skill-card-body">
-            <div class="skill-card-tag">Immunology</div>
-            <div class="skill-card-title">Immune Phenotyping</div>
-            <div class="skill-card-desc">Established workflows for brain immune cell isolation and T-cell characterization using flow cytometry and cell sorting.</div>
+            <div class="skill-card-tag">Human Models</div>
+            <div class="skill-card-title">iPSC Disease Modeling</div>
+            <div class="skill-card-desc">Expanded the lab's research capabilities by establishing its first iPSC culture and microglial differentiation platform, enabling mechanistic studies and therapeutic testing in a human-relevant model of neurodegeneration.</div>
           </div>
         </div>
         <div class="skill-card">
-          <div class="skill-card-img"><img src="images-web/Research card 2 image 3.jpg" alt="Cellular Models"></div>
           <div class="skill-card-body">
-            <div class="skill-card-tag">Cell Engineering</div>
-            <div class="skill-card-title">Engineered Cellular Models</div>
-            <div class="skill-card-desc">Developed genetically engineered mammalian and stem cell-derived models to investigate lipid metabolism and antigen presentation.</div>
+            <div class="skill-card-tag">In vivo</div>
+            <div class="skill-card-title">Mouse Disease Models</div>
+            <div class="skill-card-desc">From choosing the right mouse model to designing the treatment strategy and analyzing the tissue, I have run end-to-end in vivo experiments that connect disease biology to therapeutic outcomes.</div>
           </div>
         </div>
         <div class="skill-card">
-          <div class="skill-card-img"><img src="images-web/Research card 4 image 1.jpg" alt="Biophysics"></div>
           <div class="skill-card-body">
-            <div class="skill-card-tag">Biophysics</div>
-            <div class="skill-card-title">Biophysical Characterization</div>
-            <div class="skill-card-desc">Applied NMR, FTIR, and TEM to investigate peptide folding, aggregation, and structural transitions underlying amyloid formation.</div>
+            <div class="skill-card-tag">Imaging</div>
+            <div class="skill-card-title">Neuroimmune phenotyping</div>
+            <div class="skill-card-desc">Built high-throughput confocal imaging and analysis pipelines from scratch, cutting manual analysis time from days to hours and enabling reproducible quantitative phenotyping across multiple research programs.</div>
           </div>
         </div>
       </div>
